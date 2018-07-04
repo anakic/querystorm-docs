@@ -3,7 +3,7 @@
 This document is a 2-minute introduction to the basics of QueryStorm to help you get started quickly.
 
 ## Tables, not sheets
-QueryStorm works with Excel tables [[not to be confused with sheets](https://support.office.com/en-us/article/overview-of-excel-tables-7ab0bb7d-3a9e-4b56-a3c9-6c94334e492c "Excel tables")].
+QueryStorm works with [Excel tables](https://support.office.com/en-us/article/overview-of-excel-tables-7ab0bb7d-3a9e-4b56-a3c9-6c94334e492c "Excel tables") (not to be confused with sheets).
 
 ![Tables](https://www.querystorm.com/downloads/images/tables.png)
 

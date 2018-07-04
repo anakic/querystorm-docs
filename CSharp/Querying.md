@@ -1,11 +1,14 @@
 # Working with data (LINQ)
-Excel has a concept of tables ([not to be confused with sheets](http://www.contextures.com/xlExcelTable01.html "Excel tables overview")) that represent structured data, similar to database tables or collections in .NET. QueryStorm exposes tables as collections of strongly typed objects, allowing you to easily query and modify data inside them using C# and LINQ.
+Excel has a concept of tables ([not to be confused with sheets](http://www.contextures.com/xlExcelTable01.html "Excel tables overview")) that represent structured data, similar to database tables or .NET collections. QueryStorm exposes tables as collections of strongly typed objects, allowing you to easily query and modify data inside them using C# and LINQ.
+
+In case you prefer video to text, here's a video introduction to using C# in Excel:
+[![C# engine - intro video](https://i.imgur.com/FvWhnu3.png)](https://vimeo.com/242216594 "C# engine intro video on Vimeo")
 
 > **Demo workbook**
-> The examples in this document use a dataset about salaries in the public sector in San Francisco. Please **[download it](https://www.querystorm.com/downloads/salaries_sf.xlsx "Salaries in San Francisco dataset")** to follow along.
+> The examples in this document use a dataset about salaries in the public sector in San Francisco. Please **[download it](../demofiles/salaries_sf.xlsx "Salaries in San Francisco dataset")** to follow along.
 
-### Let's get querying
-To connect to the active workbook, click the **Connect (C#)** icon in the QueryStorm ribbon.
+## Let's get querying
+To connect to the active workbook, click the **Connect (C#)** icon in the QueryStorm ribbon:
 
 ![Connect with C#](https://i.imgur.com/GYMfRJA.png)
 
@@ -19,7 +22,7 @@ To demonstrate basic querying, let's find people who earn between 100k and 105k:
 salaries.Where(s=>s.TotalPay >= 100000 && s.TotalPay <= 105000)
 ``` 
 
-Here's the result:
+Here are the results:
 
 ![Sample result](https://i.imgur.com/xAZdx0w.png)
 
@@ -30,23 +33,28 @@ salaries
 	.GroupBy(s => s.JobTitle)
 	.Select(g => g.OrderByDescending(s=>s.TotalPay).First())
 ```  
-Piece of cake.
 
 #### Funky column names
-Table columns in Excel can have names that are not legal C# identifiers. It's (currently) not possible to reference them as properties, but we can access them via indexer. 
+Table columns in Excel can have names that are not legal C# identifiers. Such columns will be represented by normalized property names where non-alphanumeric characters are removed.
 
-For example, if the table had a column named `Job title` (with a space) we could reference it like so:
+For example, if the table has a column named `Job title` (with a space) we could reference it like so:
 
 ``` C#
-salaries.GroupBy(s => s["Job title"])
+salaries.GroupBy(s => s.JobTitle)//space was removed
 ``` 
 
-> The return type of the indexer is `dynamic` so you might want to cast it to the expected type. 
+In the results grid, however, column names will show up with their original names. How can this be? The properties on the dynamically generated row type have the `[System.ComponentModel.DisplayName]` attribute applied. The results grid and the table writer check for this attribute so you can use it to control how headers for your own types look in the results grid, and when written into the workbook.  
+
+!!! Note
+	You can also access the value of any property in a row via indexer, e.g. `row["Job Tilte"]`. The indexer returns an object of type `dynamic`.  
 
 #### Locating rows in Excel
 In order to find a particular row in Excel, we can include the row address in the results. Each row has a `GetAddress()` method that can be used to find the row in Excel.
 
-Let's find people with the job title of "Transit Operators" in Excel.
+!!! Note
+	The reason `GetAddress()` is a method rather than a property is simply to avoid a naming collision if the table has a column named *Address* (which is not unlikely). 
+
+Let's find people with the job title "Transit Operator" in Excel.
 
 ``` C#
 salaries
@@ -58,13 +66,12 @@ Once we have the address in the results, we can double-click the **address cell*
 
 ![Select row in Excel](https://i.imgur.com/J9QxBIT.png)
 
-> Note #1: If there is no address in the results, double-clicking the row header will have no effect.
-> Note #2: Creating a projection (`new {...}`) with many columns just to include the address can be tedious. A workaround is in the works.
+!!! Note 
+	- If there is no address in the results, double-clicking the row header will have no effect.
+	- Creating a projection (`new {...}`) with many columns just to include the address can be tedious. A workaround is in the works.
 
 ### Updating rows
-To modify data in an Excel table, we need to modify the row objects and then commit the changes.
-
-Here's how to raise the `TotalPay` of all Transit Operators by 10k:
+To modify data in an Excel table, we need to modify the row objects and then commit the changes. Here's how to modify the `TotalPay` of all Transit Operators:
 
 ``` C#
 //prepare changes
@@ -76,7 +83,7 @@ salaries
 salaries.SaveChanges();
 ```
 
-Note that **changes must be explicitly committed** in order to be propagated into the Excel table. To do this as a single expression, we can use the `Update()` method:
+Note that **changes must be explicitly committed** in order to be propagated into the Excel table. To do this in a single command, we can use the `Update()` method:
 
 ``` C#
 salaries
@@ -100,7 +107,52 @@ Finally, we can also insert rows. Let's insert a row into the `salaries` table:
 salaries.Insert(99999, "John Smith", "Journalist", 0, 0, 0, 0, 99999, 0, 2017, null, "San Francisco", "PT");
 ```
 
-The `Insert` method is strongly typed, but all its arguments are optional, allowing you to skip the ones where null should be inserted (as well as calculated columns).
+The `Insert` method is strongly typed, but all its arguments are optional, allowing you to skip the ones where `null` should be inserted (as well as calculated columns).
 
-> There is also an `InsertIntoCache` method which will insert data into the cache without committing the changes to Excel. Saving changes to Excel can be slow, especially when inserting thousands of rows. In such cases, all inserts should be staged using multiple calls to `InsertIntoCache` followed by a single call to `SaveChanges()`.  
+There is also an `InsertIntoCache` method which will insert data into the cache without committing the changes to Excel. Saving changes to Excel can be slow, especially when inserting thousands of rows. In such cases, all inserts should be staged via calls to `InsertIntoCache` and finally committed by a single call to `SaveChanges()`:
 
+```csharp
+people.InsertIntoCache(10, "abc");
+people.InsertIntoCache(11, "def");
+people.InsertIntoCache(12, "ghi");
+people.SaveChanges(); //saves the new rows into Excel
+```
+
+## C# scripting syntax
+
+The scripting flavor of C# is supported by Roslyn (the C# compiler) and is slightly different from regular C#. Regular C# code is mostly valid in scripts, but scripts also allow a more relaxed syntax where you can evaluate expressions without all the ceremony of defining types and methods. 
+
+!!! Note
+	Under the hood, Roslyn preprocesses scripts and turns them into regular C#.
+
+For example, we can return the current date like so:
+```csharp
+DateTime.Now
+``` 
+We didn't need to define a class and `Main` method. We didn't need an explicit return statement, either. The last statement in the script is assumed to be an expression that needs to be evaluated and returned, unless it is terminated with a semicolon. **Closing an expression with a semicolon, however, hides the output**.
+
+If you want to return a value from a statement that is not the last statement in the script, you need to explicitly return it with a `return` statement, e.g.:
+
+```csharp
+return Add(1,2);
+
+public int Add(int a, int b)
+{
+	return a + b;
+}
+
+```
+
+Another things scripts can do is reference other scripts and libraries. This is supported via `#r` and `#load` directives that are placed at the beginning of scripts:
+
+```csharp
+#r "System.IO.Compression"
+
+//...code that uses the System.IO.Compression assembly...
+```
+```csharp
+#load "anotherScript"
+
+//...code that uses members from "anotherScript"...
+```
+For more on referencing scripts and libraries, click [here](./references).

@@ -13,7 +13,7 @@ select * from cells('Sheet1!B5:D9')
 Here's what the returned data looks like:
 ![Cells query](https://i.imgur.com/iHcra7e.png)
 
-For each cell in the selection, one row is returned in the results. Each cells is described with the following attributes: `address`, `row`, `column`, `column letter`, `value`, `type`, `formula`.
+For each cell in the selection, one row is returned in the results. Each cell is described with the following attributes: `address`, `row`, `column`, `column letter`, `value`, `type`, `formula`.
 
 ### Updating cell values
 
@@ -32,5 +32,5 @@ FROM
 
 Using a select statement to do an update might seem strange, but its fairly easy to get used to. In a future version, it's also likely that support for updating it via direct `UPDATE` statement will be added. 
 
-!!! Note
+!!! Tip
 	The selection can consist of one or more areas. To select multiple areas, hold down the `Ctrl` key while selecting them in Excel. 

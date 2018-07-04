@@ -1,13 +1,15 @@
 # Introduction
 
-Excel might not be a trendy topic these days, but it continues to be used extensively in the business world. People spend a lot of time in Excel and, consequently, there tends to be a lot of data floating around in spreadsheet files. Lack of proper support for tech skills in Excel, though, is a constant source of frustration for many tech users and is costly for them, their employers, business users and clients. The purpose of QueryStorm is to greatly reduce this problem by adding easy and convenient support for SQL and C# into Excel, as well as better database connectivity.
+Excel might not be a trendy topic these days, but it continues to be used extensively in the business world. People spend a lot of time in Excel but much of it is spent doing boring, tedious and repetitive work. For tech users who spend any considerable time in Excel, lack of proper support for tech skills is a constant source of frustration and is costly for them, their employers, business users and clients. The purpose of QueryStorm is to greatly reduce this problem by adding easy and convenient support for SQL and C# into Excel, as well as better database connectivity.
 
 ## What can you use QueryStorm for?
 
 ### Processing incoming Excel data
-Data in Excel is usually tabular, and quite often relational, but support for this kind of data in Excel is quite poor. VBA, which comes with Excel, is not well suited for working with tabular data. It works with cells and ranges and does not offer set based and relational operations. QueryStorm fixes this shortcoming of Excel by including support for SQL and C#, which are both well suited for working with sets of data.
+Data in Excel is usually tabular, and quite often relational, but programmatic support for processing this kind of data in Excel is quite poor. VBA, which comes with Excel, is not well suited for working with tabular data. It works with cells and ranges and does not offer set based and relational operations. QueryStorm fixes this shortcoming of Excel by including support for SQL and C#, which are both well suited for working with sets of data.
 
 ![Screenshot](https://i.imgur.com/TyDNgMP.png)
+
+### Importing and exporting data
 
 Since business users tend to deal with data in spreadsheets, and tech users deal with data in databases, there's often a need to move data between the two. There are many tools that do this, but they tend to be clumsy and involve a lot of manual preparation. QueryStorm makes moving data between Excel and databases much easier. As soon as you connect, Excel tables are visible to the database (as temp tables). From there you can import them into permanent tables, or query them alongside permanent tables. Query results are easily returned into Excel, so moving data the other way is also a breeze.
 
@@ -16,18 +18,18 @@ Since business users tend to deal with data in spreadsheets, and tech users deal
 ### Reporting
 Spreadsheets are a popular way of presenting data, due to having support for sorting, filtering, graphs and pivot tables. The data usually comes from databases but can come from anywhere really. Some times the reports are static. Other times they need to be interactive, e.g. the user changes a parameter in a cell which causes a query (or script) to re-execute and update the data in a table, which in turn updates a chart.
 
-![Example QueryStorm report](https://www.querystorm.com/downloads/images/exappgif.gif "Example QueryStorm report")
+![Example QueryStorm-powered report](https://www.querystorm.com/downloads/images/exappgif.gif "Example QueryStorm-powered report")
 
 You probably know of at least a few ways to get data into Excel (e.g. PowerQuery aka Get&Transform). Tools for this are usually GUI based and, while more-or-less easy to use, they tend not to be entirely flexible. QueryStorm on the other hand takes a very tech-centered approach. When you connect to a database, you interact with it using SQL and a full-featured editor. The data is usually processed in the database and only the results are ever returned into Excel. In addition, you can load data from other sources into Excel using C# and various .NET libraries. There are no extra layers of abstraction, no new languages to learn (e.g. DAX, M) and no tabular model to populate and refresh. 
 
-There are certainly many situations where GUI based tools are more appropriate, but if you're fairly technical, there's also a good place for QueryStorm in your reporting toolkit.
+There are certainly many situations where GUI based tools are more appropriate, but if you're fairly technical, there might also be a good place for QueryStorm in your reporting toolkit.
 
 ### Prototyping applications
 Excel offers a lot out the box: UI, data storage and visualization. If it came with a good programming language (e.g. C# instead of VBA), tech users could use it effectively for rapidly building prototypes and small applications. 
 
 ![C# automation in Excel](https://i.imgur.com/HIPI5Gu.png)
 
-With C# you can load data from anywhere, and store it in the Excel file. As soon as the data is written into an Excel table, you immediately get strongly typed access to it (as if you had an ORM) so you can use LINQ to work with it. You don't need to spend time setting up a database and making sure it's accessible.
+With C# you can load data from anywhere, and store it in an Excel file. As soon as the data is written into an Excel table, you immediately get strongly typed access to it (as if you had an ORM) so you can use LINQ to work with it. You don't need to spend time setting up a database and making sure it's accessible.
 
 Excel also takes care of most of the UI work. You can set up graphs and user interactions (buttons, slicers, cell triggers...) much faster, compared to building a dedicated application. 
 
@@ -59,7 +61,7 @@ Tech users are usually going to be the ones writing code and embedding it into E
 
 In alphabetic order:
 
-- [Antonio Nakic-Alfirevic](https://www.linkedin.com/in/anakic), on the keyboard (developer, founder).
+- [Antonio Nakić-Alfirević](https://www.linkedin.com/in/anakic), on the keyboard (developer, founder).
 - [Benjamin Van Dam](https://www.linkedin.com/in/benjamin-van-dam-992237b9/), on the mic (word spreader).
 - [Boško Kustura](https://www.linkedin.com/in/bo%C5%A1ko-kustura-9b16102/), on the drums (operations).
 

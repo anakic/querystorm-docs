@@ -4,7 +4,7 @@ Since the SQLite engine is running *in-process* with Excel, it can interact with
 
 ## Formatting rows
 
-As [mentioned before](./querying/#special-columns), each row has a hidden `__address` field, and we can use to specify where the formatting needs to be applied. 
+As [mentioned before](./querying/#special-columns), each row has a hidden `__address` field that we can use to specify where the formatting needs to be applied. 
 
 Let's set the background color for movies that grossed more than $40M:
 ``` SQL
@@ -48,6 +48,6 @@ where
 	type = 'Double'
 ```
 
-Here we're formatting all cells that contain a number in one of two colors, depending on their value. Since the selection might contains strings and dates, we can use the where clause to filter them out to not modify their formatting.
+Here we're formatting all cells that contain a number in one of two colors, depending on their value. Since the selection might contain strings and dates, we can use the `where` clause to filter them out, so that we don't inadvertently modify their formatting.
 
 ![Formatting cells example](https://i.imgur.com/xWT1Pgr.png)

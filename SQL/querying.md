@@ -10,7 +10,7 @@ Clicking the connect button creates an in-memory SQLite database which *sees* Ex
 
 ## Querying
 
-Once connected, we can start querying. The most important thing to know for a start is that **QueryStorm works with Excel tables** [[not to be confused with sheets](http://www.excel-easy.com/data-analysis/tables.html "Excel tables intro")].
+Once connected, we can start querying. The most important thing to know for a start is that **QueryStorm works with Excel tables** ([not to be confused with sheets](http://www.excel-easy.com/data-analysis/tables.html "Excel tables intro")).
 
 ![Querying](https://i.imgur.com/YsnFY0g.png)
 
@@ -91,7 +91,7 @@ When using the SQLite engine, all workbook tables get two extra hidden columns: 
 ![Data in a sheet](https://www.querystorm.com/Images/docs/special_columns.png)
 
 ### The `__address` column 
-The `__address` column is useful for locating the original row in Excel. Double clicking it (or the row header, if an address is present in the row) in the results grid will select the row in Excel. Additionally, we can also use the address in order to [perform formatting operations](./formatting) on the row.
+The `__address` column is useful for locating the original row in Excel. Double-clicking it (or the row header, if an address is present in the row) in the results grid will select the row in Excel. Additionally, we can also use the address in order to [perform formatting operations](./formatting) on the row.
 
 ### The `__row` column
 The `__row` column specifies the original index of the row in Excel. We can use this to preserve the original ordering of rows (and some other things e.g. self-joins without duplicates).

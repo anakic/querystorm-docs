@@ -1,6 +1,6 @@
 # User defined scalar functions
 
-Occasionally, you might need custom functions in your queries. QueryStorm lets you write your own functions in C# or VBA, and call them from SQL. You can use this to perform custom calculations, cryptography, business rules, looking up data on the web, etc...
+Occasionally, you might need to define custom functions for use in queries. QueryStorm lets you write your own functions in C# or VBA, and call them from SQL. You can use this to perform custom calculations, cryptography, business rules, looking up data on the web, etc...
 
 !!! Note
 	**Writing functions in C# is recommended** since it offers much better performance, as well as auto-complete for the end user.
@@ -50,15 +50,16 @@ Tips:
 
 - **Modifying functions**: The SQLite engine compiles any C# functions that it finds while it's connecting. If you modify a C# function while connected via SQLite, you'll have to **reconnect** in order for the change to be visible to SQLite.
 - **XML comments**: The XML comments on the function are not mandatory, but are useful as they will appear in autocomplete when using the function.
-- **Function scope**: The function is only visible in the context of the workbook it is embedded in. There are plans to include a central repository of functions, and a mechanism for submitting them but this is not yet implemented.
+- **Function scope**: The function is only visible in the context of the workbook it is embedded in. Currently it is not possible to define a function at the user/machine scopes, but this is likely to be allowed in the future.
 
-
+!!! Note
+	Preparing a central repository which users will be able to use to share functions is planned for a future release.
 
 ## Custom functions via VBA
 
-Using C# is recommended for implementing custom functions, but just in case you are not comfortable with C# or you already have VBA functions that you'd like to use, here's how to do so...
+Using C# is recommended for implementing custom functions, but if you're not comfortable with C# or you already have VBA functions you'd like to use, here's how to call them from SQL...
 
-Let's assume we have the Luhn function in VBA. In order for the function to be able to return a value, it needs to be **defined in a module** (rather than at the workbook/sheet level). Otherwise it will always return null (this is a technical limitation).
+Let's assume we have the Luhn function in VBA. In order for the function to be able to return a value, it needs to be **defined in a module** (rather than at the workbook/sheet level). Otherwise, it will always return null (this is a technical limitation).
 
 ```VB
 Public Function Luhn(ByVal CardNumber As String) As Boolean
@@ -69,7 +70,7 @@ Public Function Luhn(ByVal CardNumber As String) As Boolean
 End Function
 ```
 
-Once the function in place, we can call it from SQL using the [Vba function](./sqlite_functions/#vba) like so:
+Once the function in place, we can call it from SQL using the [vba function](./sqlite_functions/#vba) like so:
 
 ```sql
 select 
@@ -78,6 +79,5 @@ from
 	people
 ```
 
-Tip:
-
-- **Breakpoints**: Any breakpoints you set within the function will be respected. When hit, they will pause the execution of the SQL command. You can use them to inspect function parameters or debug the function itself. 
+!!! Tip
+	Any breakpoints you set within the function will be respected. When hit, they will pause the execution of the SQL command. You can use them to inspect function parameters or debug the function itself. 

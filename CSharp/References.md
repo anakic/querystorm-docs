@@ -1,6 +1,6 @@
 # Referencing libraries and scripts
 
-In your C# scripts, it's easy to reference other scripts and dlls. Here's how...
+C# scripts can reference other scripts and dlls. Here's how...
 
 ## Referencing libraries
 A standard set of *references* and *usings* is included by default. You can, however, add your own usings and references. For example, the `System.IO.Compression` assembly isn't referenced by default. Here's how you can include it to use the `ZipFile` class:
@@ -18,18 +18,21 @@ ZipFile.CreateFromDirectory(startPath, zipPath);
 The `#r` directive adds a reference to the specified assembly. 
 
 Here are some examples of how to use it:
-- `#r "System.IO.Compression"` reference an assembly from the GAC
-- `#r "MyLib.dll"` reference an assembly that is located in the same folder as the current workbook
-- `#r "C:\packages\lib.dll"` reference a dll by absolute path
-- `#r "\\serverA\packages\lib.dll"` reference a dll on a network share
 
-> Note #1: Support for NuGet is planned but not yet available.
-> Note #2: You can also customize included references and usings by creating a custom connection via the *"Connect with"* button. 
+- `#r "System.IO.Compression"` - reference an assembly from the GAC
+- `#r "MyLib.dll"` - reference an assembly that is located in the same folder as the current workbook
+- `#r "C:\packages\lib.dll"` - reference a dll by absolute path
+- `#r "\\serverA\packages\lib.dll"` - reference a dll on a network share
+
+!!! Note
+	- Support for NuGet is planned but not yet available.
+	- You can customize included references and usings in custom connections. 
 
 ### Script references
 When defining general purpose functions and classes, it can be useful to put them in their own script files. We can reference them using the `#load` directive. 
 
-Here are some examples: 
+Here are some examples:
+ 
 - `#load "c:\mycode\class123.csx"` load a script form a local file
 - `#load "\\server\scripts\demo.csx"` load a script form a network share
 - `#load "my script"` load an embedded script from the current workbook
