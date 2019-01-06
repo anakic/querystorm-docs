@@ -1,8 +1,8 @@
 # SQLite file dabases
 
-Up until now, we've been working with Excel tables in-memory, but we can also connect to sqlite files. In this way, we can use QueryStom as a SQLite IDE.
+Up until now, we've been using SQLite to work with Excel tables in-memory, but we can also connect to sqlite files. 
 
-This also enables us to move data from the workbook into the database in order to minimize the amount of data in Excel. This is useful when dealing with large Excel files, since Excel behaves much better with less data inside the xls/xlsx file.
+This enables us to move data from the workbook into the database in order to minimize the amount of data in Excel. This is useful when dealing with large Excel files, since Excel behaves much better with less data inside the xls/xlsx file.
 
 ## Connect to a SQLite file 
 
@@ -22,7 +22,7 @@ Let's move the `movies` table from Excel into the sqlite file.
 create table movies as -- create permanent table 'movies'
 select * from movies -- using data from in-memory table 'movies'
 ```
-This might seem like a name collision, but the workbook table's full name is `temp.movies` and the name of the new permanent table is `main.movies`. If both tables exist and have the same name, we can refer to the permanent table like so:
+This might seem like a name collision, since there's an Excel table called `movies` and a permanent table called `movies`, but the workbook table's full name is `temp.movies` and the name of the new permanent table is `main.movies`. We can refer to the permanent tables explicitly using the `main.` prefix like so:
 
 ```sql
 select * from main.movies

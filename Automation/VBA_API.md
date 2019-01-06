@@ -32,10 +32,7 @@ Sub Button1_Click()
     'get the embedded query we want to run
     Set q = api.GetQuery("Query1")
 
-    'Run the embedded query, specifying the success and error callbacks. 
-	'Pass in Nothing, or "" if no result processing is needed.
-	'IMPORTANT NOTE: If the callbacks are not in a module (e.g. they're in a sheet) they 
-	'need to be qualified, e.g. Sheet1.Yay, Sheet1.Boo
+    'Run the embedded query
     Set data = Query.Run()
 
     '...do something with data if necessary...
@@ -44,7 +41,7 @@ End Sub
 
 ### Running a query asynchronously
 
-Queries can be run asyncronously using the `RunAsync` method. The method starts the background execution of the query and immediately returns. If you need to process the results, you can pass in the names of the two VBA subroutines that should be called upon successful/failed execution of the query.
+Queries can be run asyncronously using the `RunAsync` method. The method starts the background execution of the query and immediately returns. If you need to process the results, you can pass in the names of the two VBA subroutines that should be called upon successful/failed execution of the query. If the callbacks are not in a module (e.g. they're in a sheet) they need to be qualified, e.g. `Sheet1.Yay`, `Sheet1.Boo`. You can pass in `Nothing` or "" as a callback if you don't want to process success or failure.
 
 ```vba
 Sub Button1_Click()
@@ -55,26 +52,23 @@ Sub Button1_Click()
     Set q = api.GetQuery("Query1")
 
     'Run the embedded query, specifying the success and error callbacks. 
-	'Pass in Nothing, or "" if no result processing is needed.
-	'IMPORTANT NOTE: If the callbacks are not in a module (e.g. they're in a sheet) they 
-	'need to be qualified, e.g. Sheet1.Yay, Sheet1.Boo
     Call q.Run("Yay", "Boo")
 End Sub
 
+' success callback
 Sub Yay(data As Variant)
     Set result = data.Fields.Item(0)
     MsgBox ("The result is " & result)
 End Sub
 
+' fail callback
 Sub Boo(message As String)
     MsgBox ("Error: " & message)
 End Sub
 ```
 
-The `successCallback` subroutine can have zero parameters if it doesn't care about the results. Alternatively, it can specify one parameter, and that parameter must be declared as `Variant` or `Recordset`, as it will be used to pass the results into the callback.
+The `successCallback` subroutine can have zero parameters if it doesn't care about the results. Alternatively, it can specify one parameter of type `Variant` or `Recordset`, which will be used to pass in the query results.
 
-The `failCallback` subroutine must specify one parameter declared as `String`. This parameter will be used to pass the error message into the callback.
+The `failCallback` subroutine must specify one `String` parameter - the error message.
 
-You can pass in `Nothing` or "" as a callback if you don't want to process success or failure.
-
-Since embedded queries specify the engine configuration themselves (which you can see/change in the automation dialog), nothing about the connection needs to be specified. 
+Since embedded queries specify the engine configuration themselves, nothing about the connection needs to be specified. 

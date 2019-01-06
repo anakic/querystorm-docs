@@ -1,10 +1,11 @@
 # Formatting rows via C# #
 
-> [Click here](https://www.querystorm.com/Downloads/Demos/salaries_sf.xlsx) to download the sample workbook.
+!!! Data
+	Download the sample workbook from [here](https://www.querystorm.com/Downloads/Demos/salaries_sf.xlsx).
 
 ## Formatting row-by-row
 
-Each row object has a `GetRange()` method that we can use to interact with the range in Excel that contains the row data. As an example, let's change the background color of all rows in Excel where the `TotalPay` is higher than $500k:
+Each row object has a `GetRange()` method that we can use to interact with it in Excel. Let's use it to change the background color of all rows in Excel where the `TotalPay` is higher than $500k:
 
 ``` C#
 salaries
@@ -15,24 +16,22 @@ Here's what the result looks like:
 
 ![Coloring rows via C#](https://i.imgur.com/31pFsPz.png)
 
-The result is fine, but this way of formatting rows can be slow, especially if there is a large number of rows to format.
+The result is fine, but this way of formatting rows (one-by-one) can be slow, especially if there are thousands of rows to format.
 
 ## Bulk row formatting
-If we're applying the same formatting to many rows, we can get much better performance by using the `Format` method. 
+If we're applying the same formatting to many rows, we can get much better performance by using the `Format` extension method that is defined for `IEnumerable<TRow>` objects. 
 
 ```csharp
-//bulk formatting (takes ~0.7s)
+//bulk formatting (takes ~0.7s for 50k rows)
 salaries
-	.Where(s=>s.Id % 2 == 1)
+	.Where(s => s.Id % 2 == 1)
 	.Take(50000)
 	.Format(rng => rng.Interior.ColorIndex = 32)
 	
 ```
-The `Format` method uses some optimization mechanisms to minimize the amount of calls to Excel, while still achieving the same result. 
+The `Format` method uses several optimizations to minimize the number of calls to Excel, while still achieving the same result. This makes it about 10x faster compared to row-by-row formatting (in this example ~0.7s instead of ~6.5s for 50k rows).
 
-This query is about 10x faster than formatting row-by-row. In this example, it colors 50k rows in **0.7s**. Row-by-row formatting would take **6.5s**.
-
-In the previous example, we applied a color to one group of rows. We can also process multiple groups of rows in the same query. For example, let's apply a color based on *TotalPay* brackets: 
+In the previous example, we applied a color to a single group of rows. We can also process multiple groups of rows in the same query. For example, let's apply a color based on *TotalPay* brackets: 
 
 ```csharp
 int binSize = 20000;

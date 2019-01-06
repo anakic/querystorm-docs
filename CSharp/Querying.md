@@ -1,18 +1,18 @@
 # Working with data (LINQ)
-Excel has a concept of tables ([not to be confused with sheets](http://www.contextures.com/xlExcelTable01.html "Excel tables overview")) that represent structured data, similar to database tables or .NET collections. QueryStorm exposes tables as collections of strongly typed objects, allowing you to easily query and modify data inside them using C# and LINQ.
+QueryStorm exposes tables as collections of strongly typed objects, allowing you to easily query and modify data inside them using C# and LINQ.
 
-In case you prefer video to text, here's a video introduction to using C# in Excel:
-[![C# engine - intro video](https://i.imgur.com/FvWhnu3.png)](https://vimeo.com/242216594 "C# engine intro video on Vimeo")
+!!! Video
+	In case you prefer video, check out this [introduction video](https://vimeo.com/242216594 "C# engine intro video on Vimeo").
 
-> **Demo workbook**
-> The examples in this document use a dataset about salaries in the public sector in San Francisco. Please **[download it](../demofiles/salaries_sf.xlsx "Salaries in San Francisco dataset")** to follow along.
+!!! Data
+	The examples in this document use a [public dataset about salaries](../demofiles/salaries_sf.xlsx "Salaries in San Francisco dataset") in the public sector in San Francisco.
 
 ## Let's get querying
 To connect to the active workbook, click the **Connect (C#)** icon in the QueryStorm ribbon:
 
 ![Connect with C#](https://i.imgur.com/GYMfRJA.png)
 
-Once connected, Excel tables show up in the object explorer and are available to your scripts as variables. Each table is a collection of strongly typed rows. The row types are generated dynamically. In this example, there's only one table, and it's called `salaries`.
+Once connected, Excel tables show up in the object explorer and are available to your scripts as variables. Each table is a collection of strongly typed rows. The row types are generated dynamically. In this example, there's only one table: `salaries`.
 
 ![Connected with C#](https://i.imgur.com/FQoRvi1.png)
 
@@ -26,7 +26,7 @@ Here are the results:
 
 ![Sample result](https://i.imgur.com/xAZdx0w.png)
 
-Now let's find the highest paid worker for each JobTitle:
+For a slightly more complicated example, let's find the highest paid worker for each job title:
 
 ``` C#
 salaries
@@ -35,24 +35,23 @@ salaries
 ```  
 
 #### Funky column names
-Table columns in Excel can have names that are not legal C# identifiers. Such columns will be represented by normalized property names where non-alphanumeric characters are removed.
+Table columns in Excel can have names that are not legal C# identifiers. Property names are based on the column headers but are normalized in order to be legal C# identifiers: non-alphanumeric characters are removed, names that start with a number are prefixed with an underscore.
 
-For example, if the table has a column named `Job title` (with a space) we could reference it like so:
+For example, if the table has a column named `Job Title`, the corresponding property will be `JobTitle` (without space):
 
 ``` C#
-salaries.GroupBy(s => s.JobTitle)//space was removed
+salaries.GroupBy(s => s.JobTitle)
 ``` 
 
-In the results grid, however, column names will show up with their original names. How can this be? The properties on the dynamically generated row type have the `[System.ComponentModel.DisplayName]` attribute applied. The results grid and the table writer check for this attribute so you can use it to control how headers for your own types look in the results grid, and when written into the workbook.  
-
-!!! Note
-	You can also access the value of any property in a row via indexer, e.g. `row["Job Tilte"]`. The indexer returns an object of type `dynamic`.  
+!!! Notes
+	- In the results grid, column names will show up with their original names because the generated properties have a `[System.ComponentModel.DisplayName]` attribute applied.
+	- You can also access properties via indexer, e.g. `row["Job Tilte"]`. The return type of the indexer is `dynamic`.  
 
 #### Locating rows in Excel
 In order to find a particular row in Excel, we can include the row address in the results. Each row has a `GetAddress()` method that can be used to find the row in Excel.
 
 !!! Note
-	The reason `GetAddress()` is a method rather than a property is simply to avoid a naming collision if the table has a column named *Address* (which is not unlikely). 
+	`GetAddress()` is a method rather than a property solely to avoid a naming collision in cases where a table has a column named *Address*. 
 
 Let's find people with the job title "Transit Operator" in Excel.
 
@@ -67,11 +66,10 @@ Once we have the address in the results, we can double-click the **address cell*
 ![Select row in Excel](https://i.imgur.com/J9QxBIT.png)
 
 !!! Note 
-	- If there is no address in the results, double-clicking the row header will have no effect.
-	- Creating a projection (`new {...}`) with many columns just to include the address can be tedious. A workaround is in the works.
+	If there is no address in the results, double-clicking the row header will have no effect.
 
 ### Updating rows
-To modify data in an Excel table, we need to modify the row objects and then commit the changes. Here's how to modify the `TotalPay` of all Transit Operators:
+To modify data in an Excel table, we need to modify the rows and then commit the changes. Here's how to modify the `TotalPay` of all Transit Operators:
 
 ``` C#
 //prepare changes
@@ -83,7 +81,7 @@ salaries
 salaries.SaveChanges();
 ```
 
-Note that **changes must be explicitly committed** in order to be propagated into the Excel table. To do this in a single command, we can use the `Update()` method:
+Note that changes must be explicitly saved in order to be committed into the Excel table. We can do this in a single command, though, by using the `Update()` method:
 
 ``` C#
 salaries
@@ -95,21 +93,19 @@ salaries
 We can also delete rows. Let's delete rows where the TotalPay is zero:
 
 ``` C#
-salaries
-	.Where(s => s.TotalPay == 0)
-	.Delete()
+salaries.Where(s => s.TotalPay == 0).Delete()
 ```
  
 ### Inserting rows
-Finally, we can also insert rows. Let's insert a row into the `salaries` table:
+Finally, we can also insert rows:
 
 ``` C#
 salaries.Insert(99999, "John Smith", "Journalist", 0, 0, 0, 0, 99999, 0, 2017, null, "San Francisco", "PT");
 ```
 
-The `Insert` method is strongly typed, but all its arguments are optional, allowing you to skip the ones where `null` should be inserted (as well as calculated columns).
+The `Insert` method is strongly typed, but all of its arguments are optional, allowing you to skip the ones where `null` should be inserted (as well as calculated columns).
 
-There is also an `InsertIntoCache` method which will insert data into the cache without committing the changes to Excel. Saving changes to Excel can be slow, especially when inserting thousands of rows. In such cases, all inserts should be staged via calls to `InsertIntoCache` and finally committed by a single call to `SaveChanges()`:
+Saving changes to Excel can be slow, which can be an issue when inserting thousands of rows. In such cases, inserts should be staged via the `InsertIntoCache()` method and finally committed to Excel by a single call to `SaveChanges()`:
 
 ```csharp
 people.InsertIntoCache(10, "abc");
@@ -120,10 +116,10 @@ people.SaveChanges(); //saves the new rows into Excel
 
 ## C# scripting syntax
 
-The scripting flavor of C# is supported by Roslyn (the C# compiler) and is slightly different from regular C#. Regular C# code is mostly valid in scripts, but scripts also allow a more relaxed syntax where you can evaluate expressions without all the ceremony of defining types and methods. 
+The scripting flavor of C# is supported by Roslyn (the C# compiler) and is slightly different from regular C#. Most *normal* C# syntax is also valid in scripts, but scripts also allow a more relaxed syntax where you can evaluate expressions, without all the ceremony of defining types and methods. 
 
 !!! Note
-	Under the hood, Roslyn preprocesses scripts and turns them into regular C#.
+	Under the hood, Roslyn preprocesses scripts and turns them into regular C# before compiling to IL.
 
 For example, we can return the current date like so:
 ```csharp
@@ -143,7 +139,7 @@ public int Add(int a, int b)
 
 ```
 
-Another things scripts can do is reference other scripts and libraries. This is supported via `#r` and `#load` directives that are placed at the beginning of scripts:
+Another thing scripts can do is reference other scripts and libraries. This is supported via `#r` and `#load` directives that are placed at the beginning of scripts:
 
 ```csharp
 #r "System.IO.Compression"
@@ -155,4 +151,4 @@ Another things scripts can do is reference other scripts and libraries. This is 
 
 //...code that uses members from "anotherScript"...
 ```
-For more on referencing scripts and libraries, click [here](./references).
+These expansions to the C# syntax are provided by Roslyn (not QueryStorm). For more on referencing scripts and libraries, click [here](./references).

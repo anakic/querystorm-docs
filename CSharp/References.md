@@ -3,7 +3,7 @@
 C# scripts can reference other scripts and dlls. Here's how...
 
 ## Referencing libraries
-A standard set of *references* and *usings* is included by default. You can, however, add your own usings and references. For example, the `System.IO.Compression` assembly isn't referenced by default. Here's how you can include it to use the `ZipFile` class:
+A default set of *references* and *usings* is included automatically but you can add your own as well. For example, the `System.IO.Compression` assembly isn't referenced by default. Here's how you can include it to use the `ZipFile` class:
 
 ``` C#
 #r "System.IO.Compression" //add reference (the dll is in the GAC)
@@ -20,7 +20,7 @@ The `#r` directive adds a reference to the specified assembly.
 Here are some examples of how to use it:
 
 - `#r "System.IO.Compression"` - reference an assembly from the GAC
-- `#r "MyLib.dll"` - reference an assembly that is located in the same folder as the current workbook
+- `#r "MyLib.dll"` - reference an assembly from the same folder as the current workbook
 - `#r "C:\packages\lib.dll"` - reference a dll by absolute path
 - `#r "\\serverA\packages\lib.dll"` - reference a dll on a network share
 

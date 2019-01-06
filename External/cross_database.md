@@ -2,7 +2,7 @@
 
 As mentioned before, the SQLite engine in QueryStorm can access data from the external world via [custom table-valued functions](../sql/custom_tabular). With this mechanism, we can expose data from other databases to our SQLite engine. This chapter explains how.
 
-> To see an example of cross-database querying, download the [sample workbook](../../demofiles/remote_db_query.xlsx).
+> To see an example of cross-database querying, download the [sample workbook](../demofiles/remote_db_query.xlsx).
 
 ## 1. Define an embedded query to the external database
 
@@ -12,7 +12,9 @@ Suppose we have a SQL Server database and we want to expose a table called `Depa
 select * from HumanResources.Department d
 ``` 
 
-In order to expose this data to SQLite, we need to [embed this query into the workbook](../automation/embedding_code.md). I'll name the embedded query *Get departments*.
+In order to expose this data to SQLite, we need to [embed this query into the workbook](../automation/embedding_code.md). I'll give the query a name: *Get departments*.
+
+![embedding query](../images/emb_dpt.png)
 
 ## 2. Call the embedded query from C# #
 
@@ -40,9 +42,9 @@ We can now disconnect from our current connection and reconnect using SQLite. On
 
 ![generate api result](../images/remote_db_tvf.png) 
 
-The above query is executed by SQLite, but the table valued function internally loads data from an SQL Server database.
+The above query is executed by SQLite, but the table valued function internally loads data from a SQL Server database.
 
 We can repeat the same procedure with multiple embedded queries. This will make data from multiple databases available to SQLite. If we like, we can join workbook tables with data from web services and multiple external databases and then dump the results into Excel or a [SQLite file database](../sql/sqlite_files).
 
 ## Limitations
-Currently, it is not possible to pass parameters to embedded queries. This is not yet implemented but is planned. Once ready, it will enable selectively loading data from external databases which will minimize the amount of data that needs to be loaded when e.g. running joins with data from external databases.  
+Currently, it is not possible to pass parameters to embedded queries. Allowing this is planned in a future release. Once ready, it will enable selectively loading data from external databases which will minimize the amount of data that needs to be loaded when e.g. running joins with data from external databases.  

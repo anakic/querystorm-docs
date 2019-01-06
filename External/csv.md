@@ -14,7 +14,7 @@ public class RunHistory
 }
 
 [SQLFuncTabular]
-public static IEnumerable<RunHistory> ReadCsv_RunHistory()
+public static CsvCommittableCollection<RunHistory> ReadCsv_RunHistory()
 {
     return Csv<RunHistory>(@"C:\Users\anton\AppData\Roaming\Everything\Run History.csv", ",");
 }
@@ -25,6 +25,8 @@ public static IEnumerable<RunHistory> ReadCsv_RunHistory()
 	The properties of the `RunHistory` class above are mapped to headers in the CSV file. If the property and the header name don't match (e.g. if the header has spaces), the header name can be specified via the `[Name]` attribute on the property, as demonstrated above.
 
 We can now use this function from C# to read the data in the CSV file. If we make sure to decorate the function with `[SQLFuncTabular]` and embed it into the workbook, we'll also be able to use it from SQLite.
+
+The object that the CSV method returns supports committing changes via the `Commit` method. 
 
 ## Generating the code
 

@@ -1,17 +1,17 @@
 # Formatting via SQL
 
-Since the SQLite engine is running *in-process* with Excel, it can interact with it in many ways e.g. it can modify formatting in Excel. 
+Since the SQLite engine is running *in-process* with Excel, it can interact with Excel objects. A typical use case for this is modifying formatting. 
 
 ## Formatting rows
 
-As [mentioned before](./querying/#special-columns), each row has a hidden `__address` field that we can use to specify where the formatting needs to be applied. 
+As [mentioned before](./querying/#special-columns), each table has a hidden `__address` column which we can use to selectively apply formatting to rows.
 
 Let's set the background color for movies that grossed more than $40M:
 ``` SQL
---clear any previous formatting 
+--first clear any previous formatting 
 select ClearBackgroundColor('movies');
 
---apply formatting
+--apply new formatting
 select
 	*, SetBackgroundColor(__address, 'Orange')
 from
@@ -25,13 +25,11 @@ order by
 
 In the example, we're using the `ClearBackgroundColor` function to clean any previously applied formatting, after which we apply formatting to the desired rows via the `SetBackgroundColor` function.
 
-It might seem strange to use a `SELECT` statement to modify row formatting, but it's fairly easy to get used to, and there doesn't seem to be a better way of doing it via SQL.
+It might seem strange to use a `SELECT` statement to modify row formatting, but it's fairly easy to get used to, and there doesn't seem to be a more elegant way of doing it via SQL.
 
 ## Formatting cells
 
-As with rows, we can use the `SetBackgroundColor` function to format cells.
-
-Let's color cells based on the values they contain:
+We can use the `SetBackgroundColor` function to format cells as well. Here's an example of coloring cells based on their values:
 
 ``` SQL
 select
@@ -43,11 +41,9 @@ select
 			SetBackgroundColor(Address, 'red')
 	end) color
 from
-	cells ()
+	xlcells()
 where 
 	type = 'Double'
 ```
 
-Here we're formatting all cells that contain a number in one of two colors, depending on their value. Since the selection might contain strings and dates, we can use the `where` clause to filter them out, so that we don't inadvertently modify their formatting.
-
-![Formatting cells example](https://i.imgur.com/xWT1Pgr.png)
+![Format cells](../images/format_cells.png)

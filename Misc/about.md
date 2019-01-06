@@ -1,6 +1,6 @@
 # Introduction
 
-Excel might not be a trendy topic these days, but it continues to be used extensively in the business world. People spend a lot of time in Excel but much of it is spent doing boring, tedious and repetitive work. For tech users who spend any considerable time in Excel, lack of proper support for tech skills is a constant source of frustration and is costly for them, their employers, business users and clients. The purpose of QueryStorm is to greatly reduce this problem by adding easy and convenient support for SQL and C# into Excel, as well as better database connectivity.
+Spreadsheets are not exactly a trendy topic these days, but they continue to be used extensively in the business world. For tech users who spend any considerable time in Excel, lack of proper support for tech skills tends to be a source of frustration. The purpose of QueryStorm is to greatly reduce this problem by adding easy and convenient support for SQL and C# into Excel, as well as better database connectivity.
 
 ## What can you use QueryStorm for?
 
@@ -18,7 +18,7 @@ Since business users tend to deal with data in spreadsheets, and tech users deal
 ### Reporting
 Spreadsheets are a popular way of presenting data, due to having support for sorting, filtering, graphs and pivot tables. The data usually comes from databases but can come from anywhere really. Some times the reports are static. Other times they need to be interactive, e.g. the user changes a parameter in a cell which causes a query (or script) to re-execute and update the data in a table, which in turn updates a chart.
 
-![Example QueryStorm-powered report](https://www.querystorm.com/downloads/images/exappgif.gif "Example QueryStorm-powered report")
+![Example QueryStorm-powered report](../images/exappgif.gif "Example QueryStorm-powered report")
 
 You probably know of at least a few ways to get data into Excel (e.g. PowerQuery aka Get&Transform). Tools for this are usually GUI based and, while more-or-less easy to use, they tend not to be entirely flexible. QueryStorm on the other hand takes a very tech-centered approach. When you connect to a database, you interact with it using SQL and a full-featured editor. The data is usually processed in the database and only the results are ever returned into Excel. In addition, you can load data from other sources into Excel using C# and various .NET libraries. There are no extra layers of abstraction, no new languages to learn (e.g. DAX, M) and no tabular model to populate and refresh. 
 
@@ -36,9 +36,9 @@ Excel also takes care of most of the UI work. You can set up graphs and user int
 If you need to generate reports, you can easily define a template in a sheet, populate it with dynamic data and print it out as a pdf file. 
  
 ### Tabular data scratchpad
-Data is all over the place and, in general, the more techy you are, the more you interact with it. Suppose you need data for a machine learning model. You load bits and pieces of data from multiple sources: APIs, csv files, xlsx files, databases... Usually data collected this way needs to be cleaned and molded before can put it to good use. 
+Data is all over the place and, in general, the more techy you are, the more you interact with it. Suppose you need data for a machine learning model. You load bits and pieces of data from multiple sources: APIs, csv files, xlsx files, databases... Usually data collected this way needs to be cleaned and molded before you can put it to good use. 
 
-With QueryStorm, we can easily access data in databases as well as data from elsewhere (via C#). As soon as the data is in Excel, you immediately get strongly typed access to it so you can work with it via code. You also get the benefits of a spreadsheet - you can work with it by hand, add formulas, visualize it (conditional formatting, graphs) and casually explore it.
+With QueryStorm, it's easy to access data in databases as well as data from elsewhere (via C#). As soon as the data is in Excel, you immediately get strongly typed access to it so you can work with it via code. You also get the benefits of a spreadsheet - you can work with it by hand, add formulas, visualize it (conditional formatting, graphs) and casually explore it.
 
 This makes fetching, cleaning and molding data much easier. And since it's all in scripts and queries, it's repeatable. 
 
@@ -53,16 +53,12 @@ QueryStorm is a plugin for the desktop version of Excel for Windows. Due to tech
 QueryStorm is free for non-commercial use. You can use it freely for your own needs. The only limitation currently is connectivity to external databases. If you are using it commercially though, please buy a license.
 
 ## QueryStorm Runtime license
-Tech users are usually going to be the ones writing code and embedding it into Excel files. If those files are sent to business users, they also need to have QueryStorm installed for those scripts and queries to be able to execute. The business users however don't need to write code themselves so they do not need a full license for QueryStorm. Runtime licenses are available for purchase, and are considerably cheaper than the full ones. They enable embedded code to run, but they don't see the code editing features:
+Tech users are usually going to be the ones writing code and embedding it into Excel files. If those files are sent to business users, they also need to have QueryStorm installed for those scripts and queries to be able to execute. The business users however don't need to write code themselves so they do not need a full license for QueryStorm. Runtime licenses are available for purchase, and are considerably cheaper than the full ones. They enable embedded code to run, but they don't allow the user to use (or see) the code editing features:
 
-![Ribbon for QueryStorm runtime](https://www.querystorm.com/downloads/images/runtime_ribbon.png)
+![Ribbon for QueryStorm runtime](../images/runtime_ribbon.png)
 
-## Who's behind QueryStorm
+## Talk to us
 
-In alphabetic order:
-
-- [Antonio Nakić-Alfirević](https://www.linkedin.com/in/anakic), on the keyboard (developer, founder).
-- [Benjamin Van Dam](https://www.linkedin.com/in/benjamin-van-dam-992237b9/), on the mic (word spreader).
-- [Boško Kustura](https://www.linkedin.com/in/bo%C5%A1ko-kustura-9b16102/), on the drums (operations).
+We try our best to offer stable software and good documentation. Never the less, both this documentation and QueryStorm are work in progress and errors are bound to slip through the cracks here and there. If you notice any bugs or inconsistencies, or you have a question/idea/suggestion, please let us know! You can get in touch via the Disqus section at the bottom of each document in the docs, via [email](mailto:hello@querystorm.com?subject=Hello QueryStorm) or via the chat pop-up in the bottom right corner of the [main page](https://www.querystorm.com).
 
 

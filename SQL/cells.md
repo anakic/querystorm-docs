@@ -1,14 +1,14 @@
 # Working with individual cells
 
-Aside from working with tables, QueryStorm's SQLite engine can also work with cells, by using the **`cells()`** table-valued function.
+Aside from working with tables, you can also work with cells using the **`xlcells()`** table-valued function.
 
-The following query will return a list of cells in the current selection:
+The following query returns a list of cells in the current selection:
 ```sql
-select * from cells()
+select * from xlcells()
 ``` 
 We can also return a list of cells in a specified range, like so:
 ``` sql
-select * from cells('Sheet1!B5:D9')
+select * from xlcells('Sheet1!B5:D9')
 ```
 Here's what the returned data looks like:
 ![Cells query](https://i.imgur.com/iHcra7e.png)
@@ -17,20 +17,30 @@ For each cell in the selection, one row is returned in the results. Each cell is
 
 ### Updating cell values
 
-The primary use case for the `cells()` function is making changes to an arbitrary selection of cells (e.g. doing a regex replace operation, or conditionally formatting them). 
-
-To achieve this, we need to be able to update the values in the cells. Currently, updating cells via a SQL `update` command is not supported (it might be in future versions), but we can update them using the `SetCellValue()` function.
+The primary reason to use the `xlcells()` function is to make changes to arbitrary selections of cells. In SQLite, table-valued functions are treated as tables, so we can use them in update statements. When updating `xlcells` only the `Value` column can be updated; updating other columns will have no effect. 
 
 For example, let's reverse the text in the selected cells:
 ``` SQL
-SELECT
-	*, SetCellValue(Address, reverse(Value))
-FROM
-	cells()
+update
+	XLCells
+set
+	Value = reverse(Value)
 ```
-![Update cell values example](https://i.imgur.com/XbDgKfu.png)
-
-Using a select statement to do an update might seem strange, but its fairly easy to get used to. In a future version, it's also likely that support for updating it via direct `UPDATE` statement will be added. 
+![Update selected cells](../images/cells_update1.png)
 
 !!! Tip
-	The selection can consist of one or more areas. To select multiple areas, hold down the `Ctrl` key while selecting them in Excel. 
+	You can select multiple areas in Excel by holding down the `Ctrl` key while selecting them in Excel. To navigate between selected areas you can use the `Ctrl+Alt+Left` and `Ctrl+Alt+Right` shortcuts.
+
+The `xlcells` function can also take a parameter: `targetRangeAddress`. Parameters are treated as (hidden) columns by SQLite, and can be supplied in the `where` clause when updating.
+
+Here's how to reverse the text in a specified range:
+```SQL
+update
+	XLCells
+set
+	Value = reverse(Value)
+where
+	targetRangeAddress = 'a1:c10'
+``` 
+![Update selected cells](../images/cells_update2.png)
+

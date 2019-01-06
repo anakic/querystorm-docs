@@ -17,7 +17,7 @@ Alternatively, we can click the *New query* button in the *Workbook queries* pan
 
 
 ## Engine configuration
-Aside from code, each embedded query/script also has information on the connection that should be used when executing it. When you create an embedded query, it automatically picks up the configuration of the current connection. 
+Aside from the code, each embedded query/script also has information on the connection that should be used when executing it. When you create an embedded query, it automatically picks up the configuration of the current connection. 
 
 To view and change the connection configuration, select the query in the *Workbook queries* pane and click the *Connection* button.
 
@@ -30,13 +30,13 @@ This will open a dialog which will let you configure the setting for the connect
 In the example above, the connection configuration includes the following information:
 
 1. Type of connection: `MsSql` (SQL Server)
-1. the Excel tables to import as temp tables
-1. the connection string: `Server=.\sqlexpress; Database=AdventureWorks2014; Trusted_Connection=True;`
+1. The Excel tables to import as temp tables: `movies`
+1. The connection string: `Server=.\sqlexpress; Database=AdventureWorks2014; Trusted_Connection=True;`
 
 You can edit the connection configuration manually, or use one of the two buttons to use the current connection or choose another configuration via the *Connect custom* dialog.
 
 !!! Warning
-	Make sure to **NOT include any Excel tables you don't use in your query**, because copying data from Excel tables can slow things down when connecting, especially if the table is large.
+	Make sure to **NOT include any Excel tables you don't use in your query**, because copying data from Excel tables can slow things down when connecting, especially if some of the tables are large.
 
 ## When to embed?
 
