@@ -51,4 +51,19 @@ Functions can return a single result or an entire table.
 If your machine (or the end user's machine) is running one of the newer (Office365) versions of Excel that support dynamic arrays[^1] the results of functions that return a tabular result will automatically spill.
 
 
+## Sharing functions
+
+Functions can be stored inside a workbook or as a QueryStorm extension. 
+
+### Functions stored in the workbook
+
+If the function is stored inside the workbook, the function is stored inside the workbook, and anyone who has the workbook and QueryStorm (full or runtime) will be able to use it. However, this function will only be usable in the workbook that contains it. If the function should be usable by in any Excel file, you should define it as a separate "Extension" package.
+
+### Functions in "Extension" projects
+
+QueryStorm supports building "extension" projects. An extension project is simply a project that contains a set of user defined Excel functions that can be packaged together and published for use by other QueryStorm users (runtime or full).
+
+To define the function as a QueryStorm extension (rather than as part of the workbook), create a new project in "Code explorer" pane under the "Extension" node, and then add a new script from the context menu of the new project.
+
+
 [^1]: See dynamic arrays 
