@@ -28,6 +28,7 @@ We need to save the file to ensure that it's saved into the project. We need to 
 
 
 Click below to view a video of the process:
+
 [![Everything Is AWESOME](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/rmya2vbUv18 "Defining Excel functions via SQL")
 
 
