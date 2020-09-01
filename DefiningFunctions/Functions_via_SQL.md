@@ -1,6 +1,6 @@
 # Excel functions via SQL
 
-In QueryStorm, you can use SQL to define Excel functions. A typical use case for this would be to interactively fetch data from a database into Excel. 
+In QueryStorm, you can define Excel functions that use SQL to return data from a database. 
 
 Suppose we'd like to define a function that would return a list of people from a database, whose names contain a particular `searchTerm`.
 
