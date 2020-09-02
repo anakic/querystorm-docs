@@ -29,8 +29,7 @@ We need to save the file to ensure that it's saved into the project. We need to 
 
 Click below to view a video of the process:
 
-[![Everything Is AWESOME](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/rmya2vbUv18 "Defining Excel functions via SQL")
-
+[![Defining Excel functions via SQL](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/rmya2vbUv18 "Defining Excel functions via SQL")
 
 ## Parameters
 
@@ -50,20 +49,19 @@ Functions can return a single result or an entire table.
 
 If your machine (or the end user's machine) is running one of the newer (Office365) versions of Excel that support dynamic arrays[^1] the results of functions that return a tabular result will automatically spill.
 
-
 ## Sharing functions
 
 Functions can be stored inside a workbook or as a QueryStorm extension. 
 
 ### Functions stored in the workbook
 
-If the function is stored inside the workbook, the function is stored inside the workbook, and anyone who has the workbook and QueryStorm (full or runtime) will be able to use it. However, this function will only be usable in the workbook that contains it. If the function should be usable by in any Excel file, you should define it as a separate "Extension" package.
+If the function is stored inside the workbook, anyone who has the workbook (and the QueryStorm runtime) will be able to use it. However, this function will only be usable in the workbook that contains it. If the function should be usable by in any Excel file, you should define it in an extension package.
 
 ### Functions in "Extension" projects
 
-QueryStorm supports building "extension" projects. An extension project is simply a project that contains a set of user defined Excel functions that can be packaged together and published for use by other QueryStorm users (runtime or full).
+QueryStorm supports building extension projects which can contain a set of user defined Excel functions that can be packaged together and published for use by other users.
 
-To define the function as a QueryStorm extension (rather than as part of the workbook), create a new project in "Code explorer" pane under the "Extension" node, and then add a new script from the context menu of the new project.
+To define the function in a QueryStorm extension rather in the workbook, create a new project in "Code explorer" and then add a new script from the context menu of the new project.
 
 
 [^1]: See dynamic arrays 
