@@ -24,6 +24,7 @@ The process of defining a function is fairly simple:
 1. Build the project to register the function
 
 Here is a video of the entire process:
+
 [![Defining Excel functions with C#](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/emcyyiVUYSk "Defining Excel functions with C#")
 
 QueryStorm uses the popular **ExcelDNA** library for registering Excel functions. The functions you define can be simple synchronous functions as in the video, but they can also be asynchronous, accept and return tabular values, cache data internally and do other non-trivial things. More information on these topics (and many more) can be found in the following resources:
@@ -105,6 +106,7 @@ public class ExcelFunctions1
 QueryStorm does not (yet) have a debugger, but there are two methods that help you debug issues: `Log()` and `Debug()`.
 
 Click below to view a video of both debugging methods:
+
 [![Debugging functions](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/zqPGuJoD5DM "Debugging functions")
 
 ### The `Log()` method
