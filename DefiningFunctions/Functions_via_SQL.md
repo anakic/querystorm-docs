@@ -27,8 +27,6 @@ Click below to view a video demonstration:
 
 [![Excel functions via SQL](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/rmya2vbUv18 "Defining Excel functions via SQL")
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rmya2vbUv18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Parameters
 
 Parameters have names, types and default values. There are five different data types supported for parameters: int, float, datetime, string and bool.
@@ -59,13 +57,11 @@ So once you've built the function, where can you use it? It depends on where you
 
 ### Functions defined in the workbook
 
-If the function is stored inside the workbook, anyone who has the workbook (and the QueryStorm runtime) will be able to use it. However, this function will only be usable in the workbook that contains it. If the function should be usable by in any Excel file, you should define it in an extension package.
-
-If the function needs be usable by any Excel file, it should be defined as an "Extension" package (as described below).
+If the function is stored inside the workbook, anyone who has the workbook (and the QueryStorm runtime) will be able to use it. However, this function will only be usable in the workbook that contains it. If the function should be usable in any Excel file, you should define it in an "Extension" package (as described below).
 
 QueryStorm supports building extension projects which can contain a set of user defined Excel functions that can be packaged together and published for use by other users.
 
-To define the function in a QueryStorm extension rather in the workbook, create a new project in "Code explorer" and then add a new script from the context menu of the new project.
+To define the function in a QueryStorm extension rather than in the workbook, create a new project in "Code explorer" and then add a new script from the context menu of the new project.
 
 For a video demonstration of this process, click below:
 
