@@ -47,9 +47,9 @@ A parameter's default value is only used when the query is directly executed. Wh
 
 Functions can return a single value or an entire table as their result. 
 
-If your machine (or the end user's machine) is running one of the newer (Office365) versions of Excel that support dynamic arrays[^1] tabular result will automatically spill. 
+If your machine (or the end user's machine) is running one of the newer (Office365) versions of Excel that support [dynamic arrays][1], the tabular result will automatically spill. 
 
-If your are using an older version of Excel, you will need to use Ctrl+Alt+Enter (or `{=function()}` syntax) to allow the result to return a table of data (however, you'll need to know in advance the size of the output data). 
+If you are using an older version of Excel, you will need to use Ctrl+Alt+Enter (or `{=function()}` syntax) to allow the result to return a table of data (however, you'll need to know in advance the size of the output data). 
 
 ## Sharing functions
 
@@ -68,4 +68,4 @@ For a video demonstration of this process, click below:
 [![Excel functions via SQL (Extension package)](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/9mhYVjngI5w "Defining Excel functions via SQL (Extension package)")
 
 
-[^1]: See dynamic arrays 
+[1]: https://support.microsoft.com/en-us/office/dynamic-array-formulas-in-non-dynamic-aware-excel-696e164e-306b-4282-ae9d-aa88f5502fa2 
