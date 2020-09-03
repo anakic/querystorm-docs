@@ -25,7 +25,7 @@ To make this function available in Excel, we must:
 
 Click below to view a video demonstration:
 
-[![Excel functions via SQL](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/rmya2vbUv18 "Defining Excel functions via SQL")
+[![Excel functions via SQL](../images/video.jpg)](https://youtu.be/rmya2vbUv18 "Defining Excel functions via SQL")
 
 ## Parameters
 
@@ -67,7 +67,7 @@ To define the function in a QueryStorm extension rather in the workbook, create 
 
 For a video demonstration of this process, click below:
 
-[![Excel functions via SQL (Extension package)](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/9mhYVjngI5w "Defining Excel functions via SQL (Extension package)")
+[![Excel functions via SQL (Extension package)](../images/video.jpg)](https://youtu.be/9mhYVjngI5w "Defining Excel functions via SQL (Extension package)")
 
 
 [^1]: See dynamic arrays 

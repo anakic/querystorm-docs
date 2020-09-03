@@ -24,7 +24,8 @@ The process of defining a function is fairly simple:
 1. Build the project to register the function
 
 Here is a video of the entire process:
-[![Defining Excel functions with C#](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/emcyyiVUYSk "Defining Excel functions with C#")
+
+[![Defining Excel functions with C#](../images/video.jpg)](https://youtu.be/emcyyiVUYSk "Defining Excel functions with C#")
 
 QueryStorm uses the popular **ExcelDNA** library for registering Excel functions. The functions you define can be simple synchronous functions as in the video, but they can also be asynchronous, accept and return tabular values, cache data internally and do other non-trivial things. More information on these topics (and many more) can be found in the following resources:
  - [ExcelDna Google group](https://groups.google.com/g/exceldna/)
@@ -44,23 +45,29 @@ The procedure for VB.NET is the same as for C#, with one distinction - before ad
 "Language": "VisualBasic"
 ```
 
-That will ensure that the class file template uses VB.NET and that the project builds using the VB.NET compiler. 
+This will ensure that the class file template uses VB.NET and that the project builds using the VB.NET compiler. 
 
 
 ## Defining functions via SQL
 
-QueryStorm lets you define Excel functions using SQL, extended with a simple preprocessor syntax.  
+QueryStorm lets you define Excel functions using SQL (extended with a simple preprocessor syntax).  
 
 The process of defining functions with SQL is outlined [here /*TODO:link*/](http://here).   
 
 !!! Note
 When you define a SQL function, QueryStorm generates a C# or VB.NET class (nested below the SQL script file) that defines the function in the same way regular C#/VB.NET functions do, so everything described in this chapter also applies to SQL functions as well.
 
-## Dependencies
+## The project structure
+
+- app.cs
+- objects lifecycle
+- dependency injection
+
+?## Dependencies
 
 Simple functions that do not rely on any shared dependencies can be static and do everything on their own.
 
-However, a functions might need to get hold of a particular service object in order to perform its calculation. That service object might be expensive to create, so we would not want to create a new instance of it in each call. It would be better to have a single instance of the service which we would use in each function call.   
+However, a function might need to get hold of a particular service (e.g. an API object) in order to perform its calculation. That service might be expensive to create, so we would not want to create a new instance of it each time the function is evaluated. It would be better to have a single instance of the service which we would use in each function call.   
 
 If the function relies on such dependencies, it should not be static. The constructor of the class that owns the function is executed only once (just before the first function call), so any expensive dependencies can be created there.
 
@@ -70,7 +77,7 @@ If multiple functions should share the same dependency, the dependency should be
 
 For example:
 
-In App.cs
+In App.cs:
 ```csharp
 public App(IUnityContainer container)
 	: base(container)
@@ -80,7 +87,7 @@ public App(IUnityContainer container)
 }
 ```
 
-In ExcelFunctions1.cs
+In ExcelFunctions1.cs:
 ```csharp
 public class ExcelFunctions1
 {
@@ -98,14 +105,17 @@ public class ExcelFunctions1
 }
 ```
 
-> QueryStorm uses the [Unity container](http://unitycontainer.org/articles/introduction.html) for dependency injection. Some of QueryStorm's own services are available via the IOC container (e.g. `IDialogService`), so you can use those as well. 
+> QueryStorm uses the [Unity container](http://unitycontainer.org/articles/introduction.html) for dependency injection. Some of QueryStorm's own services are available via the IOC container (e.g. `IDialogService`), and you can freely use those as well. 
+
+## Data context
 
 ## Debugging functions
 
 QueryStorm does not (yet) have a debugger, but there are two methods that help you debug issues: `Log()` and `Debug()`.
 
 Click below to view a video of both debugging methods:
-[![Debugging functions](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/zqPGuJoD5DM "Debugging functions")
+
+[![Debugging functions](../images/video.jpg)](https://youtu.be/zqPGuJoD5DM "Debugging functions")
 
 ### The `Log()` method
 The simplest way to debug issues is to use the `Log(object obj)` method to print values to the QueryStorm messages pane.
@@ -121,15 +131,8 @@ To launch a debugger at a particular location in the source code, use the `Debug
 
 If the local machine has Visual Studio installed, the `Debug()` method will launch Visual Studio, attach it to the process and stop the debugger at the current line. If a debugger is already attached, it will simply stop at the line with the `Debug()` call.
 
-If you do not have Visual Studio installed, you can use the small open source `DNSpy` debugger, attach it to the Excel process, and use the `Debug()` method to stop the debugger at the desired line in the code.     
+If you do not have Visual Studio installed, you can use the small open source [DNSpy](https://github.com/0xd4d/dnSpy) debugger, attach it to the Excel process, and use the `Debug()` method to stop the debugger at the desired line in the code.     
 
-
-
-
-
-   
-
-  
 
 
 
