@@ -47,9 +47,9 @@ A parameter's default value is only used when the query is directly executed. Wh
 
 Functions can return a single value or an entire table as their result. 
 
-If your machine (or the end user's machine) is running one of the newer (Office365) versions of Excel that support dynamic arrays[^1] tabular result will automatically spill. 
+If your machine (or the end user's machine) is running one of the newer (Office365) versions of Excel that support [dynamic arrays][1], the tabular result will automatically spill. 
 
-If your are using an older version of Excel, you will need to use Ctrl+Alt+Enter (or `{=function()}` syntax) to allow the result to return a table of data (however, you'll need to know in advance the size of the output data). 
+If you are using an older version of Excel, you will need to use Ctrl+Alt+Enter (or `{=function()}` syntax) to allow the result to return a table of data (however, you'll need to know in advance the size of the output data). 
 
 ## Sharing functions
 
@@ -57,17 +57,15 @@ So once you've built the function, where can you use it? It depends on where you
 
 ### Functions defined in the workbook
 
-If the function is stored inside the workbook, anyone who has the workbook (and the QueryStorm runtime) will be able to use it. However, this function will only be usable in the workbook that contains it. If the function should be usable by in any Excel file, you should define it in an extension package.
-
-If the function needs be usable by any Excel file, it should be defined as an "Extension" package (as described below).
+If the function is stored inside the workbook, anyone who has the workbook (and the QueryStorm runtime) will be able to use it. However, this function will only be usable in the workbook that contains it. If the function should be usable in any Excel file, you should define it in an "Extension" package (as described below).
 
 QueryStorm supports building extension projects which can contain a set of user defined Excel functions that can be packaged together and published for use by other users.
 
-To define the function in a QueryStorm extension rather in the workbook, create a new project in "Code explorer" and then add a new script from the context menu of the new project.
+To define the function in a QueryStorm extension rather than in the workbook, create a new project in "Code explorer" and then add a new script from the context menu of the new project.
 
 For a video demonstration of this process, click below:
 
 [![Excel functions via SQL (Extension package)](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/9mhYVjngI5w "Defining Excel functions via SQL (Extension package)")
 
 
-[^1]: See dynamic arrays 
+[1]: https://support.microsoft.com/en-us/office/dynamic-array-formulas-in-non-dynamic-aware-excel-696e164e-306b-4282-ae9d-aa88f5502fa2 
