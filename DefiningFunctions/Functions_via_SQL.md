@@ -27,6 +27,8 @@ Click below to view a video demonstration:
 
 [![Excel functions via SQL](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTY-5zRYwmgJFGuWvZxc8kSKnSksrbTB5183Q&usqp=CAU)](https://youtu.be/rmya2vbUv18 "Defining Excel functions via SQL")
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rmya2vbUv18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Parameters
 
 Parameters have names, types and default values. There are five different data types supported for parameters: int, float, datetime, string and bool.
