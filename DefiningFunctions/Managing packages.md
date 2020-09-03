@@ -26,22 +26,24 @@ QueryStorm also uses its NuGet infrastructure for publishing and downloading ext
 
 Extension packages are created and published from the QueryStom IDE (by package creators), but are installed and used from the QueryStorm runtime (by end users).
 
+![Extensions ribbon button](../images/ExtensionsRibbonButton.Png)
+
 Extension packages are normal NuGet packages, but their content is designed to be used by the QueryStorm Runtime. They usually consist of one or more dlls, and an `application.manifest` file that the QueryStorm IDE generates. The manifest file tells the QueryStorm Runtime what the package contains (i.e. list of included functions) and where its entry point is.
 
 A typical scenario for QueryStorm extensions is as follows: 
 
-1. A developer or a consultant uses QueryStorm IDE to write a set of Excel functions (using C#, VB.NET or SQL) 
-2. Once they've prepared the functions, they publish the package
-3. The end users download the package via the "Extensions" button in the QueryStorm Runtime ribbon
-4. The end users then uses the new functions in Excel workbooks
+1. A developer or a consultant uses the QueryStorm IDE to write a set of Excel functions (in C#, VB.NET or SQL) 
+2. Once they've prepared the functions, they publish the package to a feed
+3. End users install the package using the Extensions manager in the QueryStorm Runtime
+4. The end users then use the new functions in Excel workbooks
 
 ## Managing NuGet sources
 
-When publishing a package, you must tell QueryStorm where to publish the package:
+When publishing a package, you must tell select the feed to publish the package to:
 
 ![Publish to feed](../images/PublishToFeed.png)
 
-In order to see your packages, your users must add your package source to their list:
+Once the package is published, your users can browse and install it. In order to see your packages, though, they must have your feed in their list of sources:
 
 ![Edit package sources](../images/EditPackageSources.png)
 
@@ -50,7 +52,7 @@ In order to see your packages, your users must add your package source to their 
 3. Feed url or path
 4. Feed content type (Packages, Extensions or Both)
 
-> Both creators and consumers use the PackageManagerDialog -> ManageSources screen to edit their package feeds.
+> Both creators and consumers use the above dialog to edit their package feeds.
 
 ### Types of feeds
 
@@ -58,22 +60,22 @@ If you are distributing packages inside your network, a shared network folder wi
 
 In cases where you want to distribute packages to users outside of your local network (e.g. to your clients), you can publish the package to an online NuGet server, like Azure Artifacts ([instructions](../todo)).
 
-When adding a feed, you can specify if the source contains regular NuGet packages, QueryStorm extension packages or both. If you specify that the source contains only regular NuGet packages, it will not be included when searching for QueryStorm extensions, and vice-versa. 
+When adding a feed, you can specify if the source contains regular NuGet packages, QueryStorm extension packages or both. If you specify that a source contains only regular NuGet packages, the source will not be included when searching for QueryStorm extensions, and vice-versa.
 
 Out of the box, two package sources are included:
 
 - Nuget.org
-- QueryStorm Official Feed 
+- QueryStorm Extensions Feed 
 
-Nuget.org is the main repository of .NET packages and is used in QueryStorm for installing packages into projects. 
+Nuget.org is the main repository of .NET packages and is used in QueryStorm for installing packages into projects. By default, it's feed type is set to "NuGet packages" so it will not be used when searching for extension (unless you change its feed type).
 
-The QueryStorm Official Feed contains only QueryStorm extensions. It's purpose is to be a place all users can download general-purpose extensions from. For now, users cannot publish to this source. 
+The "QueryStorm Extensions Feed" contains only QueryStorm extensions made by our team. It's purpose is to be a place users can download general-purpose extensions from. To publish to this feed, users should request access via our support email address. 
 
-For distributing packages to your own clients, you should use a network share or create your own Azure Artifacts repository ([instructions](../todo)). Your clients should add your feed into their list in order to be able to install your packages.
+For distributing packages to your own clients, as mentioned, you should use a network share or create your own Azure Artifacts feed ([instructions](../todo)). Your clients should add your feed into their list in order to be able to install your packages.
 
 ## Publishing extension packages
 
-To publish a package, follow these steps:
+To publish an extensions package, follow these steps:
 1. Build the project
 2. Right-click on the project and select "Publish"
 3. Choose the feed to publish to
@@ -87,21 +89,21 @@ When publishing a new version of an existing package, make sure to **increment t
 
 ## Publishing to Azure artifacts
 
-Azure Artifacts is a cloud package management solution that allows you to create and share NuGet packages via feeds that can be both public and private to an organization with teams of any size.
+Azure Artifacts is a cloud-based package management solution that allows you to create and share NuGet packages via feeds that can be public or private.
 
-Setting up a feed takes just a few minutes, and is free of charge. Currently, the free plan allows for up to 2GB of storage, which is enough for thousands of packages. Should you need more space, scaling it is quite easy as well. 
+Setting up a feed takes just a few minutes, and is free of charge. Currently, the free plan allows for up to 2GB of storage, which is enough for thousands of packages, and should be more than enough for a long time. Should you need more space, scaling it is quite easy as well. 
 
 To create an Azure artifacts feed, follow the steps below:
 
 1. Go to http://dev.azure.com/ and create an account
-2. Create a new project and make it public
+2. After signing in, create a new project (**public**)
 3. Select the Artifacts tab
 4. Click "Create Feed" and give the feed a name
 5. Click "Connect to Feed"
 6. Click "Visual Studio" and copy the source link
 7. Go to QueryStorm in Excel and add a new package source with the url from the previous step
 
-In order to be able to publish to this feed, you'll also need to set up a personal access token. To do so, follow these steps:
+In order to be able to publish to this feed, you'll also need to set up a personal access token, which you can use as the password. To do so, follow these steps:
 
 1. Click on the user settings in the top right corner of the page (in the azure webpage)
 2. Select "Personal Access Token"
@@ -110,7 +112,7 @@ In order to be able to publish to this feed, you'll also need to set up a person
 5. Copy the token
 6. In QueryStorm, enter the token as the password of the new feed and your email address (that's associated with your azure account) as the username
 
-That's it. Now you can publish to your new feed! Share the feed URL with your users, and you're good to go.
+That's it. You can now publish to your new feed! The only thing left to do is to share the feed URL with your users so they can add it to their list of sources.
 
 For a video of the entire process, please click below:
 
