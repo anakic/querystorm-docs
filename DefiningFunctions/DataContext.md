@@ -103,7 +103,7 @@ Once the project is compiled, C# scripts will be able to use the new property `M
 
 ![CSScript relationship navigation](../Images/relationship_navigation_example.png)
 
-> Tip: for performance reasons (to avoid type conversions), it's slightly better to leave Id columns as `double` instead of `int`. 
+> Tip: for performance reasons (to avoid type conversions), it's slightly better to leave Id columns as `double` instead of `int`. This is because Excel does not have an `int` type; all numbers in Excel are `double`.
 
 ### Demo
 
