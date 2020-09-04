@@ -64,7 +64,7 @@ protected override void Initialize(ContextSchema schema)
 {
 	schema.ConfigureTable("Person")
 		.ConfigureColumn<System.Int32>("Id")
-        .ConfigureColumn<System.String>("Name")
+		.ConfigureColumn<System.String>("Name")
 		.ConfigureColumn<System.DateTime>("DateOfBirth");
 		
 	base.Initialize(schema);
