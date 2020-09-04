@@ -1,18 +1,18 @@
 # Managing packages
 
-QueryStorm comes with NuGet support, which it uses for two purposes:
+QueryStorm comes with NuGet support, which serves two purposes:
 
-- Installing NuGet pacakages into projects
+- Installing NuGet packages into projects
 - Sharing QueryStorm extension packages
 
 ## NuGet packages
 
-The package manager is used for managing NuGet packages in projects (viewing, installing, uninstalling, updating). 
+The package manager is used for managing NuGet packages in QueryStorm projects (viewing, installing, uninstalling, updating). 
 
 ![PackageManager](../Images/PackageManager.png)
 
 Installing a package into your project does the following:
-- Adds an entry in the `Dependencies` section in the `module.cfg` file,
+- Adds an entry in the `Dependencies` section of the `module.cfg` file,
 - Downloads the package
 - Unpacks the contents of the package into the project
   
@@ -26,9 +26,9 @@ QueryStorm also uses its NuGet infrastructure for publishing and downloading ext
 
 Extension packages are created and published from the QueryStom IDE (by package creators), but are installed and used from the QueryStorm runtime (by end users).
 
-![Extensions ribbon button](../images/ExtensionsRibbonButton.Png)
+![Extensions ribbon button](../Images/ExtensionsRibbonButton.PNG)
 
-Extension packages are normal NuGet packages, but their content is designed to be used by the QueryStorm Runtime. They usually consist of one or more dlls, and an `application.manifest` file that the QueryStorm IDE generates. The manifest file tells the QueryStorm Runtime what the package contains (i.e. list of included functions) and where its entry point is.
+Extension packages are ordinary NuGet packages, but their content is designed to be used by the QueryStorm Runtime. They usually consist of one or more dlls, and an `application.manifest` file that the QueryStorm IDE generates. The manifest file tells the QueryStorm Runtime what the package contains (i.e. list of included functions) and where its entry point is.
 
 A typical scenario for QueryStorm extensions is as follows: 
 
@@ -39,13 +39,13 @@ A typical scenario for QueryStorm extensions is as follows:
 
 ## Managing NuGet sources
 
-When publishing a package, you must tell select the feed to publish the package to:
+When publishing a package, you must select the feed to publish the package to:
 
-![Publish to feed](../images/PublishToFeed.png)
+![Publish to feed](../Images/PublishToFeed.png)
 
 Once the package is published, your users can browse and install it. In order to see your packages, though, they must have your feed in their list of sources:
 
-![Edit package sources](../images/EditPackageSources.png)
+![Edit package sources](../Images/EditPackageSources.png)
 
 1. Area for managing sources (feeds)
 2. Button for editing the feed
@@ -56,22 +56,22 @@ Once the package is published, your users can browse and install it. In order to
 
 ### Types of feeds
 
-If you are distributing packages inside your network, a shared network folder will be a good place to store packages. 
+If you are distributing packages inside your network, a shared network folder would be a good place to store packages. 
 
 In cases where you want to distribute packages to users outside of your local network (e.g. to your clients), you can publish the package to an online NuGet server, like Azure Artifacts ([instructions](../todo)).
 
-When adding a feed, you can specify if the source contains regular NuGet packages, QueryStorm extension packages or both. If you specify that a source contains only regular NuGet packages, the source will not be included when searching for QueryStorm extensions, and vice-versa.
+When adding a feed, you can specify if the source contains regular NuGet packages, QueryStorm extension packages or both. If you specify that a source contains only regular NuGet packages, the source will not be included when searching for QueryStorm extensions and vice-versa.
 
 Out of the box, two package sources are included:
 
 - Nuget.org
 - QueryStorm Extensions Feed 
 
-Nuget.org is the main repository of .NET packages and is used in QueryStorm for installing packages into projects. By default, it's feed type is set to "NuGet packages" so it will not be used when searching for extension (unless you change its feed type).
+Nuget.org is the main repository of .NET packages and is used in QueryStorm for installing packages into projects. By default, it's feed type is set to "NuGet packages" so it will not be used when searching for extensions (unless you change its feed type).
 
-The "QueryStorm Extensions Feed" contains only QueryStorm extensions made by our team. It's purpose is to be a place users can download general-purpose extensions from. To publish to this feed, users should request access via our support email address. 
+The "QueryStorm Extensions Feed" contains only QueryStorm extensions made by our team. It's purpose is to be a place where users can download general-purpose extensions from. To publish to this feed, users should request access via our [support email address](mailto:support@querystorm.com). 
 
-For distributing packages to your own clients, as mentioned, you should use a network share or create your own Azure Artifacts feed ([instructions](../todo)). Your clients should add your feed into their list in order to be able to install your packages.
+For distributing packages to your own clients, as mentioned, you should use a network share or create your own Azure Artifacts feed ([instructions](../todo)). Your clients should add your feed into their list in order to be able to install the packages.
 
 ## Publishing extension packages
 
@@ -91,7 +91,7 @@ When publishing a new version of an existing package, make sure to **increment t
 
 Azure Artifacts is a cloud-based package management solution that allows you to create and share NuGet packages via feeds that can be public or private.
 
-Setting up a feed takes just a few minutes, and is free of charge. Currently, the free plan allows for up to 2GB of storage, which is enough for thousands of packages, and should be more than enough for a long time. Should you need more space, scaling it is quite easy as well. 
+Setting up a feed takes just a few minutes and is free of charge. Currently, the free plan allows for up to 2GB of storage, which is enough for thousands of packages and should be more than enough for a long time. Should you need more space, scaling it is quite easy as well. 
 
 To create an Azure artifacts feed, follow the steps below:
 
@@ -110,10 +110,10 @@ In order to be able to publish to this feed, you'll also need to set up a person
 3. Set token expiration date
 4. Grant the token full access
 5. Copy the token
-6. In QueryStorm, enter the token as the password of the new feed and your email address (that's associated with your azure account) as the username
+6. In QueryStorm, enter the token as the password of the new feed and your email address (that's associated with your Azure account) as the username
 
 That's it. You can now publish to your new feed! The only thing left to do is to share the feed URL with your users so they can add it to their list of sources.
 
 For a video of the entire process, please click below:
 
-[![Setting up Azure Artifacts feed](../images/video.jpg)](https://youtu.be/jc5l4OV0PZM "Setting up Azure Artifacts feed")
+[![Setting up Azure Artifacts feed](../Images/video.jpg)](https://youtu.be/jc5l4OV0PZM "Setting up Azure Artifacts feed")
