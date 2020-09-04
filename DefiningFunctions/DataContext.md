@@ -28,7 +28,7 @@ Overriding the data context allows you to:
 
 To define a data context class, right click on the project node and click "Add"=>"DataContext class".
 
-![Add data context](../images/add_datacontext_menu.png)
+![Add data context](../Images/add_datacontext_menu.png)
 
 ### Adding tables
 
@@ -101,7 +101,7 @@ protected override void Initialize(ContextSchema schema)
 
 Once the project is compiled, C# scripts will be able to use the new property `MyDepartment` on the employee objects.
 
-![CSScript relationship navigation](../images/relationship_navigation_example.png)
+![CSScript relationship navigation](../Images/relationship_navigation_example.png)
 
 > Tip: for performance reasons (to avoid type conversions), it's slightly better to leave Id columns as `double` instead of `int`. 
 
