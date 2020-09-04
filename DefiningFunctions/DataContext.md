@@ -75,7 +75,7 @@ protected override void Initialize(ContextSchema schema)
 
 Excel also doesn't offer a way to define relationships between tables, but you can define those relationships inside a data context class. 
 
-Each time the data context file is saved, it is automatically compiled and loaded, and strongly typed classes are generated based on the tables it offers. Specifying relationships between tables, ensures that you get **strongly typed navigation properties** on those classes.
+Each time the data context file is saved, it is automatically compiled and loaded by the IDE, and strongly typed classes are generated based on the tables it offers. Specifying relationships between tables, ensures that you get **strongly typed navigation properties** on those classes.
 
 This does not impact SQL scripts but it does impact component code as well as C# scripts. 
 
