@@ -28,7 +28,7 @@ Overriding the data context allows you to:
 
 To define a data context class, right click on the project node and click "Add"=>"DataContext class".
 
-![Add data context](../images/AddDataContextMenu.png)
+![Add data context](../images/add_datacontext_menu.png)
 
 ### Adding tables
 
