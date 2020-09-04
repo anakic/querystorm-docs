@@ -12,7 +12,7 @@ The package manager is used for managing NuGet packages in projects (viewing, in
 ![PackageManager](../Images/PackageManager.png)
 
 Installing a package into your project does the following:
-- Adds an entry in the `Dependencies` section in the `module.cfg` file,
+- Adds an entry in the `Dependencies` section in the `module.cfg` file
 - Downloads the package
 - Unpacks the contents of the package into the project
   
@@ -26,7 +26,7 @@ QueryStorm also uses its NuGet infrastructure for publishing and downloading ext
 
 Extension packages are created and published from the QueryStom IDE (by package creators), but are installed and used from the QueryStorm runtime (by end users).
 
-![Extensions ribbon button](../images/ExtensionsRibbonButton.Png)
+![Extensions ribbon button](../images/extensionsribbonbutton.png)
 
 Extension packages are normal NuGet packages, but their content is designed to be used by the QueryStorm Runtime. They usually consist of one or more dlls, and an `application.manifest` file that the QueryStorm IDE generates. The manifest file tells the QueryStorm Runtime what the package contains (i.e. list of included functions) and where its entry point is.
 
