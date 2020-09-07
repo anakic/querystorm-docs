@@ -28,7 +28,7 @@ When unloading, the appdomain that held the App instance is destroyed, so you do
 
 The App class can request certain services from the QueryStorm Runtime. These services are injected as constructor arguments using a Unity IOC container.
 
-For example, if your application needs to interact with the workbook, it can request the `IWorkbookAccessor` service, like so:
+For example, if your application needs to interact with the workbook, it can request the `WorkbookAccessor` service, like so:
 
 ```csharp
 public App(IUnityContainer container, WorkbookAccessor workbookAccessor)
@@ -39,13 +39,13 @@ public App(IUnityContainer container, WorkbookAccessor workbookAccessor)
 }
 ```
 
-The following services are registered with the container out of the box (by the QueryStorm runtime):
+The following services are registered with the container out of the box (by the QueryStorm Runtime):
 - `IExcelAccessor`: allows access to the current Excel Application instance
 - `WorkbookAccessor`: Allows access to the workbook that contains the application (defined only for Workbook applications)
-- `IDialogService`: allows showing dialog messages to the user using the QueryStorm style of dialog windows, and ensuring the Excel window owns the dialogs
-- `CredentialsVault`: gives access to the encrypted connection credentials for the current user. This is primarily used by SQL scripts and related classes.
+- `IDialogService`: allows showing dialog messages to the user using the QueryStorm style of dialog windows, ensuring that Excel is set as the owner of the dialog windows
+- `CredentialsVault`: gives access to the current user's encrypted connection credentials. This is primarily used by SQL scripts and related classes.
 
-If any other services are required by your application, you should register them with the container in the constructor of the `App` class. Since the container instance belongs to your application and any changes you make to it will not affect anything outside of your application. 
+If any other services are required by your application, you should register them with the container in the constructor of the `App` class. Since the container instance belongs to your application, the changes that you make to it will not affect anything outside of your application. 
 
 
 ## Workbook applications
@@ -56,9 +56,9 @@ In addition, QueryStorm offers strongly typed access to Excel tables, and a mode
 
 ### Automation via COM
 
-As mentioned before, the `App` class in the entry point of the appliction. In its constructor, we can request a `WorkbookAccessor` instance which will give us access to the workbook that contains the application.
+As mentioned before, the `App` class is the entry point of the appliction. In its constructor, we can request a `WorkbookAccessor` instance which will give us access to the workbook that contains the application.
 
-We can use the workbook (COM object) to read and write cell values, subscribe to events, refresh graphs and pivot tables etc.
+We can use the workbook object to read and write cell values, subscribe to events, refresh graphs and pivot tables etc.
 
 For example, the following application will pop up a messagebox each time the current cell changes:
 
@@ -93,7 +93,7 @@ namespace Project
 }
 ```
 
-This is quite annoying behavior, so we may want to remove the event handler and rebuild the appliction. At that point, the previous version of the application will be shut down and it's appdomain unloaded, so there's no need for us to worry about unsubscribing event.
+Admittedly, this is quite annoying behavior, so we may want to remove the event handler and rebuild the appliction. At that point, the previous version of the application will be shut down and it's appdomain unloaded, so there's no need for us to worry about unsubscribing event.
 
 With this approach, we deal with the Excel API directly. The downside of this approach is that we're likely to spend a lot of time writing code that interacts with the Excel object model. That's why QueryStorm offers the model-binding approach.
 
