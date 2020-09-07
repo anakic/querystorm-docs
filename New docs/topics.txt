@@ -7,7 +7,7 @@
   + SQL functions
   + C# & VB.NET
 - QueryStorm project system
-  - Application class
+  + Application class
   + The data context
   - Components
   - Scripts
@@ -16,7 +16,7 @@
 - The two sides of QueryStorm
   - The IDE (+com addin)
   - The Runtime (+xl addin)
-- Managing packages
++ Managing packages
 - Managing database credentials
 - Licensing
 - Glossary (Module, Project, Application...)
