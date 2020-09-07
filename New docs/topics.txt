@@ -1,0 +1,21 @@
+- Querying
+  - Overview
+  - SQLite
+  - C#
+- Working with databases
+- Building Excel functions
+  + SQL functions
+  + C# & VB.NET
+- QueryStorm project system
+  - Application class
+  + The data context
+  - Components
+  - Scripts
+  - The module.config file
+- The SQL Preprocessor
+- The two sides of QueryStorm
+  - The IDE (+com addin)
+  - The Runtime (+xl addin)
+- Managing packages
+- Licensing
+- Glossary (Module, Project, Application...)

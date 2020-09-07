@@ -2,11 +2,9 @@
 
 A data context exposes tables, variables and events to your scripts and components.
 
-When you create a script, a new instance of the datacontext is automatically created and passed to the script. The script gets its data from the data context, and it can only see tables and variables that the data context provides.
+When you create a script, a new instance of the datacontext is automatically created and passed to the script. The script gets all of its data from the data context, so it can only see tables and variables that the data context provides.
 
-In each project there is exactly one data context class. If you do not define a data context class, a default one is used. 
-
-You may want to create your own data context class to customize the data that will be available to your scripts and components.
+In each project there is exactly one data context class. You can define your own data context class to customize the data that will be available to your scripts and components, but if not, a default data context will be used.
 
 ## The `WorkbookDataContext`
 
@@ -29,6 +27,8 @@ Overriding the data context allows you to:
 To define a data context class, right click on the project node and click "Add"=>"DataContext class".
 
 ![Add data context](../Images/add_datacontext_menu.png)
+
+QueryStorm's data context works much like an object-relational mapper. The datacontext class specifies the tables and relations that will be available to user code. Strongly typed classes (that represent table rows) are generated behind the scenes each time the data context file is saved.
 
 ### Adding tables
 

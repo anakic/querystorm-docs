@@ -34,7 +34,7 @@ QueryStorm uses the popular **ExcelDNA** library for registering Excel functions
 
 ## Defining functions via VB.NET
 
-The procedure for defining functions via VB.NET is the same as it is for C#, with one distinction - before adding the class file, in the `module.cfg` file, you should change the following line:
+The procedure for defining functions via VB.NET is the same as it is for C#, with one distinction - before adding the class file, in the `module.config` file, you should change the following line:
 
 ```
 "Language": "CSharp"

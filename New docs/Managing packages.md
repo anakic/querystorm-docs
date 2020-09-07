@@ -12,7 +12,7 @@ The package manager is used for managing NuGet packages in QueryStorm projects (
 ![PackageManager](../Images/PackageManager.png)
 
 Installing a package into your project does the following:
-- Adds an entry in the `Dependencies` section of the `module.cfg` file,
+- Adds an entry in the `Dependencies` section of the `module.config` file,
 - Downloads the package
 - Unpacks the contents of the package into the project
   
@@ -24,7 +24,7 @@ Since the package contents get stored inside the project, installing NuGet packa
 
 QueryStorm also uses its NuGet infrastructure for publishing and downloading extension packages. 
 
-Extension packages are created and published from the QueryStom IDE (by package creators), but are installed and used from the QueryStorm runtime (by end users).
+Extension packages are created and published from the QueryStom IDE (by package creators), but are installed and used from the QueryStorm Runtime (by end users).
 
 ![Extensions ribbon button](../Images/ExtensionsRibbonButton.PNG)
 
@@ -35,7 +35,7 @@ A typical scenario for QueryStorm extensions is as follows:
 1. A developer or a consultant uses the QueryStorm IDE to write a set of Excel functions (in C#, VB.NET or SQL) 
 2. Once they've prepared the functions, they publish the package to a feed
 3. End users install the package using the Extensions manager in the QueryStorm Runtime
-4. The end users then use the new functions in Excel workbooks
+4. The end users then use the new functions in their Excel workbooks
 
 ## Managing NuGet sources
 
@@ -47,6 +47,8 @@ Once the package is published, your users can browse and install it. In order to
 
 ![Edit package sources](../Images/EditPackageSources.png)
 
+The list of feeds is edited in the Package/Extensions Manager dialog as shown above. 
+
 1. Area for managing sources (feeds)
 2. Button for editing the feed
 3. Feed url or path
@@ -56,7 +58,7 @@ Once the package is published, your users can browse and install it. In order to
 
 ### Types of feeds
 
-If you are distributing packages inside your network, a shared network folder would be a good place to store packages. 
+If you are distributing packages inside your network, a shared network folder will be a good place to store them. 
 
 In cases where you want to distribute packages to users outside of your local network (e.g. to your clients), you can publish the package to an online NuGet server, like Azure Artifacts ([instructions](../todo)).
 
@@ -69,9 +71,9 @@ Out of the box, two package sources are included:
 
 Nuget.org is the main repository of .NET packages and is used in QueryStorm for installing packages into projects. By default, it's feed type is set to "NuGet packages" so it will not be used when searching for extensions (unless you change its feed type).
 
-The "QueryStorm Extensions Feed" contains only QueryStorm extensions made by our team. It's purpose is to be a place where users can download general-purpose extensions from. To publish to this feed, users should request access via our [support email address](mailto:support@querystorm.com). 
+The "QueryStorm Extensions Feed" contains only QueryStorm extensions made by our team. It's purpose is to be a place users can download general-purpose extensions from. To publish to this feed, users should request access via our [support email address](mailto:support@querystorm.com). 
 
-For distributing packages to your own clients, as mentioned, you should use a network share or create your own Azure Artifacts feed ([instructions](../todo)). Your clients should add your feed into their list in order to be able to install the packages.
+For distributing packages to your own clients, as mentioned, you should use a network share or create your own Azure Artifacts feed ([instructions](../todo)). Your clients should add your feed into their list in order to see your the packages.
 
 ## Publishing extension packages
 
