@@ -101,7 +101,7 @@ With this approach, we deal with the Excel API directly. The downside of this ap
 
 The model binding approach to building workbook applications is designed to minimize the amount of code you need to write to interact with Excel. 
 
-With this approach, most of the business logic resides inside **component** classes. A component class handles the logic that controls part of the workbook. You can have any number of controllers in a workbook, each controlling it's own part of the workbook (or one controller for the entire workbook).
+With this approach, most of the business logic resides inside **component** classes. A component class handles the logic that controls part of the workbook. You can have any number of controllers in a workbook, each controlling it's own (arbitrarily defined) part of the workbook.
 
 A component accepts dependencies via constructor injection. The parameters of a component can be data-bound to cells in Excel via the `[Bind]` attribute. The methods of the component can handle events coming from Excel (e.g. button click, cell change), which is specified using the `[EventHandler]` attribute.
 
