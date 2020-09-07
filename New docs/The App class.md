@@ -5,7 +5,7 @@ In QueryStorm, you can define projects inside your workbook, or outside of it (i
 Projects defined inside the workbook serve to automate the workbook and define functions that are only available inside that particular workbook. Projects that are defined outside of a workbook serve to define functions that should be usable in any Excel workbook. 
 
 The `App` class is the entry point to the QueryStorm application. 
-If your project does not define an `App` class explicitly, a default `ApplicationModule` instance is used implicitly.
+If your project does not define an `App` class explicitly, a default `Application` instance is used implicitly.
 
 ![The app class node](../Images/AppClass.png)
 
