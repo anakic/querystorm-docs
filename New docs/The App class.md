@@ -1,6 +1,6 @@
 # The App class
 
-QueryStorm can define projects that are part of the workbook, or are defined outside of workbooks. Each project can be a small application that the QueryStorm runtime runs and manages.
+QueryStorm can define projects that are either part of the workbook, or are defined outside (in a folder). Each project is a small application that the QueryStorm runtime runs and manages.
 
 The `App` class is the entry point to the QueryStorm application. 
 If your project does not define an `App` class explicitly, a default `ApplicationModule` instance is used implicitly.
