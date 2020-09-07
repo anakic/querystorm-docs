@@ -129,7 +129,7 @@ namespace Project
 			this.dialogService = dialogService;
 		}
 		
-        // binds to a cell with the name "name"
+		// binds to a cell with the name "name"
 		[Bind("name")]
 		public string Name
 		{
@@ -137,7 +137,7 @@ namespace Project
 		    set { name = value; OnPropertyChanged(nameof(Name)); }
 		}
 		
-        // binds to a cell with the name "dateOfBirth"
+		// binds to a cell with the name "dateOfBirth"
 		[Bind("dateOfBirth")]
 		public DateTime Date
 		{
@@ -145,7 +145,7 @@ namespace Project
 		    set { date = value; OnPropertyChanged(nameof(Date)); }
 		}	
 		
-        // handles the click of an ActiveX button
+		// handles the click of an ActiveX button
 		[EventHandler("Sheet1!CommandButton1")]
 		public void Test()
 		{
