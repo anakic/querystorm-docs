@@ -105,7 +105,7 @@ With this approach, most of the business logic resides inside **component** clas
 
 A component accepts dependencies via constructor injection. The parameters of a component can be data-bound to cells in Excel via the `[Bind]` attribute. The methods of the component can handle events coming from Excel (e.g. button click, cell change), which is specified using the `[EventHandler]` attribute.
 
-For example, the following component will pop up a messagebox whose text depends on the values of two values from Excel cells:
+For example, the following component will pop up a messagebox whose text depends on the values of two Excel cells:
 
 ```csharp
 using System;
