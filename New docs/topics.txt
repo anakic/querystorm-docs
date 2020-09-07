@@ -17,5 +17,6 @@
   - The IDE (+com addin)
   - The Runtime (+xl addin)
 - Managing packages
+- Managing database credentials
 - Licensing
 - Glossary (Module, Project, Application...)

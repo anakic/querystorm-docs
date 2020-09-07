@@ -7,7 +7,7 @@ Projects defined inside the workbook serve to automate the workbook and define f
 The `App` class is the entry point to the QueryStorm application. 
 If your project does not define an `App` class explicitly, a default `ApplicationModule` instance is used implicitly.
 
-When loading the module, the runtime will create a single instance the `App` class. It is the job the `App` class to initialize the application: register services, create the data context and components. 
+When loading the module, the Runtime will create a single instance of the `App` class. It is the job the `App` class to initialize the application i.e. to register services, create and initialize the data context and components. 
 
 ## Application lifetime
 The runtime is responsible for loading applications. Each applications is loaded into a separate `AppDomain`, ensuring a level of separation between different user applications. 
@@ -20,7 +20,7 @@ Extension applications are loaded when Excel opens, and are unloaded when Excel 
 
 Both Workbook and Extension applications are reloaded each time a new version of the applciation is built by the IDE. When the IDE successfully builds a project, it sends a message to the Runtime to inform it that a new module has been prepared, and the Runtime immediatelly attempts to load it, after terminating any previously running instances of the same application. 
 
-When unloading, the appdomain that held the App instance is destroyed, so you don't need to worry about cleaning up event handlers or managed objects surviving the shutdown.
+When unloading, the appdomain that held the App instance is destroyed, so you don't need to worry about cleaning.
 
 ## Dependency Injection
 
@@ -37,11 +37,11 @@ public App(IUnityContainer container, WorkbookAccessor workbookAccessor)
 }
 ```
 
-The following services are registered in the container out of the box:
+The following services are registered with the container out of the box (by the QueryStorm runtime):
 - `IExcelAccessor`: allows access to the current Excel Application instance
-- `WorkbookAccessor`: defined for Workbook applications, allows access to the workbook that contains the application.
-- `IDialogService`: allows showing dialog messages to the user using the QueryStorm style of dialog windows, and ensuring the Excel window owns the dialogs.
-- `CredentialsVault`: gives access to the store that holds connection credentials for the current user. This is primarily used by SQL scripts and the components/functions that are auto-generated for them.
+- `WorkbookAccessor`: Allows access to the workbook that contains the application (defined only for Workbook applications)
+- `IDialogService`: allows showing dialog messages to the user using the QueryStorm style of dialog windows, and ensuring the Excel window owns the dialogs
+- `CredentialsVault`: gives access to the encrypted connection credentials for the current user. This is primarily used by SQL scripts and related classes.
 
 If any other services are required by your application, you should register them with the container in the constructor of the `App` class. Since the container instance belongs to your application and any changes you make to it will not affect anything outside of your application. 
 
