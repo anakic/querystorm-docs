@@ -156,8 +156,8 @@ namespace Project
 }
 ```
 For a video demonstrating the creation and result of the component, click below:
-~[Workbook automation via C#](https://youtu.be/DFuTKu6O_9g)
 
+[![Workbook automation via C#](../images/video.jpg)](https://youtu.be/DFuTKu6O_9g "Workbook automation via C#")
 
 The component can interact directly with Excel if it needs to, by requestin a `WorkbookAccessor` object, but usually it just write the business logic and relies on binding attributes to handle the plumbing of communicating with Excel.
 
