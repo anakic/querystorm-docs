@@ -9,7 +9,7 @@
 - QueryStorm project system
   + Application class
   + The data context
-  - Components
+  - Components (+bindings)
   - Scripts
   - The module.config file
 - The SQL Preprocessor

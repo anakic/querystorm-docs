@@ -161,10 +161,10 @@ For a video demonstrating the creation and result of the component, click below:
 
 [![Workbook automation via C#](../Images/video.jpg)](https://youtu.be/DFuTKu6O_9g "Workbook automation via C#")
 
-The component can interact directly with Excel if it needs to, by requestin a `WorkbookAccessor` object, but usually it just write the business logic and relies on binding attributes to handle the plumbing of communicating with Excel.
+The component can interact directly with Excel if it needs to, by requesting a `WorkbookAccessor` object, but usually it will just contain the business logic and rely on bindings to handle the plumbing of communicating with Excel.
 
 It's important to note that components aren't directy bound to Excel. Instead they are bound to a data context. For workbook applications, this data context (the `WorkbookDataContext`) exposes data and events from the workbook. If you need to customize the data context, you should specify your own data context in the project.
 
 ## Extension applications
 
-Extension applications are defined inside projects at the machine level. Extension projects usually only contain excel functions defined via C# or VB.NET. However, these projects can still have an `App` class. The purpose of the app class is much the same: to be the entry point of the module. Inside its constructor we register (with the IOC container) any services that are needed by the functions contained in the project. If it's a commercial package, we can also check for a valid license to make sure the user is licensed to use the package.
+Extension applications are defined inside projects at the machine level. Extension projects usually only contain user-defined Excel functions. However, these projects can still have an `App` class. Inside its constructor we register (with the IOC container) any services that are needed by the functions contained in the project. If it's a commercial package, we can also check for a valid license to make sure the user is licensed to use the package.
