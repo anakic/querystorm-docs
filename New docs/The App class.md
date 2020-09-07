@@ -7,6 +7,8 @@ Projects defined inside the workbook serve to automate the workbook and define f
 The `App` class is the entry point to the QueryStorm application. 
 If your project does not define an `App` class explicitly, a default `ApplicationModule` instance is used implicitly.
 
+![The app class node](../Images/AppClass.png)
+
 When loading the module, the Runtime will create a single instance of the `App` class. It is the job the `App` class to initialize the application i.e. to register services, create and initialize the data context and components. 
 
 ## Application lifetime
