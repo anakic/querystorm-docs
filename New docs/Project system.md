@@ -30,7 +30,7 @@ The project system supports the following kinds of files:
 ![Add files context menu](../Images/add_files_context_menu.png)
 
 - **Class files** (.cs or .vb) contain the logic of your application. Depending on the language of the project, they will have a `.cs` or `.vb` extension.
-- **[The Application file]** (`App.cs/App.vb`) file defines the Application class that is the entry point of the application and serves to initialize services, the data context and components. There is a maximum of one `App` file per project.
+- **The Application file** (`App.cs/App.vb`) file defines a class that is the entry point of the application and serves to initialize services, the data context and components. There is a maximum of one `App` file per project.
 - **The data context file** defines the tables, variables and events that will be visible to scripts and components. On each save, it generates strongly typed classes for accessing the tables defined inside the context. There is a maximum of one data context file per project.
 - **Component files** are ordinary class files generated from a template that provides a skeleton component class that the user can users can use as a starting point for creating their own components
 - **Excel function class files** are ordinary class files generated from a template that provides an example implementation of an Excel function, that users can use as a starting point when writing their own Excel functions.
