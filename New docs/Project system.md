@@ -57,3 +57,5 @@ Projects can use existing libraries in two ways:
 
 In both cases, dll files are added to the `lib` folder and are immediately referenced by your project.
 
+When referencing a local file, an entry is added to the "References" section of the `module.config` file, while NuGet references are added to the "Dependencies" section.
+
