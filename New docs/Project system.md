@@ -32,10 +32,10 @@ The project system supports the following kinds of files:
 - **Class files** (.cs or .vb) contain the logic of your application. Depending on the language of the project, they will have a `.cs` or `.vb` extension.
 - **The Application file** (`App.cs/App.vb`) file defines a class that is the entry point of the application and serves to initialize services, the data context and components. There is a maximum of one `App` file per project.
 - **The data context file** defines the tables, variables and events that will be visible to scripts and components. On each save, it generates strongly typed classes for accessing the tables defined inside the context. There is a maximum of one data context file per project.
-- **Component files** are ordinary class files which are generated from a template that provides a skeleton component class which users can use as a starting point for creating their own components
-- **Excel function class files** are ordinary class files which are generated from a template that provides an example implementation of an Excel function, which users can use as a starting point when writing their own Excel functions.
-- **Script files** contain SQL and C# scripts (note: VB.NET is not supported for scripting) that process Excel data or fetch data from databases, REST services etc... SQL scripts support a preprocessor syntax that allows defining functions and commands via SQL. Saving a SQL script generates supporting classes that define functions/commands and offer strongly typed access to results.
-- The **module.config** file contains the configuration settings for the project, including a list of library and NuGet refernces, selected language (CSharp/VisualBasic), connection strings and project metadata (name, version, etc...).
+- **Component files** are ordinary class files that are generated from a template that provides a skeleton component class.
+- **Excel function class files** are ordinary class files that are generated from a template that provides an example implementation of a custom Excel function.
+- **Script files** contain SQL and C# scripts (VB.NET is not supported for scripting) that process Excel data or fetch data from databases or REST services, or simply run arbitrary code. SQL scripts support a preprocessor syntax that allows defining functions and commands via SQL. Saving a SQL script generates supporting classes that define functions and commands and strongly typed classes for results.
+- The **module.config** file contains the configuration settings for the project, including a list of library and NuGet refernces, language selection (CSharp/VisualBasic), connection strings and project metadata (name, version, etc...).
 
 ## Project folders
 
@@ -43,11 +43,11 @@ Files can be organized into more-or-less arbitrary folders. The exception are th
 
 As mentioned earlies, the `bin` folder contains the build output of the project. It's contents are cleared before each build, so it should not be used to store any user files.
 
-The `lib` folder contains dll files that were added as library references, as well as dll files that have been downloaded as NuGet packages. All dlls inside this folder are automatically referenced and their types can be used in your code, but they are not copied to the `bin` folder during build.
+The `lib` folder contains dll files that were added as library references, as well as dll files that have been downloaded as NuGet packages. All dlls inside this folder are automatically referenced and their types can be used in your code.
 
 When publishing a package, the package will contain all files from both the `bin` and `lib` folders.
 
-## Libraries and packages
+## Referncing dlls and NuGet packages
 
 Projects can use existing libraries in two ways:
 1. By installing NuGet packages
