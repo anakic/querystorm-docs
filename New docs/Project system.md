@@ -41,7 +41,7 @@ The project system supports the following kinds of files:
 
 Files can be organized into more-or-less arbitrary folders. The exception are the two folders that have a special meaning, specifically: `bin` and `lib`.
 
-As mentioned earlies, the `bin` folder contains the build output of the project. It's contents are cleared before each build, so it should not be used to store any user files.
+As mentioned earlies, the `bin` folder contains the build output of the project. Its contents are cleared before each build, so it should not be used to store any user files.
 
 The `lib` folder contains dll files that were added as library references, as well as dll files that have been downloaded as NuGet packages. All dlls inside this folder are automatically referenced and their types can be used in your code.
 
