@@ -21,7 +21,7 @@ The selected language of the project is defined in the `module.config` file:
 ```json
 "Language": "CSharp"
 ```
-The allowed values are "CSharp" and "VisualBasic". Alternatively, you can use the number 1 (without quotes) for C# and 2 for VB.NET. This settings affects the compilation of the project, as well as the class templates that are used when adding new files to the projects.
+The allowed values are "CSharp" and "VisualBasic". Alternatively, you can use the number 1 (without quotes) for C# and 2 for VB.NET. This setting affects the compilation of the project, as well as the class templates that are used when adding new files to the projects.
 
 ## Kinds of files
 
