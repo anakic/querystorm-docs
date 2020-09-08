@@ -8,7 +8,7 @@ In order to run the code inside a project, the project needs to be built (compil
 
 There are two kinds of projects in QueryStorm: Workbook projects and Extension projects. 
 
-**Workbook projects** are defined inside a particular workbook and serve to automate the workbook, and to define functions that are specific to the containing workbook. Both the code as well as the output files of a workbook project are stored inside the workbook itself.
+**Workbook projects** are defined inside a particular workbook and serve to automate the workbook, and to define functions that are specific to the containing workbook. Both the code and as the output files of a workbook project are stored inside the workbook itself.
 
 **Extension projects** are defined at the machine-level, and serve to define functions that should be available in all workbooks. Building (compiling) an extension project produces an extension package. Extension packages can be shared with other users by publishing them to a network share or to an online server. They can be downloaded by end users via the Extensions Manager that's part of the QueryStorm runtime.
 
