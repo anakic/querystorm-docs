@@ -167,4 +167,10 @@ It's important to note that components aren't directy bound to Excel. Instead th
 
 ## Extension applications
 
-Extension applications are defined inside projects at the machine level. Extension projects usually only contain user-defined Excel functions. However, these projects can still have an `App` class. Inside its constructor we register (with the IOC container) any services that are needed by the functions contained in the project. If it's a commercial package, we can also check for a valid license to make sure the user is licensed to use the package.
+Extension applications are defined inside projects at the machine level. 
+
+The only purpose of extension projects (for now) is to define a set of custom Excel functions that you can use in any workbook, and that you can share as a package to other (QueryStorm runtime) users. 
+
+Even though they only hold functions, they are loaded by the QueryStorm runtime in the exact same way as Workbook applications. They have an `App` class that they can use to register dependencies that the functions can share.
+
+If it's a commercial package, we can also check for a valid license to make sure the user is licensed to use the package.
