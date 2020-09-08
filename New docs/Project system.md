@@ -21,7 +21,7 @@ The selected language of the project is defined in the `module.config` file:
 ```json
 "Language": "CSharp"
 ```
-The allowed values are "CSharp" and "VisualBasic". Alternatively, you can use the number 1 (without quotes) for C# and 2 for VB.NET. This setting affects the compilation of the project, as well as the class templates that are used when adding new files to the projects.
+The allowed values are "CSharp" and "VisualBasic". Alternatively, you can use the number 1 (without quotes) for C# and 2 for VB.NET. This setting affects the compilation of the project, as well as the class templates that are used when adding new files to projects.
 
 ## Kinds of files
 
@@ -34,8 +34,8 @@ The project system supports the following kinds of files:
 - **The data context file** defines the tables, variables and events that will be visible to scripts and components. On each save, it generates strongly typed classes for accessing the tables defined inside the context. There is a maximum of one data context file per project.
 - **Component files** are ordinary class files that are generated from a template that provides a skeleton component class.
 - **Excel function class files** are ordinary class files that are generated from a template that provides an example implementation of a custom Excel function.
-- **Script files** contain SQL and C# scripts (VB.NET is not supported for scripting) that process Excel data or fetch data from databases or REST services, or simply run arbitrary code. SQL scripts support a preprocessor syntax that allows defining functions and commands via SQL. Saving a SQL script generates supporting classes that define functions and commands and strongly typed classes for results.
-- The **module.config** file contains the configuration settings for the project, including a list of library and NuGet refernces, language selection (CSharp/VisualBasic), connection strings and project metadata (name, version, etc...).
+- **Script files** contain SQL and C# scripts (VB.NET is not supported for scripting) that can process Excel data or fetch data from databases or REST services, or simply run arbitrary code. SQL scripts support a preprocessor syntax that allows defining functions and commands via SQL. Saving a SQL script generates supporting classes that define functions and commands and strongly typed classes for results.
+- The **module.config** file contains the configuration settings for the project, including a list of library and NuGet references, language selection (CSharp/VisualBasic), connection strings and project metadata (name, version, etc...).
 
 ## Project folders
 
@@ -47,7 +47,7 @@ The `lib` folder contains dll files that were added as library references, as we
 
 When publishing a package, the package will contain all files from both the `bin` and `lib` folders.
 
-## Referncing dlls and NuGet packages
+## Referencing dlls and NuGet packages
 
 Projects can use existing libraries in two ways:
 1. By installing NuGet packages
