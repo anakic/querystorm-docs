@@ -14,7 +14,7 @@ There are two kinds of projects in QueryStorm: Workbook projects and Extension p
 
 ## Supported programming languages
 
-QueryStorm projects support source code in C# and VB.NET. While C# is more popular with developers, VB.NET is more familiar to people with VBA experience. Source code for both languages is compiled using Microsoft's Roslyn compiler.
+QueryStorm projects support source code in C# and VB.NET. While C# is more popular with developers, VB.NET is more familiar to people with VBA experience. The two languages have a somewhat different syntax, but are practically identical in capabilities. Source code for both languages is compiled using Microsoft's Roslyn compiler.
 
 The selected language of the project is defined in the `module.config` file: 
 
