@@ -78,7 +78,7 @@ where
 And the resulting formatting look like this:
 ![Formatting rows example](../../Images/setbackgroundcolor.png)
 
-> Having the formatting functions in the select list might look a bit peculiar. They don't really return any interesting results, but having them in the select list ensures that they have access to rows that satisfy the `where` clause. SQL was not designed for this sort of operation, so unfortunately, there isn't a more appropriate syntax for this.
+> Having the formatting functions in the select list might look a bit peculiar. Formatting functions don't really return any interesting results, but having them in the select list ensures that they have access to rows that satisfy the `where` clause. SQL was not designed for this sort of operation, so unfortunately, there isn't a more appropriate syntax for this.
 
 
 ## Indexing columns
