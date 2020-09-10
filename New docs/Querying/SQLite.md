@@ -14,7 +14,7 @@ Once connected, we can start querying. It's important to note that the SQLite en
 
 ![Querying](../../Images/sql_querying.gif?v=1)
 
-You can use SQL to **query** as well as **modify** data inside tables. All four SQL data operations are supported: `select`, `insert`, `update` and `delete`. Any changes that your commands make to Excel tables are immediately visible in Excel. 
+You can use SQL to **query** as well as **modify** data inside tables. All four SQL data operations are supported: `select`, `insert`, `update` and `delete`. Any changes that your commands make to workbook tables are immediately visible in Excel. 
 
 The default connection is in-memory, so any objects you create in the session (tables, views) are temporary and will disappear as soon as you disconnect.
 
@@ -23,9 +23,9 @@ When using the SQLite engine, all workbook tables get an additional column named
 
 This column is useful for two main reasons:
 - Double-clicking the address in the results grid will select the range in Excel
-- The address information can be used from SQL commands for formatting ranges (as described below)
+- The address information can be used for formatting ranges from SQL (described below)
 
-## Working with cells
+## Querying cells 
 While the SQLite engine primarily works with Excel tables, it can also work with cells via the **`xlcells()`** table-valued function. 
 
 The following query returns a list of cells in the current selection:
