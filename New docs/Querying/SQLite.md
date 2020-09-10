@@ -21,14 +21,14 @@ Any changes that your commands make to Excel tables are immediately visible in E
 The default connection is in-memory, so any objects you create in the session (tables, views) are temporary and will disappear as soon as you disconnect.
 
 ## The `__address` column
-When using the SQLite engine, all workbook tables get an additional hidden column called `__address`. This column contains the original address of the row in Excel. The `__address` column is **not included** in the results if you only specify `*` in the select list; you must include it in the select list explicitly if you need it (e.g. `select *, __address...`).
+When using the SQLite engine, all workbook tables get an additional column named `__address`. This column contains the original address of the row in Excel. The `__address` column is **hidden**, meaning it is **not included** in the results if you only specify `*` in the select list; you must include it in the select list explicitly if you need it (e.g. `select *, __address...`).
 
-Double-clicking the address in the results grid will select the row in Excel. 
-
-Also, this colum can be very useful for formatting ranges from SQL commands.
+This column is useful for two main reasons:
+- Double-clicking the address in the results grid will select the range in Excel
+- The address information can be used from SQL commands for formatting ranges (as described below)
 
 ## Working with cells
-While the SQLite engine primarily works with Excel tables, you can also work with cells using the **`xlcells()`** table-valued function. 
+While the SQLite engine primarily works with Excel tables, it can also work with cells via the **`xlcells()`** table-valued function. 
 
 The following query returns a list of cells in the current selection:
 ```sql
@@ -45,7 +45,7 @@ For each cell in the selection, one row is returned in the results. Each cell is
 
 You can use this information to search for values or format cells based on criteria that your specify with SQL.
 
-Aside from reading values, the `xlcells` function can also be used for updating. In that case, `xlcells` is used as a table and its parameter is specified in the `where` clause. 
+Aside from reading values, the `xlcells` function can also be used for updating. In that case, `xlcells` is used as a table in the `update` query, and its parameter is specified in the `where` clause. 
 
 For example, the follwing query will add 100 to all cells that have a numeric value:
 
@@ -55,16 +55,14 @@ update
 set 	
 	Value = Value + 100
 where 
-	targetRangeAddress = 'H6:I8' -- the parameter is here (visible in autocomplete)
-	and [Type] = 'Double'
+	targetRangeAddress = 'H6:I8' -- the function's parameter is here (it's visible in autocomplete)
+	and Type = 'Double'
 ```
-> Under the hood, table-valued-functions in SQLite are implemented as virtual tables, and can be used both as tables and as tabular functions.
+> Under the hood, table-valued-functions in SQLite are implemented as virtual tables, which can be used both as tables and as tabular functions.
 
 
 ## Formatting rows and cells
-Since the SQLite engine is running *in-process* with Excel, it can interact with Excel objects. A typical use case for this is modifying formatting. 
-
-QueryStorm's SQLite engine offers the following functions for this purpose: `SetBackgroundColor` and `ClearBackgroundColor`. Both functions require the target address (`__address` in case of rows and `Address` in case of cells).
+Since the SQLite engine is running *in-process* with Excel, it can interact with Excel objects. A typical use case for this is modifying formatting. Two functions are provided for this purpose: `SetBackgroundColor` and `ClearBackgroundColor`.
 
 Here's an example:
 ``` SQL
@@ -78,17 +76,16 @@ from
 	 movies
 where
 	gross > 400000000
-order by
-	__row asc
 ``` 
 And the resulting formatting look like this:
 ![Formatting rows example](../../Images/setbackgroundcolor.png)
 
+> Having the formatting functions in the select list might look a bit peculiar. They don't really return any interesting results, but having them in the select list ensures that they have access to rows that satisfy the `where` clause. SQL was not designed for this sort of operation, so unfortunately, there isn't a more appropriate syntax for this.
 
 
-## Column indexes
-All columns of Excel tables are automatically indexed by the SQLite engine. This makes joins and searches very fast, though all of the indexes are single-column indexes. 
+## Indexing columns
+All columns of Excel tables are automatically indexed by the SQLite engine. This makes joins and searches very fast. However, all of the indexes are single-column indexes and no additional indexes can be defined by the user (for workbook tables). 
 
-For representing workbook tables QueryStorm uses SQLite's virtual table mechanism, meaning that the indexing logic is baked in and no additional indexes can be defined (for workbook tables). 
+For representing workbook tables, QueryStorm uses SQLite's virtual table mechanism. Virtual tables have the indexing logic baked in and user defined indexes are not supported. 
 
 If different indexing is needed, you can create a copy of the table and add indexes to the copy, though this is very rarely required.
