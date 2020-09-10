@@ -8,19 +8,17 @@ Clicking the SQL button in the ribbon pops up the QueryStorm IDE and creates a n
 
 ## Querying
 
-Once connected, we can start querying. It's important to note that the SQLite engine will only see data that is inside [Excel tables](http://www.excel-easy.com/data-analysis/tables.html "Excel tables intro"). 
+Once connected, we can start querying. It's important to note that the SQLite engine will only see data inside [Excel tables](http://www.excel-easy.com/data-analysis/tables.html "Excel tables intro"). 
 
 > To turn a range into a table, select it and press `Ctrl+T`
 
 ![Querying](../../Images/sql_querying.gif?v=1)
 
-You can use SQL to query as well as modify data inside tables. All four SQL data operations are supported: `select`, `insert`, `update` and `delete`.
-
-Any changes that your commands make to Excel tables are immediately visible in Excel. 
+You can use SQL to **query** as well as **modify** data inside tables. All four SQL data operations are supported: `select`, `insert`, `update` and `delete`. Any changes that your commands make to Excel tables are immediately visible in Excel. 
 
 The default connection is in-memory, so any objects you create in the session (tables, views) are temporary and will disappear as soon as you disconnect.
 
-## The `__address` column
+### The `__address` column
 When using the SQLite engine, all workbook tables get an additional column named `__address`. This column contains the original address of the row in Excel. The `__address` column is **hidden**, meaning it is **not included** in the results if you only specify `*` in the select list; you must include it in the select list explicitly if you need it (e.g. `select *, __address...`).
 
 This column is useful for two main reasons:
