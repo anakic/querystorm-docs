@@ -3,7 +3,7 @@
 - Querying
   - Overview
   - SQLite
-  - Databases
+  - External databases
   - C# linq
 
 - Creating Excel functions
