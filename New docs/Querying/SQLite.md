@@ -21,7 +21,11 @@ Any changes that your commands make to Excel tables are immediately visible in E
 The default connection is in-memory, so any objects you create in the session (tables, views) are temporary and will disappear as soon as you disconnect.
 
 ## The `__address` column
-When using the SQLite engine, all workbook tables get an additional hidden column called `__address`. This column contains the original address of the row in Excel. Double-clicking the address in the results grid will select the row in Excel. The `__address` column is **not included** in the results if you only specify `*` in the select list; you must include it in the select list explicitly if you need it (e.g. `select *, __address...`).
+When using the SQLite engine, all workbook tables get an additional hidden column called `__address`. This column contains the original address of the row in Excel. The `__address` column is **not included** in the results if you only specify `*` in the select list; you must include it in the select list explicitly if you need it (e.g. `select *, __address...`).
+
+Double-clicking the address in the results grid will select the row in Excel. 
+
+Also, this colum can be very useful for formatting ranges from SQL commands.
 
 ## Working with cells
 While the SQLite engine primarily works with Excel tables, you can also work with cells using the **`xlcells()`** table-valued function. 
