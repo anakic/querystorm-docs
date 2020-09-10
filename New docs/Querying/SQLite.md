@@ -14,7 +14,7 @@ Once connected, we can start querying. It's important to note that the SQLite en
 
 ![Querying](../../Images/sql_querying.gif?v=1)
 
-You can query the data or modify it as you see fit. All four SQL data operations are supported: `select`, `insert`, `update` and `delete`.
+You can use SQL to query and modify data inside tables. All four SQL data operations are supported: `select`, `insert`, `update` and `delete`.
 
 Any changes that your commands make to Excel tables are immediately visible in Excel. 
 
