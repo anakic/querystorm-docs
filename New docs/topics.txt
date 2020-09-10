@@ -1,22 +1,33 @@
+- Introduction
+
 - Querying
   - Overview
   - SQLite
-  - C#
-- Working with databases
-- Building Excel functions
+  - Databases
+  - C# linq
+
+- Creating Excel functions
+  - Overview
   + SQL functions
-  + C# & VB.NET
-- QueryStorm project system
-  + Application class
-  + The data context
-  - Components (+bindings)
-  - Scripts
-  - The module.config file
-- The SQL Preprocessor
-- The two sides of QueryStorm
-  - The IDE (+com addin)
-  - The Runtime (+xl addin)
-+ Managing packages
-- Managing database credentials
-- Licensing
-- Glossary (Module, Project, Application...)
+  + C# & VB.NET functions (arrays, async, RTD)
+
+- Automating workbooks
+  - COM Automation
+  - Model binding
+
+- General topics
+  - QueryStorm project system
+    - Overview
+    + Application class
+    + The data context
+    - Components (+bindings)
+    - Scripts
+    - The module.config file
+  - The SQL Preprocessor
+  - The two sides of QueryStorm
+    - The IDE (+com addin)
+    - The Runtime (+xl addin)
+  + Managing packages
+  - Managing database credentials
+  - Licensing
+  - Glossary (Module, Project, Application...)
