@@ -1,6 +1,6 @@
 # External databases
 
-QueryStorm supports connecting to external databases, allowing you to query workbook tables alongside database tables. This makes moving data between Excel and databases, in both directions, much easier.
+QueryStorm supports connecting to external databases, allowing you to query workbook tables alongside database tables. This makes moving data between Excel and databases (in both directions) much easier.
 
 Currently SQL Server, PostgreSQL, MySql, SQLite and Redshift (via Postgres) are supported, while support for other databases may be rolled out in future versions depending on user needs and requests.
 
@@ -13,11 +13,11 @@ QueryStorm will then prompt you to enter the connection details and select the w
 
 ![Connect dialog](../../Images/connect_dialog.png)
 
-When the connection is established, selected workbook tables are automatically copied to the database as temp tables. Once there, they can be queried or imported into permanent tables via SQL commands.
+When the connection is established, selected workbook tables are automatically copied to the database as temp tables. Once there, they can be queried or imported into permanent tables via SQL.
 
 ![Connected external](../../Images/connected_external.png?v=1 "Connected to external SQL Server")
 
-Any changes you make in Excel are immediately synchonized to the temp tables, and new queries are delayed until the sync is done.
+While connected, any changes that you make to Excel tables are immediately synchonized to the temp tables, and new queries are delayed until the sync operation is done.
 
 Aside from workbook tables, scripts can also see the values of (single-celled) named ranges. These can be used as parameters in your scripts: 
 
