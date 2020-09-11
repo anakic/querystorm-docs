@@ -38,7 +38,7 @@ SELECT * FROM HumanResources.Department
 ```   
 When this script is executed, the results will be written into an Excel table called *dpt*. If the table does not yet exist, it will be created starting at the currently selected cell. If a table called *dpt* does exists in the current workbook, it will be overwritten by the results of the query. If the workbook table has any columns that are not present in the query results (e.g. calculated columns), those columns will be left intact.
 
-To update multiple tables from the same query, we can use multiple output directives:
+To update multiple tables from the same script, we can use multiple output directives:
 
 ```sql
 {@dpt}
@@ -58,7 +58,7 @@ The script file only stores the connection name, while the actual connection str
 
 ![Connection name](../../Images/connection_name_2.png)
 
-This is done to ensure that multiple scripts in a workbook can use the same connection name, so that you can change the connection string for all of those scripts in one place. 
+This is done to allow scripts in a workbook to share connection strings, instead of each script having its own connection string.
 
 ### Connection string security
 
