@@ -26,7 +26,7 @@ Read more about the SQL support [here](todo).
 
 Aside from the built-in SQLite engine, you can also connect to external databases. As you connect, you can choose which tables will be imported into the database as temp tables and thus made available to your scripts. 
 
-This makes importing, exporting and combining database and spreadsheet data very easy. Additionally, it also allows you to make use of any specific capabilities that the database server offers, to query your workbook tables.
+This makes importing, exporting and combining database and workbook data very easy indeed. Additionally, it also allows you to make use of any specific capabilities that the database server offers, to query your workbook tables.
 
 To connect to an external database, choose the appropriate script type in the **Other** scripts dropdown in the ribbon. 
 
