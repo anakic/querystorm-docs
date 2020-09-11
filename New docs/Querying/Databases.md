@@ -29,7 +29,7 @@ In the other direction, query results can be returned into the workbook and used
 
 You can write the results of a query into a new or existing table by selecting a cell in Excel and pressing the `Alt+Insert` shortcut key for writing results.
 
-You can also automatically output the results using the SQL [preprocessor](todo), which is available to all SQL scripts in QueryStorm.
+You can also output the results directly from the script, by using the SQL [preprocessor](todo), which is available to all SQL scripts in QueryStorm.
 
 For example, here's how to output the results of a query into an Excel table:
 ```sql
