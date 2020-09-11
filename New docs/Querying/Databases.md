@@ -71,7 +71,7 @@ Server=mssql6.mojsite.com,1555; Database=thingieq_AdventureWorks2014; User Id={u
 ```
 
 Two placeholders are supported:
-- {username:*credId*}
+- {username:*the_id_of_the_credentials*}
 - {password}
 
 The placeholder for the username must provide the identifier of the credentials, so they can be stored and identified for later use. 
