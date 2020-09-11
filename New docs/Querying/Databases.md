@@ -58,7 +58,7 @@ The script file only stores the connection name, while the actual connection str
 
 ![Connection name](../../Images/connection_name_2.png)
 
-This is done to allow scripts in a workbook to share connection strings, instead of each script having its own connection string.
+This is done to allow scripts in a workbook to share connection strings. This makes it easier to e.g. redirect all scripts from a development database to a production database.
 
 ### Connection string security
 
