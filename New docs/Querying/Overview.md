@@ -2,7 +2,7 @@
 
 Querying data is one of the three main areas of QueryStorm, alongside [creating custom functions](todo) and [automating workbooks](todo). 
 
-QueryStorm supports writing SQL and C# scripts that can see Excel tables, and work with data as if it was in a database (SQL) or in a. collection (C#). 
+QueryStorm supports writing SQL and C# scripts that can see Excel tables, and work with data as if it was in a database (SQL) or in a collection (C#). 
 
 ## Tables, not sheets
 It's important to note that QueryStorm scripts work with [Excel tables](https://support.office.com/en-us/article/overview-of-excel-tables-7ab0bb7d-3a9e-4b56-a3c9-6c94334e492c "Excel tables"), and not with ranges or sheets.
