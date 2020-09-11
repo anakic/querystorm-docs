@@ -37,7 +37,7 @@ A dialog will appear allowing you to enter the database connection settings and 
 Read more about working with external databases [here](todo).
 
 ## Querying with C# #
-Lastly, QueryStorm also allows querying data via C#. Tables are represented as a collection of strongly typed objects that you can query and modify. 
+Lastly, QueryStorm also allows querying data via C#. Tables are represented as collections of strongly typed objects that you can query and modify. 
 
 ![Querying with C#](../../Images/csharpintro.gif)
 
