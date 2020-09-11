@@ -1,6 +1,6 @@
 # Querying
 
-Querying and processing data is one of the three main areas of QueryStorm, alongside [creating custom functions](todo) and [automating workbooks](todo). 
+Querying data is one of the three main areas of QueryStorm, alongside [creating custom functions](todo) and [automating workbooks](todo). 
 
 QueryStorm supports writing SQL and C# scripts that can see Excel tables, and work with data as if it was in a database (SQL) or in an in-memory collection (C#). 
 
