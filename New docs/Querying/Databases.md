@@ -42,7 +42,7 @@ SELECT * FROM HumanResources.Department
 SELECT * FROM Person.Person p
 ```
 
-## Managing connection strings
+## Connection strings
 
 When entering the connection details, you can give your connection string a name. The scope of the name is the workbook (not the local machine).
 
