@@ -25,7 +25,11 @@ Aside from workbook tables, scripts can also see the values of (single-celled) n
 
 ## Fetching data
 
-In the other direction, query results can be returned into the workbook and used to create new tables or update existing ones. This is done using the SQL [preprocessor](todo), which is available to all SQL scripts in QueryStorm.
+In the other direction, query results can be returned into the workbook and used to create new tables or update existing ones. 
+
+You can write the results of a query into a new or existing table by selecting a cell in Excel and pressing the `Alt+Insert` shortcut key for writing results.
+
+You can also automatically output the results using the SQL [preprocessor](todo), which is available to all SQL scripts in QueryStorm.
 
 For example, here's how to output the results of a query into an Excel table:
 ```sql
