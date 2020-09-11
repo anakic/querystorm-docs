@@ -44,11 +44,11 @@ SELECT * FROM Person.Person p
 
 ## Connection strings
 
-When entering the connection details, you can give your connection string a name. The scope of the name is the workbook (not the local machine).
+When entering connection details, you can give your connection string a name. The scope of the name is the workbook (not the local machine).
 
 ![Connection name](../../Images/connection_name_1.png)
 
-The script files only stores the connection name, while the actual connection string is stored in the `module.config` file:
+The script file only stores the connection name, while the actual connection string is stored in the `module.config` file:
 
 ![Connection name](../../Images/connection_name_2.png)
 
@@ -68,10 +68,10 @@ Two placeholders are supported:
 - {username:*credId*}
 - {password}
 
-The placeholder for the username must provide the identifier of the credentials, so they can be stored. 
+The placeholder for the username must provide the identifier of the credentials, so they can be stored and identified for later use. 
 
 When the user attempts to use a script with a templated connection string for the first time, they will be prompted to enter their database credentials:
 
 ![Credentials prompt](../../Images/credentials_promt.png)
 
-The entered user credentials are then inserted into the template and a connection is attempted. If the attempt fails the prompt reappears. If the attempt succeeds, the credentials are encrypted (via the Windows Data Protection API) and stored in a local file for future use. After the credentials are stored, they are used automatically in the future every time a connection is attempted using a connection string with the same credentials ID. If a connection attempt fails in the future, the user will again be prompted for their credentials. 
+The entered user credentials are then inserted into the template and a connection attempt is made. If the attempt fails, the prompt reappears. If the attempt succeeds, the credentials are encrypted (via the Windows Data Protection API) and stored in a local file for future use. Once the credentials are stored, they are used automatically in the future every time a connection is attempted using a connection string with the same credentials ID. If a connection attempt fails in the future, the user will again be prompted for their credentials. 
