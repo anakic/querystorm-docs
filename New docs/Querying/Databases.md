@@ -5,7 +5,7 @@ QueryStorm supports connecting to external databases, allowing you to query work
 Currently SQL Server, PostgreSQL, MySql, SQLite and Redshift (via Postgres) are supported, while support for other databases may be rolled out in future versions depending on user needs and requests.
 
 ## Querying
-To connect to a database, click the appropriate button from the **Other** scripts dropdown menu.
+To connect to a database, click the appropriate button from the ***Other** scripts* dropdown menu.
 
 ![Connect to DBs](../../Images/other_scripts.png)
 
@@ -54,11 +54,11 @@ When entering connection details, you can give your connection string a name. Th
 
 ![Connection name](../../Images/connection_name_1.png)
 
-The script file only stores the connection name, while the actual connection string is stored in the `module.config` file:
+The script file itself only stores the connection name, while the actual connection string is stored in the `module.config` file:
 
 ![Connection name](../../Images/connection_name_2.png)
 
-This is done to allow scripts in the same workbook to share connection strings. This makes it easier to e.g. redirect all scripts from a development database to a production database.
+This is done in order to allow scripts in the same workbook to share connection strings. This makes it easier to e.g. redirect all scripts from a development database to a production database.
 
 ### Connection string security
 
