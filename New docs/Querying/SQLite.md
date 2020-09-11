@@ -12,7 +12,7 @@ Once connected, we can start querying. It's important to note that the SQLite en
 
 > To turn a range into a table, select it and press `Ctrl+T`
 
-![Querying](../../Images/sql_querying.gif?v=1)
+![Querying with SQLite](../../Images/sql_querying.gif)
 
 You can use SQL to **query** as well as **modify** data inside tables. All four SQL data operations are supported: `select`, `insert`, `update` and `delete`. Any changes that your commands make to workbook tables are immediately visible in Excel. 
 
