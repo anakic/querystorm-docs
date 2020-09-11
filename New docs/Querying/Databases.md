@@ -2,7 +2,7 @@
 
 QueryStorm supports connecting to external databases, which allows you to query workbook tables alongside existing database tables. This makes moving data between Excel and databases, in both directions, much easier.
 
-QueryStorm supports connecting to SQL Server, PostgreSQL, MySql, SQLite and Redshift (via Postgres). Support for other databases may be rolled out in future versions depending on user needs and requests.
+Currently SQL Server, PostgreSQL, MySql, SQLite and Redshift (via Postgres) are supported, while support for other databases may be rolled out in future versions depending on user needs and requests.
 
 ## Querying
 To connect to a database, click the appropriate button from the **Other** scripts dropdown menu.
