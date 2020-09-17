@@ -5,5 +5,8 @@
     "MD013": false,
 	"MD029": {
 		"style": "ordered"
-	}
+    },
+    "default": true,
+    "MD007": { "indent": 4 },
+    "no-hard-tabs": false
 }

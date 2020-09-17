@@ -42,8 +42,6 @@ QueryStorm lets you automate your workbooks with C# or VB.NET code. This offers 
 
 In addition, QueryStorm offers strongly typed access to Excel tables, and a model-binding API that lets you concentrate on your business logic instead of on communicating with Excel.
 
-
-
 ## Extension applications
 
 Extension applications are defined inside projects at the machine level. 
@@ -52,7 +50,6 @@ The only purpose of extension projects (for now) is to define a set of custom Ex
 
 Even though they only hold functions, they are loaded by the QueryStorm runtime in the exact same way as Workbook applications. They have an `App` class that they can use to register dependencies that the functions can share.
 If it's a commercial package, we can also check for a valid license to make sure the user is licensed to use the package.
-
 
 ## Application lifetime
 The runtime is responsible for loading applications. Each applications is loaded into a separate `AppDomain`, ensuring a level of separation between different user applications. 

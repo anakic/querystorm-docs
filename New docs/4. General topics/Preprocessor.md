@@ -2,7 +2,8 @@
 
 To allow SQL scripts to do more than just querying and modifying data, QueryStorm introduces a simple preprocessor that's available in all SQL scripts in QueryStorm. 
 
-Among other things, the preprocessor allows you to: 
+Among other things, the preprocessor allows you to:
+
 - Use values from Excel as parameters
 - Define Excel functions
 - Output results into Excel
@@ -74,6 +75,3 @@ select * from cities order by population limit 10
 ```
 
 Running this query will update two excel tables (*LargestCities* and *SmallestCities*) in one go. For automation scenarios, this can save time and bandwidth as the same connection (session) can be used to update multiple tables.
-
- 
-   
