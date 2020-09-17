@@ -46,7 +46,7 @@ protected override void Initialize(ContextSchema schema)
     );
     // add it to the context
     Tables.Add(myFilesTbl);
-    
+
     base.Initialize(schema);
 }
 ```
@@ -55,7 +55,7 @@ The `DataContext.Tables` collection contains objects that derive from the abstra
 
 ### Changing column data types
 
-Excel does not enforce consistent column types, so the data context has to guess at their types based on their content. For example, suppose a column contains the numbers `1,2` and `3`. The auto-detect mechanism sees that the column contains numbers, but it does not know if the column is allowed to contain nulls or floating point numbers so it selects `double?` as the data type. 
+Excel does not enforce consistent column types, so the data context has to guess at their types based on their content. For example, suppose a column contains the numbers `1,2` and `3`. The auto-detect mechanism sees that the column contains numbers, but it does not know if the column is allowed to contain nulls or floating point numbers so it selects `double?` as the data type.
 
 To specify the column type explicitly, use the `schema` object in the `Initialize` method as shown below:
 
@@ -73,11 +73,11 @@ protected override void Initialize(ContextSchema schema)
 
 ### Table relations
 
-Excel also doesn't offer a way to define relationships between tables, but you can define those relationships inside a data context class. 
+Excel also doesn't offer a way to define relationships between tables, but you can define those relationships inside a data context class.
 
 Each time the data context file is saved, it is automatically compiled and loaded by the IDE, and strongly typed classes are generated based on the tables it offers. Specifying relationships between tables, ensures that you get **strongly typed navigation properties** on those classes.
 
-This does not impact SQL scripts but it does impact component code as well as C# scripts. 
+This does not impact SQL scripts but it does impact component code as well as C# scripts.
 
 To add table relations, use the `schema` object in the `Initialize` method as shown below:
 
@@ -94,7 +94,7 @@ protected override void Initialize(ContextSchema schema)
 		.ConfigureColumn<System.Int32>("DptId")
 		// adding a relation from Employees.DptId to Departments.Id
 		.AddRelation("DptId", To.One, "Departments", "Id", "MyDepartment");
-	
+
 	base.Initialize(schema);
 }
 ```
