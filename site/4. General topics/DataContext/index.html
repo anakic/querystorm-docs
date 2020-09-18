@@ -1,0 +1,810 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>DataContext - QueryStorm Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/baguetteBox.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-data-context" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="QueryStorm Docs" class="md-header-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            QueryStorm Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              DataContext
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QueryStorm Docs" class="md-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    QueryStorm Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      1. Querying
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="1. Querying" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        1. Querying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1.%20Querying/1.%20Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1.%20Querying/2.%20SQLite/" title="SQLite" class="md-nav__link">
+      SQLite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1.%20Querying/3.%20Databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1.%20Querying/4.%20CSharp/" title="C# scripts" class="md-nav__link">
+      C# scripts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      2. Custom Excel functions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2. Custom Excel functions" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        2. Custom Excel functions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2.%20Custom%20Excel%20functions/1.%20Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2.%20Custom%20Excel%20functions/2.%20Functions%20via%20SQL/" title="Functions via SQL" class="md-nav__link">
+      Functions via SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2.%20Custom%20Excel%20functions/3.%20Functions%20via%20DotNet/" title="Functions via DotNet" class="md-nav__link">
+      Functions via DotNet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2.%20Custom%20Excel%20functions/4.%20Publishing%20functions/" title="Publishing functions" class="md-nav__link">
+      Publishing functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2.%20Custom%20Excel%20functions/5.%20Installing%20packages/" title="Installing packages" class="md-nav__link">
+      Installing packages
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      3. Automating workbooks
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="3. Automating workbooks" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        3. Automating workbooks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.%20Automating%20workbooks/1.%20Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.%20Automating%20workbooks/2.%20Workbook%20automation%20with%20dotnet/" title="Workbook automation with dotnet" class="md-nav__link">
+      Workbook automation with dotnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.%20Automating%20workbooks/3.%20Workbook%20automation%20with%20SQL/" title="Workbook automation with SQL" class="md-nav__link">
+      Workbook automation with SQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      4. General topics
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="4. General topics" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        4. General topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        DataContext
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="DataContext" class="md-nav__link md-nav__link--active">
+      DataContext
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-workbookdatacontext" class="md-nav__link">
+    The WorkbookDataContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-data-context" class="md-nav__link">
+    Custom data context
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom data context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-tables" class="md-nav__link">
+    Adding tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-column-data-types" class="md-nav__link">
+    Changing column data types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-relations" class="md-nav__link">
+    Table relations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    Demo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Licensing/" title="Licensing" class="md-nav__link">
+      Licensing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Managing%20packages/" title="Managing packages" class="md-nav__link">
+      Managing packages
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Preprocessor/" title="Preprocessor" class="md-nav__link">
+      Preprocessor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Project%20system/" title="Project system" class="md-nav__link">
+      Project system
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-workbookdatacontext" class="md-nav__link">
+    The WorkbookDataContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-data-context" class="md-nav__link">
+    Custom data context
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom data context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-tables" class="md-nav__link">
+    Adding tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-column-data-types" class="md-nav__link">
+    Changing column data types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-relations" class="md-nav__link">
+    Table relations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    Demo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="the-data-context">The data context</h1>
+<p>A data context exposes tables, variables and events to your scripts and components.</p>
+<p>When you create a script, a new instance of the data context is automatically created and passed to the script. The script gets all of its data from the data context, so it can only see tables and variables that the data context provides.</p>
+<p>In each project there is exactly one data context class. You can define your own data context class to customize the data that will be available to your scripts and components, but if not, a default data context will be used.</p>
+<h2 id="the-workbookdatacontext">The <code>WorkbookDataContext</code></h2>
+<p>For workbook projects that do not define a data context, a <code>WorkbookDataContext</code> is used by default.</p>
+<p>A <code>WorkbookDataContext</code> instance exposes data from a particular workbook in the following way:</p>
+<ul>
+<li>Tables = Excel tables</li>
+<li>Variables = Single-cell named ranges</li>
+<li>Events = workbook events (e.g. button click)</li>
+</ul>
+<h2 id="custom-data-context">Custom data context</h2>
+<p>Overriding the data context allows you to:</p>
+<ul>
+<li>Add additional tables</li>
+<li>Change column data types</li>
+<li>Add relations between tables</li>
+</ul>
+<p>To define a data context class, right click on the project node and click "Add"=&gt;"DataContext class".</p>
+<p><img alt="Add data context" src="../../Images/add_datacontext_menu.png" /></p>
+<p>QueryStorm's data context works much like an object-relational mapper. The data context class specifies the tables and relations that will be available to user code. Strongly typed classes (that represent table rows) are generated behind the scenes each time the data context file is saved.</p>
+<h3 id="adding-tables">Adding tables</h3>
+<p>To include additional tables in the data context, add them to the <code>Tables</code> collection inside the <code>Initialize</code> method, as shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">ContextSchema</span> <span class="n">schema</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// an example table</span>
+    <span class="kt">var</span> <span class="n">myFilesTbl</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TabularValue</span><span class="p">(</span>
+        <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">Directory</span><span class="p">.</span><span class="n">GetFiles</span><span class="p">(</span>
+            <span class="n">Environment</span><span class="p">.</span><span class="n">GetFolderPath</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="n">SpecialFolder</span><span class="p">.</span><span class="n">MyDocuments</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="p">,</span> <span class="s">&quot;myFiles&quot;</span>
+    <span class="p">);</span>
+    <span class="c1">// add it to the context</span>
+    <span class="n">Tables</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">myFilesTbl</span><span class="p">);</span>
+
+    <span class="k">base</span><span class="p">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">schema</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The <code>DataContext.Tables</code> collection contains objects that derive from the abstract class <code>Tabular</code>. You can choose from the existing implementations of <code>Tabular</code>, or create your own. For example, <code>TabularValue</code> is a versatile implementation that accepts any object (usually a collection) and exposes its values as a table.</p>
+<h3 id="changing-column-data-types">Changing column data types</h3>
+<p>Excel does not enforce consistent column types, so the data context has to guess at their types based on their content. For example, suppose a column contains the numbers <code>1,2</code> and <code>3</code>. The auto-detect mechanism sees that the column contains numbers, but it does not know if the column is allowed to contain nulls or floating point numbers so it selects <code>double?</code> as the data type.</p>
+<p>To specify the column type explicitly, use the <code>schema</code> object in the <code>Initialize</code> method as shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">ContextSchema</span> <span class="n">schema</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">schema</span><span class="p">.</span><span class="n">ConfigureTable</span><span class="p">(</span><span class="s">&quot;Person&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ConfigureColumn</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="p">&gt;(</span><span class="s">&quot;Id&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ConfigureColumn</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">String</span><span class="p">&gt;(</span><span class="s">&quot;Name&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ConfigureColumn</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="p">&gt;(</span><span class="s">&quot;DateOfBirth&quot;</span><span class="p">);</span>
+
+    <span class="k">base</span><span class="p">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">schema</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="table-relations">Table relations</h3>
+<p>Excel also doesn't offer a way to define relationships between tables, but you can define those relationships inside a data context class.</p>
+<p>Each time the data context file is saved, it is automatically compiled and loaded by the IDE, and strongly typed classes are generated based on the tables it offers. Specifying relationships between tables, ensures that you get <strong>strongly typed navigation properties</strong> on those classes.</p>
+<p>This does not impact SQL scripts but it does impact component code as well as C# scripts.</p>
+<p>To add table relations, use the <code>schema</code> object in the <code>Initialize</code> method as shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Initialize</span><span class="p">(</span><span class="n">ContextSchema</span> <span class="n">schema</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">schema</span><span class="p">.</span><span class="n">ConfigureTable</span><span class="p">(</span><span class="s">&quot;Departments&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ConfigureColumn</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="p">&gt;(</span><span class="s">&quot;Id&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ConfigureColumn</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">String</span><span class="p">&gt;(</span><span class="s">&quot;Name&quot;</span><span class="p">);</span>
+
+    <span class="n">schema</span><span class="p">.</span><span class="n">ConfigureTable</span><span class="p">(</span><span class="s">&quot;Employees&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ConfigureColumn</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="p">&gt;(</span><span class="s">&quot;Id&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ConfigureColumn</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">String</span><span class="p">&gt;(</span><span class="s">&quot;FirstName&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">ConfigureColumn</span><span class="p">&lt;</span><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="p">&gt;(</span><span class="s">&quot;DptId&quot;</span><span class="p">)</span>
+        <span class="c1">// adding a relation from Employees.DptId to Departments.Id</span>
+        <span class="p">.</span><span class="n">AddRelation</span><span class="p">(</span><span class="s">&quot;DptId&quot;</span><span class="p">,</span> <span class="n">To</span><span class="p">.</span><span class="n">One</span><span class="p">,</span> <span class="s">&quot;Departments&quot;</span><span class="p">,</span> <span class="s">&quot;Id&quot;</span><span class="p">,</span> <span class="s">&quot;MyDepartment&quot;</span><span class="p">);</span>
+
+    <span class="k">base</span><span class="p">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">schema</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Once the project is compiled, C# scripts will be able to use the new property <code>MyDepartment</code> on the employee objects.</p>
+<p><img alt="CSScript relationship navigation" src="../../Images/relationship_navigation_example.png" /></p>
+<blockquote>
+<p>Tip: for performance reasons (to avoid type conversions), it's slightly better to leave Id columns as <code>double</code> instead of <code>int</code>. This is because Excel does not have an <code>int</code> type; all numbers in Excel are <code>double</code>.</p>
+</blockquote>
+<h3 id="demo">Demo</h3>
+<p>Click below for a video demonstration of the concepts discussed in this segment:</p>
+<p><img alt="YOUTUBE" src="q9tv1h5j3o4" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../3.%20Automating%20workbooks/3.%20Workbook%20automation%20with%20SQL/" title="Workbook automation with SQL" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Workbook automation with SQL
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Licensing/" title="Licensing" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Licensing
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/jquery-3.3.1.min.js"></script>
+      
+        <script src="../../js/youtube.js"></script>
+      
+        <script src="../../js/baguetteBox.js"></script>
+      
+    
+  </body>
+</html>

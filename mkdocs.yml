@@ -1,0 +1,39 @@
+site_name: QueryStorm Docs
+site_url: https://www.querystorm.com/docs2
+nav:
+    - Introduction: Introduction.md
+    - 1. Querying:
+      - Overview: "1. Querying/1. Overview.md"
+      - SQLite: "1. Querying/2. SQLite.md"
+      - Databases: "1. Querying/3. Databases.md"
+      - C# scripts: "1. Querying/4. CSharp.md"
+    - 2. Custom Excel functions:
+      - Overview: 2. Custom Excel functions\1. Overview.md
+      - Functions via SQL: 2. Custom Excel functions\2. Functions via SQL.md
+      - Functions via DotNet: 2. Custom Excel functions\3. Functions via DotNet.md
+      - Publishing functions: 2. Custom Excel functions\4. Publishing functions.md
+      - Installing packages: 2. Custom Excel functions\5. Installing packages.md
+    - 3. Automating workbooks:
+      - Overview: 3. Automating workbooks\1. Overview.md
+      - Workbook automation with dotnet: 3. Automating workbooks\2. Workbook automation with dotnet.md
+      - Workbook automation with SQL: 3. Automating workbooks\3. Workbook automation with SQL.md
+    - 4. General topics:
+      - DataContext: 4. General topics\DataContext.md
+      - Licensing: 4. General topics\Licensing.md
+      - Managing packages: 4. General topics\Managing packages.md
+      - Preprocessor: 4. General topics\Preprocessor.md
+      - Project system: 4. General topics\Project system.md
+theme: material
+extra_css:
+  - css/baguetteBox.css
+extra_javascript:
+  - js/jquery-3.3.1.min.js
+  - js/youtube.js
+  - js/baguetteBox.js
+plugins:
+  - search
+markdown_extensions:
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences
+  - pymdownx.keys
