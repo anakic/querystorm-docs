@@ -6,7 +6,7 @@ In order to run the code inside a project, the project needs to be built (compil
 
 ## Two types of projects
 
-There are two kinds of projects in QueryStorm: Workbook projects and Extension projects. 
+There are two kinds of projects in QueryStorm: Workbook projects and Extension projects.
 
 **Workbook projects** are defined inside a particular workbook and serve to automate the workbook, and to define functions that are specific to the containing workbook. Both the code and as the output files of a workbook project are stored inside the workbook itself.
 
