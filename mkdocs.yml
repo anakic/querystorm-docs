@@ -9,14 +9,14 @@ nav:
       - C# scripts: "1. Querying/4. CSharp.md"
     - 2. Custom Excel functions:
       - Overview: 2. Custom Excel functions\1. Overview.md
-      - Functions via SQL: 2. Custom Excel functions\2. Functions via SQL.md
-      - Functions via DotNet: 2. Custom Excel functions\3. Functions via DotNet.md
+      - Functions via .Net: 2. Custom Excel functions\2. Functions via DotNet.md
+      - Functions via SQL: 2. Custom Excel functions\3. Functions via SQL.md
       - Publishing functions: 2. Custom Excel functions\4. Publishing functions.md
       - Installing packages: 2. Custom Excel functions\5. Installing packages.md
     - 3. Automating workbooks:
       - Overview: 3. Automating workbooks\1. Overview.md
-      - Workbook automation with dotnet: 3. Automating workbooks\2. Workbook automation with dotnet.md
-      - Workbook automation with SQL: 3. Automating workbooks\3. Workbook automation with SQL.md
+      - Automation with .Net: 3. Automating workbooks\2. Automation with dotnet.md
+      - SQL Commands: 3. Automating workbooks\3. SQL Commands.md
     - 4. General topics:
       - DataContext: 4. General topics\DataContext.md
       - Licensing: 4. General topics\Licensing.md
