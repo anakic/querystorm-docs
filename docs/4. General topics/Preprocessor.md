@@ -1,59 +1,103 @@
 # The SQL Preprocessor
 
-QueryStorm introduces a simple preprocessor that's available in all SQL scripts in QueryStorm. The preprocessor adds the following capabilities to SQL scripts:
+QueryStorm introduces a simple preprocessor that's available in all SQL scripts in QueryStorm. The job of the preprocessor is to allow:
 
-- Use values from Excel as parameters
-- Define Excel functions
-- Define Excel commands
-- Output results into Excel
+- Using values from workbook cells in SQL code
+- Defining Excel functions and commands
+- Outputting results into `Excel`
 
+## Inserting values into SQL
 
-## Parameterized queries
-md
-
-### Referencing cells
-
-For example, let's assume cell *A1* in *Sheet1* contains the value 3:
+The preprocessor can be used to insert values from Excel cells into SQL code, for example:
 
 ```sql
-select * from people where id = {Sheet1!A1}
+select * from people where id = {nameOfCell}
 ```
 
-The following query will be passed on to the underlying database engine:
+The value of the named cell will be inserted instead of the `{nameOfCell}` placeholder before the query is passed to the SQL engine. This is a purely textual operation. If the inserted value is a strings or a date, it is automatically quoted.
+
+To prevent quoting, add an exclamation mark before the name of the cell: `{!nameOfCell}`. This allows inserting raw sql code into the query (sql injection), so caution is advised when doing this.
+
+### User defined variables
+
+Users can also define their own variables in SQL. This is especially useful when working with database engines that do not have their own support for defining variables.
+
+A variable can be defined and referenced in the following way:
 
 ```sql
-select * from people where id = 3
+-- define the variable
+{var binSize = 20}
+
+SELECT
+	CAST (totalPay / {binSize} AS int) * {binSize} AS bin, count(*) AS count
+FROM
+	salaries
+GROUP BY
+	bin
 ```
 
-Here's how QueryStorm expressions are processed:
-1. Evaluate expression
-1. If result value is a string, surround it with single quotes
-1. Replace the preprocessor expression in the query with the results
-1. Once all expressions are processed, pass the updated query on to the underlying engine 
+### Formatting values before insertion
 
-### Preprocessor variables
+Values can be formatted before inserting into the query. The syntax for formatting is as follows: {*variableName*|*formatSpecifier*}.
 
-Additionally, it's also possible to define variables inside queries. This helps reduce *magic constants* and repetition, as well as making it easier to run the query with different inputs.
+The format specifier is a standard format specifier for the .NET [string.Format](https://docs.microsoft.com/en-us/dotnet/api/system.string.format) method.
 
-Here's an example:
+For example:
 
 ```sql
-:{myVariable = 123}
+{datetime myDate = "2020-10-10"}
 
-select * from people where id = {myVariable}
-```
-The following is sent to the underlying database engine:
-```sql
-select * from people where id = 123
+SELECT
+	{myDate|"The date {0:d} is a {0:dddd}"}
+
+-- the output will be: The date 10/10/2020 is a Saturday
 ```
 
+### Preprocessor expressions vs parameters
 
-## Redirecting results
-The second important task of the preprocessor is redirecting query results into Excel tables and ranges. This can come in very handy for automation. For this purpose QueryStorm's preprocessor provides "*@-directives*".
+Named workbook cells are visible to SQL scripts as parameters, and most databases support named parameters, so inserting values into the query text with the preprocessor usually isn't required.
 
-Here's an example:
+However, there are reasons this might be useful:
+
+- It allows defining variables and using them for engines that do not support variables (e.g. SQLite)
+- It allows formatting values
+- It allows using cell values as parameters when working with databases that do not support named parameters (e.g. ODBC, Access)
+- It allows injecting SQL into queries
+
+## Defining Excel functions
+
+The second important task of the preprocessor is declaring functions that can be used from Excel. The body of the function is written in SQL, and the declaration of the function via the preprocessor.
+
+For example:
 
 ```sql
+{function myFunction(int rowsToReturn = 20)}
+
+select top {rowsToReturn}
+	*
+from
+	HumanResources.Department d
+```
+
+The above query can be used to define an Excel function that accepts a single parameter and returns a table of results. For more information on creating functions with SQL, click [here](todo).
+
+## Defining Excel commands
+
+The preprocessor also allows defining commands. SQL code is used for fetching data or modifying data in the database, while the preprocessor syntax is used to declare the command and specify the events that will trigger execution of the command.
+
+For example:
+
+```sql
+{handles Sheet1!CommandButton1}
+
+insert into PermanentDbTable from ImportedWorkbookTable
+```
+
+If the query returns data from the database (rather than updating the database), the query restults can be written into the workbook by adding an output directive above it, for example:
+
+```sql
+{handles Sheet1!CommandButton1}
+
 {@OverdueBooks}
 select
     BookName, PersonName
@@ -64,20 +108,6 @@ where
     and Returned=0
 ```
 
-Running this query will immediately update the *OverdueBooks* table in Excel with the results. This saves time if we're working on a query and always writing the results into the same Excel table, but more importantly, it enables automatic update of an Excel table if we embed the query and set up appropriate triggers for executing it (automation).
+Running this query will immediately update the *OverdueBooks* table in Excel with the results.
 
-### Multiple queries and redirects
-
-It is possible to have multiple select statements within a query, each one outputting results into a different table or range.
-
-Example:
-
-```sql
-@Table TableName="LargestCities"
-select * from cities order by population descending limit 10
-
-@Table TableName="SmallestCities"
-select * from cities order by population limit 10 
-```
-
-Running this query will update two excel tables (*LargestCities* and *SmallestCities*) in one go. For automation scenarios, this can save time and bandwidth as the same connection (session) can be used to update multiple tables.
+For more information on setting up automation with SQL, click [here](todo).

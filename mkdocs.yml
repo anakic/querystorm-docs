@@ -18,11 +18,10 @@ nav:
       - Automation with .Net: 3. Automating workbooks\2. Automation with dotnet.md
       - SQL Commands: 3. Automating workbooks\3. SQL Commands.md
     - 4. General topics:
-      - The data context: 4. General topics\DataContext.md
-      - Licensing: 4. General topics\Licensing.md
-      - Managing packages: 4. General topics\Managing packages.md
       - Preprocessor: 4. General topics\Preprocessor.md
       - Project system: 4. General topics\Project system.md
+      - Data context: 4. General topics\DataContext.md
+      - Managing packages: 4. General topics\Managing packages.md
 theme: material
 extra_css:
   - css/baguetteBox.css
