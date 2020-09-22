@@ -8,7 +8,7 @@ Each section of the documentation starts with an overview page explaining the co
 
 ## What is QueryStorm
 
-QueryStorm is an Excel add-in that brings first class support for modern programming languages (namely SQL, C# and VB.NET) into Excel. It is intended to enhance Excel's native functionality with a strong technical tool set.
+QueryStorm is an Excel add-in that brings first class support for modern programming languages (namely SQL, C# and VB.NET) into Excel. It is intended to enhance Excel's native functionality with a strong set of technical capabilities.
 
 It has three main areas of use:
 
@@ -26,8 +26,8 @@ The main audiences for QueryStorm can be split into three distinct groups:
 
 ## IDE and Runtime
 
-QueryStorm consists of two parts: the **IDE** and the **Runtime**. These are two separate add-ins that function independently, though the QueryStorm installer installs them both together.
+QueryStorm consists of two parts: the **IDE** and the **Runtime**.
+
+These are two separate add-ins that function independently. The main QueryStorm installer installs both parts, but the runtime can also be installed separately via its own (smaller) installer.
 
 The IDE is used by data professionals and developers for data processing and for creating custom functions and workbook applications. The Runtime is used by business users for installing and using those custom solutions.
-
-The full version of QueryStorm includes the IDE and the Runtime. A separate, QueryStorm Runtime, installer and license are available for use by business users.
