@@ -1,6 +1,6 @@
 # Excel functions via SQL
 
-QueryStorm allows creating Excel functions that use SQL to return data from a database. The body of the function is written in SQL, while the declaration of the function uses a [preprocessor](todo) syntax that's specific to QueryStorm.
+QueryStorm allows creating Excel functions that use SQL to return data from a database. The body of the function is written in SQL, while the declaration of the function uses a [preprocessor](../../General%20topics/Preprocessor) syntax that's specific to QueryStorm.
 
 Suppose we'd like to define a function that returns a list of people from the database whose first name contains a specified search term.
 
@@ -75,6 +75,6 @@ For a video demonstration of this process, click below:
 
 ![YOUTUBE](9mhYVjngI5w)
 
-Functions that are defined in extension projects can be [published to other QueryStorm (Runtime) users](todo).
+Functions that are defined in extension projects can be [published to other QueryStorm (Runtime) users](../Publishing%20functions).
 
 [1]: https://support.microsoft.com/en-us/office/dynamic-array-formulas-in-non-dynamic-aware-excel-696e164e-306b-4282-ae9d-aa88f5502fa2

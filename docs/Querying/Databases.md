@@ -32,7 +32,7 @@ Query results can be written into the workbook as new tables or used to update e
 
 You can write the results of a query into a new or existing table by selecting a cell in Excel and using the ++alt+insert++ shortcut key for writing results.
 
-You can also output the results directly from the script, by using the SQL [preprocessor](todo), which is available to all SQL scripts in QueryStorm.
+You can also output the results directly from the script, by using the SQL [preprocessor](../../General%20topics/Preprocessor), which is available in all SQL scripts in QueryStorm.
 
 For example, here's how to output the results of a query into an Excel table, using the preprocessor:
 
@@ -67,7 +67,7 @@ Referencing the connection string by name (instead of keeping it in the script f
 
 ### Securing credentials
 
-Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to share their database credentials with end users. This is an important consideration when sharing the workbook itself or when building and sharing your own [Excel/SQL functions](todo).
+Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to share their database credentials with end users. This is an important consideration when sharing the workbook itself or when building and sharing your own [Excel/SQL functions](../../Custom%20Excel%20functions/Functions%20via%20SQL).
 
 For this reason, connection strings can be **templated**. Instead of the actual username and password, the developer puts placeholders inside the connection string.
 

@@ -146,7 +146,7 @@ Bindings allow you to read and write values from Excel without having to access 
 
 ### Bindings and the data context
 
-It's important to note that components aren't bound to Excel directly; they don't actually know anything about Excel. Instead, they are bound to a [data context](todo). For workbook applications, this data context happens to be a `WorkbookDataContext` instance that exposes data and events from the workbook.
+It's important to note that components aren't bound to Excel directly; they don't actually know anything about Excel. Instead, they are bound to a [data context](../../General%20topics/DataContext). For workbook applications, this data context happens to be a `WorkbookDataContext` instance that exposes data and events from the workbook.
 
 The data context file allows you to customize the data that components (and scripts) see as well as to generate strongly typed classes for accessing table data.
 

@@ -79,7 +79,7 @@ from
 	HumanResources.Department d
 ```
 
-The above query can be used to define an Excel function that accepts a single parameter and returns a table of results. For more information on creating functions with SQL, click [here](todo).
+The above query can be used to define an Excel function that accepts a single parameter and returns a table of results. For more information on creating functions with SQL, click [here](../../Custom%20Excel%20functions/Functions%20via%20SQL).
 
 ## Defining Excel commands
 
@@ -110,4 +110,4 @@ where
 
 Running this query will immediately update the *OverdueBooks* table in Excel with the results.
 
-For more information on setting up automation with SQL, click [here](todo).
+For more information on setting up automation with SQL, click [here](../../Automating%20workbooks/SQL%20Commands).

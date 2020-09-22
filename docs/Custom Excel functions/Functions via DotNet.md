@@ -64,7 +64,7 @@ However, a function might need to get hold of a particular service (e.g. an API 
 
 If the function relies on such dependencies, it should not be static. The constructor of the class that owns the function is executed only once (just before the first function call), so any expensive dependencies can be created there.
 
-If multiple functions should share the same dependency, the dependency should be registered centrally, in the IOC container in the `App` class (inside [the App.cs file](todo)). The constructor of the function's class can then request the service by simply declaring it as a constructor argument (constructor injection).
+If multiple functions should share the same dependency, the dependency should be registered centrally, in the IOC container in the `App` class (inside the App.cs file). The constructor of the function's class can then request the service by simply declaring it as a constructor argument (constructor injection).
 
 For example:
 

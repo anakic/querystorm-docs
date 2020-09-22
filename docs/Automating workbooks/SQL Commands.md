@@ -2,7 +2,7 @@
 
 Automation in QueryStorm is usually implemented by writing C# or VB.NET code inside component classes, as described in the previous chapters. However, this code does not necessarily need to be written by hand. SQL scripts can generate the component code automatically, which is especially useful for SQL users who are not familiar with C# and VB.NET. These scripts are called **SQL commands**.
 
-For this reason (among others) QueryStorm introduces an additional [preprocessor](todo) syntax for SQL scripts. With SQL commands, SQL code is used to fetch/update data and preprocessor code is used to specify when the script should be executed, and where the results should be written to (e.g. an Excel table).
+For this reason (among others) QueryStorm introduces an additional [preprocessor](../../General%20topics/Preprocessor) syntax for SQL scripts. With SQL commands, SQL code is used to fetch/update data and preprocessor code is used to specify when the script should be executed, and where the results should be written to (e.g. an Excel table).
 
 ## Example
 
@@ -78,7 +78,7 @@ select
 
 ## Commands vs Functions
 
-The preprocessor supports defining commands as well as [functions](todo). The command and function declarations are mutually exclusive. A script can either declare a command or a function, but not both.
+The preprocessor supports defining commands as well as [functions](../../Custom%20Excel%20functions/Functions%20via%20SQL). The command and function declarations are mutually exclusive. A script can either declare a command or a function, but not both.
 
 The functionality in the example looks like it should be implemented as a function that would accept a date parameter and return the query results. If the user's version of Excel supported dynamic arrays, the results could even automatically spill. Additionally, functions don't mess with Excel's undo functionality, which is another advantage for functions.
 

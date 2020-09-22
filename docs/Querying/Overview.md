@@ -18,7 +18,7 @@ QueryStorm comes with a built-in SQLite engine that can work with workbook table
 
 You can run any valid SQLite query on your data, including `UPDATE`, `INSERT` and `DELETE` statements.
 
-Visit the [SQLite section](todo) for more information.
+Visit the [SQLite section](../SQLite) for more information.
 
 ## External databases
 
@@ -30,7 +30,7 @@ To connect to an external database, choose the appropriate script type in the ri
 
 A dialog will appear allowing you to configure the connection and select the tables that should be included in the session as temp tables.
 
-Read more about working with external databases [here](todo).
+Read more about working with external databases [here](../Databases).
 
 ## Querying with C# #
 
@@ -40,7 +40,7 @@ QueryStorm also allows querying data via C#. Tables are represented as collectio
 
 Types that represent table rows are dynamically generated, allowing for strongly typed access to the data. Any changes you make to your workbook tables (e.g. adding a new column or a new table) are immediately reflected in your C# scripts.
 
-Read more about QueryStorm's C# scripting support [here](../csharp/querying).
+Read more about QueryStorm's C# scripting support [here](../CSharp).
 
 <!--
 # Scripting

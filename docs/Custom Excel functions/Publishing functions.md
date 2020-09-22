@@ -15,7 +15,7 @@ To publish an extensions package, follow these steps:
 
 Before you can publish packages, though, you will likely need to set up a feed that you can publish to.
 
-QueryStorm supports publishing to a network share or to an online server. If you are distributing packages inside your network, a shared network folder would be a good place to store them. If you want to distribute packages to users outside of your local network (e.g. to your clients), you can publish the package to an online NuGet server, like Azure Artifacts ([instructions below](../todo)).
+QueryStorm supports publishing to a network share or to an online server. If you are distributing packages inside your network, a shared network folder would be a good place to store them. If you want to distribute packages to users outside of your local network (e.g. to your clients), you can publish the package to an online NuGet server, like Azure Artifacts ([instructions below](#publishing-to-azure-artifacts)).
 
 In both cases, the feed needs to be added to your list of feeds before you can publish to it. The list of feeds is edited in the **Package Manager** or in the **Extensions manager** dialog as shown below. The dialog can be opened via the **Extensions** button in the QueryStorm ribbon, or via the **Manage packages** context menu for projects.
 

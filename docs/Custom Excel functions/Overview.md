@@ -14,7 +14,7 @@ Functions that are defined inside a workbook are only available to that workbook
 
 ### Functions in an extension package
 
-Functions can also be defined in *extension packages*. Functions contained in an extension package are usable in any workbook on the machine. Authors can easily publish their extension packages  to make them available to other (QueryStorm Runtime) users. Click [here](todo) for more information about publishing extension packages.
+Functions can also be defined in *extension packages*. Functions contained in an extension package are usable in any workbook on the machine. Authors can easily publish their extension packages  to make them available to other (QueryStorm Runtime) users. Click [here](../Publishing%20functions) for more information about publishing extension packages.
 
 ## Supported languages
 
@@ -38,7 +38,7 @@ where
 	p.FirstName like '%' + @searchTerm + '%'
 ```
 
-To read more about creating functions with SQL, click [here](todo).
+To read more about creating functions with SQL, click [here](../Functions%20via%20SQL).
 
 ### Creating functions via C# and VB.NET
 
@@ -57,4 +57,4 @@ public class MyFunctions
 }
 ```
 
-The user can choose the language (C# or VB.NET) they wish to use in the `module.config` file. To read more about creating functions with C# and VB.NET, click [here](todo).
+The user can choose the language (C# or VB.NET) they wish to use in the `module.config` file. To read more about creating functions with C# and VB.NET, click [here](../Functions%20via%20DotNet).
