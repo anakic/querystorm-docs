@@ -1,0 +1,748 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://www.querystorm.com/docs2/Querying/Databases/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Databases - QueryStorm Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/baguetteBox.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#external-databases" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.querystorm.com/docs2" title="QueryStorm Docs" class="md-header-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            QueryStorm Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Databases
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.querystorm.com/docs2" title="QueryStorm Docs" class="md-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    QueryStorm Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Querying
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Querying" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Querying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SQLite/" title="SQLite" class="md-nav__link">
+      SQLite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Databases
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Databases" class="md-nav__link md-nav__link--active">
+      Databases
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#querying" class="md-nav__link">
+    Querying
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-data-into-excel" class="md-nav__link">
+    Getting data into Excel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-connection-strings" class="md-nav__link">
+    Managing connection strings
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing connection strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#securing-credentials" class="md-nav__link">
+    Securing credentials
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CSharp/" title="C# scripts" class="md-nav__link">
+      C# scripts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Custom Excel functions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Custom Excel functions" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Custom Excel functions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Functions%20via%20DotNet/" title="Functions via .Net" class="md-nav__link">
+      Functions via .Net
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Functions%20via%20SQL/" title="Functions via SQL" class="md-nav__link">
+      Functions via SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Publishing%20functions/" title="Publishing functions" class="md-nav__link">
+      Publishing functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Installing%20packages/" title="Installing packages" class="md-nav__link">
+      Installing packages
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Automating workbooks
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Automating workbooks" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Automating workbooks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/Automation%20with%20dotnet/" title="Automation with .Net" class="md-nav__link">
+      Automation with .Net
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/SQL%20Commands/" title="Automation with SQL Commands" class="md-nav__link">
+      Automation with SQL Commands
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      General topics
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="General topics" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        General topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../General%20topics/Preprocessor/" title="Preprocessor" class="md-nav__link">
+      Preprocessor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../General%20topics/Project%20system/" title="Project system" class="md-nav__link">
+      Project system
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../General%20topics/DataContext/" title="Data context" class="md-nav__link">
+      Data context
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../General%20topics/Managing%20packages/" title="Managing packages" class="md-nav__link">
+      Managing packages
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#querying" class="md-nav__link">
+    Querying
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-data-into-excel" class="md-nav__link">
+    Getting data into Excel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-connection-strings" class="md-nav__link">
+    Managing connection strings
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing connection strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#securing-credentials" class="md-nav__link">
+    Securing credentials
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="external-databases">External databases</h1>
+<p>QueryStorm supports connecting to external databases, allowing you to query workbook tables alongside database tables. This makes moving data between Excel and databases (in both directions) easy and convenient.</p>
+<p>Currently SQL Server, Postgres, MySql, SQLite and Redshift (via Postgres) are supported, while support for other databases may be rolled out in the future depending on user needs and requests.</p>
+<h2 id="querying">Querying</h2>
+<p>To connect to a database, click the appropriate button from the dropdown menu in the ribbon.</p>
+<p><img alt="Connect to DBs" src="../../Images/other_scripts.png" /></p>
+<p>QueryStorm will then prompt you to enter the connection details and select the workbook tables you would like to use in your script.</p>
+<p><img alt="Connect dialog" src="../../Images/connect_dialog.png" /></p>
+<p>When the connection is established, selected workbook tables are automatically copied to the database as temp tables. Once there, they can be queried or imported into permanent tables via SQL.</p>
+<p><img alt="Connected external" src="../../Images/connected_external.png?v=1" title="Connected to external SQL Server" /></p>
+<blockquote>
+<p>While connected, any changes that you make to Excel tables are immediately synchronized to the temp tables.</p>
+</blockquote>
+<p>Aside from workbook tables, scripts can also see the values of named ranges. These can be used as parameters in your scripts:</p>
+<p><img alt="Connected external" src="../../Images/sql_cell_parameter.png" title="Connected to external SQL Server" /></p>
+<blockquote>
+<p>Only named ranges that refer to a single cell are usable as parameters.</p>
+</blockquote>
+<h2 id="getting-data-into-excel">Getting data into Excel</h2>
+<p>Query results can be written into the workbook as new tables or used to update existing ones.</p>
+<p>You can write the results of a query into a new or existing table by selecting a cell in Excel and using the <span class="keys"><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-insert">Ins</kbd></span> shortcut key for writing results.</p>
+<p>You can also output the results directly from the script, by using the SQL <a href="../../General%20topics/Preprocessor">preprocessor</a>, which is available in all SQL scripts in QueryStorm.</p>
+<p>For example, here's how to output the results of a query into an Excel table, using the preprocessor:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">{</span><span class="o">@</span><span class="n">dpt</span><span class="err">}</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">HumanResources</span><span class="p">.</span><span class="n">Department</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>When this script is executed, the results of the select query will be written into an Excel table with the name <em>dpt</em>. If the table does not yet exist, it will be created starting at the currently selected cell. If a table called <em>dpt</em> does exists in the current workbook, it will be overwritten by the results of the query. If the workbook table has any columns that are not present in the query results (e.g. calculated columns), those columns will be left intact.</p>
+<p>To update multiple tables from the same script, we can use multiple output directives:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">{</span><span class="o">@</span><span class="n">dpt</span><span class="err">}</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">HumanResources</span><span class="p">.</span><span class="n">Department</span>
+
+<span class="err">{</span><span class="o">@</span><span class="n">people</span><span class="err">}</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Person</span><span class="p">.</span><span class="n">Person</span> <span class="n">p</span>
+</code></pre></div>
+</td></tr></table>
+
+<h2 id="managing-connection-strings">Managing connection strings</h2>
+<p>When entering connection details, you must give your connection string a name.</p>
+<p><img alt="Connection name" src="../../Images/connection_name_1.png" /></p>
+<p>The script file stores the connection name, while the actual connection string is stored in the <code>module.config</code> file:</p>
+<p><img alt="Connection name" src="../../Images/connection_name_2.png" /></p>
+<p>Referencing the connection string by name (instead of keeping it in the script file) lets scripts share connection strings. This makes it easier to e.g. redirect all scripts from a development database to a production database.</p>
+<h3 id="securing-credentials">Securing credentials</h3>
+<p>Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to share their database credentials with end users. This is an important consideration when sharing the workbook itself or when building and sharing your own <a href="../../Custom%20Excel%20functions/Functions%20via%20SQL">Excel/SQL functions</a>.</p>
+<p>For this reason, connection strings can be <strong>templated</strong>. Instead of the actual username and password, the developer puts placeholders inside the connection string.</p>
+<p>Two placeholders are supported:</p>
+<ul>
+<li>{username:<em>id_of_the_credentials</em>}</li>
+<li>{password}</li>
+</ul>
+<p>The placeholder for the username must provide the identifier of the credentials. The identifier is used for storing and retrieving the credentials.</p>
+<p>The following is an example of a templated connection string:</p>
+<p><em>Server=mssql6.mojsite.com,1555; Database=thingieq_AdventureWorks2014; User Id=<strong>{username:my_creds_123}</strong>; Password=<strong>{password}</strong></em></p>
+<p>When a script attempts to connect using the above connection string, it will search for stored credentials with the id <code>my_creds_123</code>. If it does not find them, the user will be prompted to enter them:</p>
+<p><img alt="Credentials prompt" src="../../Images/credentials_prompt.png" /></p>
+<p>The credentials are then inserted into the connection string instead of the placeholders and a connection attempt is made. If the attempt fails, the prompt reappears. If the attempt succeeds, the credentials are encrypted and stored in a local file for future use.</p>
+<p>Once the credentials are stored, they are used automatically in the future every time a connection is attempted with a connection string that uses the same credentials ID (e.g. <code>my_creds_123</code>). If a connection attempt fails in the future, the user will again be prompted for their credentials.</p>
+<p>Stored credentials are encrypted using the via the Windows Data Protection API and stored in a file in the user's AppData directory. Only the user that created the file can decrypt the data.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../SQLite/" title="SQLite" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                SQLite
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../CSharp/" title="C# scripts" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                C# scripts
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/jquery-3.3.1.min.js"></script>
+      
+        <script src="../../js/youtube.js"></script>
+      
+        <script src="../../js/baguetteBox.js"></script>
+      
+    
+  </body>
+</html>

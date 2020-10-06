@@ -1,0 +1,830 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://www.querystorm.com/docs2/General%20topics/Preprocessor/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Preprocessor - QueryStorm Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/baguetteBox.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-sql-preprocessor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.querystorm.com/docs2" title="QueryStorm Docs" class="md-header-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            QueryStorm Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Preprocessor
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.querystorm.com/docs2" title="QueryStorm Docs" class="md-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    QueryStorm Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Querying
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Querying" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Querying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/SQLite/" title="SQLite" class="md-nav__link">
+      SQLite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/Databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/CSharp/" title="C# scripts" class="md-nav__link">
+      C# scripts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Custom Excel functions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Custom Excel functions" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Custom Excel functions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Functions%20via%20DotNet/" title="Functions via .Net" class="md-nav__link">
+      Functions via .Net
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Functions%20via%20SQL/" title="Functions via SQL" class="md-nav__link">
+      Functions via SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Publishing%20functions/" title="Publishing functions" class="md-nav__link">
+      Publishing functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Custom%20Excel%20functions/Installing%20packages/" title="Installing packages" class="md-nav__link">
+      Installing packages
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Automating workbooks
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Automating workbooks" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Automating workbooks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/Automation%20with%20dotnet/" title="Automation with .Net" class="md-nav__link">
+      Automation with .Net
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/SQL%20Commands/" title="Automation with SQL Commands" class="md-nav__link">
+      Automation with SQL Commands
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      General topics
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="General topics" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        General topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Preprocessor
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Preprocessor" class="md-nav__link md-nav__link--active">
+      Preprocessor
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inserting-values-into-sql" class="md-nav__link">
+    Inserting values into SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Inserting values into SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-defined-variables" class="md-nav__link">
+    User defined variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting-values-before-insertion" class="md-nav__link">
+    Formatting values before insertion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocessor-expressions-vs-parameters" class="md-nav__link">
+    Preprocessor expressions vs parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-excel-functions" class="md-nav__link">
+    Defining Excel functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-excel-commands" class="md-nav__link">
+    Defining Excel commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Project%20system/" title="Project system" class="md-nav__link">
+      Project system
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DataContext/" title="Data context" class="md-nav__link">
+      Data context
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Managing%20packages/" title="Managing packages" class="md-nav__link">
+      Managing packages
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inserting-values-into-sql" class="md-nav__link">
+    Inserting values into SQL
+  </a>
+  
+    <nav class="md-nav" aria-label="Inserting values into SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-defined-variables" class="md-nav__link">
+    User defined variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting-values-before-insertion" class="md-nav__link">
+    Formatting values before insertion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocessor-expressions-vs-parameters" class="md-nav__link">
+    Preprocessor expressions vs parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-excel-functions" class="md-nav__link">
+    Defining Excel functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-excel-commands" class="md-nav__link">
+    Defining Excel commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="the-sql-preprocessor">The SQL Preprocessor</h1>
+<p>QueryStorm introduces a simple preprocessor that's available in all SQL scripts in QueryStorm. The job of the preprocessor is to allow:</p>
+<ul>
+<li>Using values from workbook cells in SQL code</li>
+<li>Defining Excel functions and commands</li>
+<li>Outputting results into <code>Excel</code></li>
+</ul>
+<h2 id="inserting-values-into-sql">Inserting values into SQL</h2>
+<p>The preprocessor can be used to insert values from Excel cells into SQL code, for example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">people</span> <span class="k">where</span> <span class="n">id</span> <span class="o">=</span> <span class="err">{</span><span class="n">nameOfCell</span><span class="err">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>The value of the named cell will be inserted instead of the <code>{nameOfCell}</code> placeholder before the query is passed to the SQL engine. This is a purely textual operation. If the inserted value is a strings or a date, it is automatically quoted.</p>
+<p>To prevent quoting, add an exclamation mark before the name of the cell: <code>{!nameOfCell}</code>. This allows inserting raw sql code into the query (sql injection), so caution is advised when doing this.</p>
+<h3 id="user-defined-variables">User defined variables</h3>
+<p>Users can also define their own variables in SQL. This is especially useful when working with database engines that do not have their own support for defining variables.</p>
+<p>A variable can be defined and referenced in the following way:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">-- define the variable</span>
+<span class="err">{</span><span class="n">var</span> <span class="n">binSize</span> <span class="o">=</span> <span class="mi">20</span><span class="err">}</span>
+
+<span class="k">SELECT</span>
+    <span class="k">CAST</span> <span class="p">(</span><span class="n">totalPay</span> <span class="o">/</span> <span class="err">{</span><span class="n">binSize</span><span class="err">}</span> <span class="k">AS</span> <span class="nb">int</span><span class="p">)</span> <span class="o">*</span> <span class="err">{</span><span class="n">binSize</span><span class="err">}</span> <span class="k">AS</span> <span class="n">bin</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="k">count</span>
+<span class="k">FROM</span>
+    <span class="n">salaries</span>
+<span class="k">GROUP</span> <span class="k">BY</span>
+    <span class="n">bin</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="formatting-values-before-insertion">Formatting values before insertion</h3>
+<p>Values can be formatted before inserting into the query. The syntax for formatting is as follows: {<em>variableName</em>|<em>formatSpecifier</em>}.</p>
+<p>The format specifier is a standard format specifier for the .NET <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string.format">string.Format</a> method.</p>
+<p>For example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">{</span><span class="n">datetime</span> <span class="n">myDate</span> <span class="o">=</span> <span class="ss">&quot;2020-10-10&quot;</span><span class="err">}</span>
+
+<span class="k">SELECT</span>
+    <span class="err">{</span><span class="n">myDate</span><span class="o">|</span><span class="ss">&quot;The date {0:d} is a {0:dddd}&quot;</span><span class="err">}</span>
+
+<span class="c1">-- the output will be: The date 10/10/2020 is a Saturday</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="preprocessor-expressions-vs-parameters">Preprocessor expressions vs parameters</h3>
+<p>Named workbook cells are visible to SQL scripts as parameters, and most databases support named parameters, so inserting values into the query text with the preprocessor usually isn't required.</p>
+<p>However, there are reasons this might be useful:</p>
+<ul>
+<li>It allows defining variables and using them for engines that do not support variables (e.g. SQLite)</li>
+<li>It allows formatting values</li>
+<li>It allows using cell values as parameters when working with databases that do not support named parameters (e.g. ODBC, Access)</li>
+<li>It allows injecting SQL into queries</li>
+</ul>
+<h2 id="defining-excel-functions">Defining Excel functions</h2>
+<p>The second important task of the preprocessor is declaring functions that can be used from Excel. The body of the function is written in SQL, and the declaration of the function via the preprocessor.</p>
+<p>For example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">{</span><span class="k">function</span> <span class="n">myFunction</span><span class="p">(</span><span class="nb">int</span> <span class="n">rowsToReturn</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span><span class="err">}</span>
+
+<span class="k">select</span> <span class="n">top</span> <span class="err">{</span><span class="n">rowsToReturn</span><span class="err">}</span>
+    <span class="o">*</span>
+<span class="k">from</span>
+    <span class="n">HumanResources</span><span class="p">.</span><span class="n">Department</span> <span class="n">d</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>The above query can be used to define an Excel function that accepts a single parameter and returns a table of results. For more information on creating functions with SQL, click <a href="../../Custom%20Excel%20functions/Functions%20via%20SQL">here</a>.</p>
+<h2 id="defining-excel-commands">Defining Excel commands</h2>
+<p>The preprocessor also allows defining commands. SQL code is used for fetching data or modifying data in the database, while the preprocessor syntax is used to declare the command and specify the events that will trigger execution of the command.</p>
+<p>For example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">{</span><span class="n">handles</span> <span class="n">Sheet1</span><span class="o">!</span><span class="n">CommandButton1</span><span class="err">}</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">PermanentDbTable</span> <span class="k">from</span> <span class="n">ImportedWorkbookTable</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>If the query returns data from the database (rather than updating the database), the query restults can be written into the workbook by adding an output directive above it, for example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">{</span><span class="n">handles</span> <span class="n">Sheet1</span><span class="o">!</span><span class="n">CommandButton1</span><span class="err">}</span>
+
+<span class="err">{</span><span class="o">@</span><span class="n">OverdueBooks</span><span class="err">}</span>
+<span class="k">select</span>
+    <span class="n">BookName</span><span class="p">,</span> <span class="n">PersonName</span>
+<span class="k">from</span>
+     <span class="n">BookRentals</span>
+<span class="k">where</span>
+    <span class="n">ReturnDate</span> <span class="o">&lt;</span> <span class="nb">date</span><span class="p">()</span>
+    <span class="k">and</span> <span class="n">Returned</span><span class="o">=</span><span class="mi">0</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Running this query will immediately update the <em>OverdueBooks</em> table in Excel with the results.</p>
+<p>For more information on setting up automation with SQL, click <a href="../../Automating%20workbooks/SQL%20Commands">here</a>.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Automating%20workbooks/SQL%20Commands/" title="Automation with SQL Commands" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Automation with SQL Commands
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Project%20system/" title="Project system" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Project system
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/jquery-3.3.1.min.js"></script>
+      
+        <script src="../../js/youtube.js"></script>
+      
+        <script src="../../js/baguetteBox.js"></script>
+      
+    
+  </body>
+</html>

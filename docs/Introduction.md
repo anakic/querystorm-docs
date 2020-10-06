@@ -10,19 +10,19 @@ Each section of the documentation starts with an overview page explaining the co
 
 QueryStorm is an Excel add-in that brings first class support for modern programming languages (namely SQL, C# and VB.NET) into Excel. It is intended to enhance Excel's native functionality with a strong set of technical capabilities.
 
-It has three main areas of use:
+It has three main areas of application:
 
-1. Processing and migrating data using SQL and C#/Linq
-2. Developing and sharing custom Excel functions using SQL, C# and VB.NET
-3. Automating workbooks with with SQL, C# and VB.NET
+1. [Querying and migrating data](../Querying/Overview)
+2. [Automating workbooks](../Automation/Overview)
+3. [Developing and sharing custom Excel functions](../Functions/Overview)
 
 ## Who it's for
 
 The main audiences for QueryStorm can be split into three distinct groups:
 
-- **Data specialists** such as database professionals, data scientists and data analysts use it to facilitate processing of data in Excel, and moving data between Excel and databases.
-- **Developers**  use if for processing data in Excel as well as for building custom Excel functions and workbook applications for their clients and business users.
-- **Business users** use it to make use of the custom functions and workbook applications that developers build for them.
+- **Data specialists** such as database professionals, data scientists and data analysts use it to facilitate processing of data in Excel, as well as moving data between Excel and databases.
+- **Developers**  use if for building workbook-applications with rich behavior as well as custom functions for their users and clients.
+- **Business users** use it to make use of the custom functions and workbook applications that developers and data specialists build for them.
 
 ## IDE and Runtime
 

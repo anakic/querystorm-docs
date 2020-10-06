@@ -1,0 +1,854 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://www.querystorm.com/docs2/Custom%20Excel%20functions/Functions%20via%20DotNet/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Functions via .Net - QueryStorm Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/baguetteBox.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#defining-functions-with-net" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.querystorm.com/docs2" title="QueryStorm Docs" class="md-header-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            QueryStorm Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Functions via .Net
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.querystorm.com/docs2" title="QueryStorm Docs" class="md-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    QueryStorm Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Querying
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Querying" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Querying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/SQLite/" title="SQLite" class="md-nav__link">
+      SQLite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/Databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/CSharp/" title="C# scripts" class="md-nav__link">
+      C# scripts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Custom Excel functions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Custom Excel functions" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Custom Excel functions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Functions via .Net
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Functions via .Net" class="md-nav__link md-nav__link--active">
+      Functions via .Net
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-new-function" class="md-nav__link">
+    Loading the new function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceldna" class="md-nav__link">
+    ExcelDNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-to-vbnet" class="md-nav__link">
+    Switching to VB.NET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-functions" class="md-nav__link">
+    Debugging functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-log-method" class="md-nav__link">
+    The Log() method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attaching-a-debugger" class="md-nav__link">
+    Attaching a debugger
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Functions%20via%20SQL/" title="Functions via SQL" class="md-nav__link">
+      Functions via SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Publishing%20functions/" title="Publishing functions" class="md-nav__link">
+      Publishing functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Installing%20packages/" title="Installing packages" class="md-nav__link">
+      Installing packages
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Automating workbooks
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Automating workbooks" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Automating workbooks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/Automation%20with%20dotnet/" title="Automation with .Net" class="md-nav__link">
+      Automation with .Net
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automating%20workbooks/SQL%20Commands/" title="Automation with SQL Commands" class="md-nav__link">
+      Automation with SQL Commands
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      General topics
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="General topics" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        General topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../General%20topics/Preprocessor/" title="Preprocessor" class="md-nav__link">
+      Preprocessor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../General%20topics/Project%20system/" title="Project system" class="md-nav__link">
+      Project system
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../General%20topics/DataContext/" title="Data context" class="md-nav__link">
+      Data context
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../General%20topics/Managing%20packages/" title="Managing packages" class="md-nav__link">
+      Managing packages
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-new-function" class="md-nav__link">
+    Loading the new function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceldna" class="md-nav__link">
+    ExcelDNA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-to-vbnet" class="md-nav__link">
+    Switching to VB.NET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-functions" class="md-nav__link">
+    Debugging functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Debugging functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-log-method" class="md-nav__link">
+    The Log() method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attaching-a-debugger" class="md-nav__link">
+    Attaching a debugger
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="defining-functions-with-net">Defining functions with .NET</h1>
+<p>The process of defining a function with C# or VB.NET is simply a matter of writing the function and decorating it with the <code>ExcelFunction</code> attribute.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">MyFunctions</span>
+<span class="p">{</span>
+<span class="na">    [ExcelFunction]</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="p">+</span> <span class="n">b</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>For a video demonstration click below:</p>
+<p><img alt="YOUTUBE" src="emcyyiVUYSk" /></p>
+<h2 id="loading-the-new-function">Loading the new function</h2>
+<p>Once the project that contains the function is built (compiled), the runtime will automatically load it and make the function available in Excel. Depending on if the function is in a workbook or an extension project, the function will be available in the defining workbook or in all workbooks.</p>
+<h2 id="exceldna">ExcelDNA</h2>
+<p>QueryStorm uses the popular <strong>ExcelDNA</strong> library for registering Excel functions. The functions you define can be simple synchronous functions as shown here, but they can also be asynchronous, accept and return tabular values, cache data internally and do other non-trivial things.</p>
+<p>More information on these topics, and many more, can be found in the following resources:</p>
+<ul>
+<li><a href="https://groups.google.com/g/exceldna/">ExcelDna Google group</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/excel-dna">ExcelDna on StackOverflow</a></li>
+<li><a href="https://github.com/Excel-DNA/ExcelDna/wiki">ExcelDna wiki on GitHub</a></li>
+</ul>
+<h2 id="switching-to-vbnet">Switching to VB.NET</h2>
+<p>In the <code>module.config</code> file, there is a setting that sets the language of the project. To switch to VB.NET, change the following line:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="s2">&quot;Language&quot;</span><span class="err">:</span> <span class="s2">&quot;CSharp&quot;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>...to...</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="s2">&quot;Language&quot;</span><span class="err">:</span> <span class="s2">&quot;VisualBasic&quot;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>This will ensure that the project builds using the VB.NET compiler and uses class templates for VB.NET. Once that's done, you can add a new class file and write your function in VB.NET, for example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>public Module MyFunctions1
+        &lt;ExcelFunction&gt;
+        public function AddTwoNumbers(val1 As Int32, val2 As Int32) as int32
+            return val1 + val2
+        end function
+End Module
+</code></pre></div>
+</td></tr></table>
+
+<h2 id="dependencies">Dependencies</h2>
+<p>Simple functions that do not rely on any shared dependencies can be static and do everything on their own.</p>
+<p>However, a function might need to get hold of a particular service (e.g. an API object) in order to perform its calculation. That service might be expensive to create, so we would not want to create a new instance each time the function is evaluated. It would be better to have a single instance of the service which we would reuse in each function call.</p>
+<p>If the function relies on such dependencies, it should not be static. The constructor of the class that owns the function is executed only once (just before the first function call), so any expensive dependencies can be created there.</p>
+<p>If multiple functions should share the same dependency, the dependency should be registered centrally, in the IOC container in the <code>App</code> class (inside the App.cs file). The constructor of the function's class can then request the service by simply declaring it as a constructor argument (constructor injection).</p>
+<p>For example:</p>
+<p>Register the service in App.cs:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="nf">App</span><span class="p">(</span><span class="n">IUnityContainer</span> <span class="n">container</span><span class="p">)</span>
+    <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// register the service as a singleton</span>
+    <span class="n">container</span><span class="p">.</span><span class="n">RegisterType</span><span class="p">&lt;</span><span class="n">SomeService</span><span class="p">&gt;(</span><span class="k">new</span> <span class="n">ContainerControlledLifetimeManager</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Use the service in your function:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">ExcelFunctions1</span>
+<span class="p">{</span>
+    <span class="n">SomeService</span> <span class="n">someService</span><span class="p">;</span>
+    <span class="c1">// request the service by adding a ctor argument</span>
+    <span class="k">public</span> <span class="nf">ExcelFunctions1</span><span class="p">(</span><span class="n">SomeService</span> <span class="n">someService</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">someService</span> <span class="p">=</span> <span class="n">someService</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="na">    [ExcelFunction]</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// use the service to perform the calculation</span>
+        <span class="k">return</span> <span class="n">someService</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>QueryStorm uses the <a href="http://unitycontainer.org/articles/introduction.html">Unity container</a> for dependency injection. Some of QueryStorm's own services are available via the IOC container (e.g. <code>IDialogService</code>), and you can freely use those as well.</p>
+</blockquote>
+<h2 id="debugging-functions">Debugging functions</h2>
+<p>QueryStorm does not currently have a built-in debugger, but there are two static methods that help with debugging: <code>Log()</code> and <code>Debug()</code>.</p>
+<p><img alt="YOUTUBE" src="zqPGuJoD5DM" /></p>
+<h3 id="the-log-method">The <code>Log()</code> method</h3>
+<p>The simplest way to debug issues is to use the <code>Log(object obj)</code> method to print values to the messages pane.</p>
+<p>The <code>Log()</code> method is contained in the <code>QueryStorm.Core.DebugHelpers</code> class. All class files that QueryStorm generates have a static <em>using</em> directive for that class, so you can use the <code>Log</code> method anywhere in your code, without qualifying it with the namespace or the class name.  </p>
+<p>It's important to note that QueryStorm has two log viewers. One is part of the IDE, and the other is part of the Runtime (launched separately from the ribbon). The output of the <code>Log()</code> method will be visible in both places, so Runtime users will be able to see these messages.</p>
+<h3 id="attaching-a-debugger">Attaching a debugger</h3>
+<p>The <code>Log()</code> method is useful, but quite often a proper debugger is needed to track down tricky bugs. QueryStorm compiles code in a debugger-friendly way, so it's fairly easy to debug your code with an external debugger.</p>
+<p>To launch a debugger at a particular location in the source code, use the <code>Debug()</code> method. The <code>Debug()</code> method is also available anywhere in the code without prefixing it with the namespace or the class name, due to the <code>using</code> directive that's part of all code files generated by QueryStorm.</p>
+<p>If the local machine has Visual Studio installed, the <code>Debug()</code> method will launch Visual Studio, attach it to the process and stop the debugger at the current line. If a debugger is already attached, it will simply stop at the line with the <code>Debug()</code> call.</p>
+<p>If you do not have Visual Studio installed, you can use the small open source <a href="https://github.com/0xd4d/dnSpy">DNSpy</a> debugger, attach it to the Excel process, and use the <code>Debug()</code> method to stop the debugger at the desired line in the code.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Overview/" title="Overview" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Functions%20via%20SQL/" title="Functions via SQL" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Functions via SQL
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/jquery-3.3.1.min.js"></script>
+      
+        <script src="../../js/youtube.js"></script>
+      
+        <script src="../../js/baguetteBox.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,6 +1,6 @@
 # Querying
 
-QueryStorm supports writing SQL and C# scripts that can see Excel tables, and work with data as if it was in a database (SQL) or in a .NET collection (C#).
+QueryStorm supports writing SQL and C# scripts that can see Excel tables, and work with data as if it was in a database or in a .NET collection.
 
 ## Tables, not sheets
 

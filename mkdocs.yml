@@ -7,21 +7,20 @@ nav:
       - SQLite: "Querying/SQLite.md"
       - Databases: "Querying/Databases.md"
       - C# scripts: "Querying/CSharp.md"
-    - Custom Excel functions:
-      - Overview: Custom Excel functions\Overview.md
-      - Functions via .Net: Custom Excel functions\Functions via DotNet.md
-      - Functions via SQL: Custom Excel functions\Functions via SQL.md
-      - Publishing functions: Custom Excel functions\Publishing functions.md
-      - Installing packages: Custom Excel functions\5. Installing packages.md
     - Automating workbooks:
-      - Overview: Automating workbooks\Overview.md
-      - Automation with .Net: Automating workbooks\Automation with dotnet.md
-      - SQL Commands: Automating workbooks\SQL Commands.md
+      - Overview: Automation\Overview.md
+      - Automation with .Net: Automation\Automation_with_dotnet.md
+      - Automation with SQL Commands: Automation\Automation_with_SQL.md
+    - Custom Excel functions:
+      - Overview: Functions\Overview.md
+      - Functions via .Net: Functions\Functions_via_DotNet.md
+      - Functions via SQL: Functions\Functions_via_SQL.md
+      - Publishing functions: Functions\Publishing_functions.md
+      - Installing packages: Functions\Installing_packages.md
     - General topics:
-      - Preprocessor: General topics\Preprocessor.md
-      - Project system: General topics\Project system.md
-      - Data context: General topics\DataContext.md
-      - Managing packages: General topics\Managing packages.md
+      - SQL Preprocessor: General\Preprocessor.md
+      - Project system: General\Project_system.md
+      - Data context: General\Data_context.md
 theme: material
 extra_css:
   - css/baguetteBox.css

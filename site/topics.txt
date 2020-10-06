@@ -1,19 +1,20 @@
-- Introduction
++ Introduction
 
-- Querying
-  - Overview
-  - SQLite
-  - External databases
-  - C# linq
++ Querying
+  + Overview
+  + SQLite
+  + External databases
+  + C# linq
 
-- Creating Excel functions
-  - Overview
++ Creating Excel functions
+  + Overview
   + SQL functions
   + C# & VB.NET functions (arrays, async, RTD)
 
-- Automating workbooks
-  - COM Automation
-  - Model binding
++ Automating workbooks
+  + Introduction
+  + Model binding
+  + SQL automation
 
 - General topics
   - QueryStorm project system

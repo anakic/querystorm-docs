@@ -32,7 +32,7 @@ Query results can be written into the workbook as new tables or used to update e
 
 You can write the results of a query into a new or existing table by selecting a cell in Excel and using the ++alt+insert++ shortcut key for writing results.
 
-You can also output the results directly from the script, by using the SQL [preprocessor](../../General%20topics/Preprocessor), which is available in all SQL scripts in QueryStorm.
+You can also output the results directly from the script, by using the SQL [preprocessor](../../General/Preprocessor), which is available in all SQL scripts in QueryStorm.
 
 For example, here's how to output the results of a query into an Excel table, using the preprocessor:
 
@@ -41,7 +41,7 @@ For example, here's how to output the results of a query into an Excel table, us
 SELECT * FROM HumanResources.Department
 ```
 
-When this script is executed, the results of the select query will be written into an Excel table with the name *dpt*. If the table does not yet exist, it will be created starting at the currently selected cell. If a table called *dpt* does exists in the current workbook, it will be overwritten by the results of the query. If the workbook table has any columns that are not present in the query results (e.g. calculated columns), those columns will be left intact.
+When this script is executed, the results of the select query will be written into an Excel table with the name *dpt*. If the table does not yet exist, it will be created starting at the currently selected cell. If a table called *dpt* does exists in the current workbook, it will be overwritten by the results of the query. However, **only table columns that exist both in the workbook table and in the results are updated**. If the workbook table has any columns that are not present in the query results (e.g. calculated columns), those columns will be left intact.
 
 To update multiple tables from the same script, we can use multiple output directives:
 
@@ -67,7 +67,7 @@ Referencing the connection string by name (instead of keeping it in the script f
 
 ### Securing credentials
 
-Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to share their database credentials with end users. This is an important consideration when sharing the workbook itself or when building and sharing your own [Excel/SQL functions](../../Custom%20Excel%20functions/Functions%20via%20SQL).
+Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to leave their database credentials inside scripts that are shared with end users. This is an important consideration when sharing the workbook itself or when building and sharing custom [Excel SQL Functions](../../Functions/Functions_via_SQL).
 
 For this reason, connection strings can be **templated**. Instead of the actual username and password, the developer puts placeholders inside the connection string.
 

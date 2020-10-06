@@ -8,7 +8,7 @@ One of the main features C# scripts offer is the ability to query tables using L
 
 ![Connect with C#](../Images/cs_querying.gif)
 
-> QueryStorm uses the Reflection.Emit API to dynamically generate classes that represent table rows. This is done on-the-fly, so if you modify Excel tables, QueryStorm will immediately update the generated types.
+> QueryStorm uses the Reflection.Emit API to dynamically generate classes that represent table rows. This is done on-the-fly, so as you modify Excel tables, QueryStorm immediately updates the generated types.
 
 For example, suppose you have a workbook table named `salaries` that contains data about people's salaries. You could search for people whose salary is greater than 100,000 like so:
 
@@ -106,23 +106,33 @@ public int Add(int a, int b)
 
 A C# script is hosted inside a project. The project has a `module.config` file that specifies, among other things, library and NuGet references. To use local dlls or NuGet packages in your C# scripts, simply add them to the host project.
 
-> After adding the references to the project, the script needs to disconnect and reconnect to see the changes.
+![Add reference](../Images/add_reference_context_menu.png)
+
+> Adding NuGet packages (1) and library references (2).
+
+After adding the references to the project, the project needs to be built in order for the script to see the changes.
 
 ## Referencing project code
 
-The script can also see the classes that the containing project exposes. It's important to note that the script code is not compiled along with the project class files. Rather, the script references the project's output dll, so it only sees public types that the project exposes. The project should be built (compiled) before the script can use its types.
+Scripts can also see classes that the containing project exposes. This can be very handy for manual testing of your classes.
 
-> As with references, the script should disconnect and reconnect in order to see changes.
+It's important to note, however, that the script code is not compiled along with the project's class files. Rather, the script **references the project's output dll**, so it only sees public types that the project exposes. Additionally, a `using` statement (or namespace prefix) must be used to access the types inside the project.
 
-## Interacting with the workbook object
+![Referencing project types](../Images/cs_script_project_type.png)
 
-Each C# script has a variable called `ThisProject` that references the project that contains it. Workbook projects expose a `Workbook` property that exposes the workbook COM object.
+Since the script references the project's output dll, the project needs to be built (compiled) before the script can use its types.
 
-From there, the user can interact with the workbook via Excel's COM API.
+## Interacting with the workbook directly
+
+In addition to having properties for tables and variables, scripts also have a property called `UnityContainer` that lets them access all of the services that QueryStorm exposes to them.
+
+One such service, the `IWorkbookAccessor` service, can be used to gain access to the workbook that contains the C# script, like so:
 
 ```csharp
-var workbook = ThisProject.Workbook;
+var workbook = UnityContainer.Resolve<IWorkbookAccessor>().Workbook;
 
 // e.g. return the path of the current workbook
 workbook.FullName
 ```
+
+From there, the user can interact with the workbook via Excel's COM API.

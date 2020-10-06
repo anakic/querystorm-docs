@@ -1,75 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Introduction/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Querying/Overview/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Querying/SQLite/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Querying/Databases/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Querying/CSharp/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Custom%20Excel%20functions/Overview/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Custom%20Excel%20functions/Functions%20via%20DotNet/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Custom%20Excel%20functions/Functions%20via%20SQL/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Custom%20Excel%20functions/Publishing%20functions/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Custom%20Excel%20functions/Installing%20packages/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Automating%20workbooks/Overview/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Automating%20workbooks/Automation%20with%20dotnet/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/Automating%20workbooks/SQL%20Commands/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/General%20topics/Preprocessor/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/General%20topics/Project%20system/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/General%20topics/DataContext/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
-     <lastmod>2020-09-18</lastmod>
+     <loc>https://www.querystorm.com/docs2/General%20topics/Managing%20packages/</loc>
+     <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -22,7 +22,7 @@ You can use SQL to **query** and **modify** data inside tables. All four SQL dat
 
 When using the SQLite engine, all workbook tables get an additional column named `__address`. This column contains the original address of the row in Excel. The `__address` column is **hidden**, meaning it is **not included** in the results if you only specify `*` in the select list; you must include it in the select list explicitly if you need it (e.g. `select *, __address from...`).
 
-This column is useful for two main reasons:
+This column is serves two purposes:
 
 - Double-clicking the address in the results grid will scroll to the range in Excel and select it
 - The address information can be used for formatting ranges from SQL (described below)
@@ -54,9 +54,9 @@ For example, the following query will add 100 to all cells in a range that have 
 
 ```sql
 update
-	XLCells -- referenced like a table
+	xlcells -- referenced like a table
 set
-	Value = Value + 100
+	value = value + 100
 where
 	targetRangeAddress = 'H6:I8' -- the function's parameter is here (it's visible in autocomplete)
 	and Type = 'Double'
@@ -125,6 +125,5 @@ All columns of Excel tables are automatically indexed by the SQLite engine. This
 This is because QueryStorm uses SQLite's "virtual table" mechanism for representing workbook tables. Virtual tables have the indexing logic baked in and user defined indexes are not supported.
 
 If different indexing is needed, you can create a copy of the table and add indexes to the copy, though this is rarely required.
-
 
 <!-- todo: custom functions via c#/vb.net -->
