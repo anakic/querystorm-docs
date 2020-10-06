@@ -17,11 +17,11 @@ Here's how we might do that:
 -- output results into the 'orders' table
 {@orders}
 select
-	*
+    *
 from
-	Sales.SalesOrderHeader soh
+    Sales.SalesOrderHeader soh
 where
-	OrderDate = @orderDate -- read the orderDate cell's value
+    OrderDate = @orderDate -- read the orderDate cell's value
 ```
 
 ## Starting the application
@@ -44,11 +44,11 @@ The output directive should be placed above the select query whose results it sh
 
 ## Specifying triggers
 
-The preprocessor syntax for declaring an automation command is: {**handles** *eventsList*}. The event list is a comma separated list of events that should trigger execution of the command.
+The preprocessor syntax for declaring an automation command is: {**handles** *eventsList*}. The event list is a comma-separated list of events that should trigger the execution of the command.
 
 ### Range change events
 
-For each named cell, an event with the same name is defined, and is fired each time the cell value changes. In the above example, the `orderDate` event is specified as the only trigger, meaning that the command will execute every time the `orderDate` cell's value changes.
+For each named cell, an event with the same name is defined and is fired each time the cell value changes. In the above example, the `orderDate` event is specified as the only trigger, meaning that the command will execute every time the `orderDate` cell's value changes.
 
 ### ActiveX button click events
 
@@ -56,7 +56,7 @@ To handle the click of an ActiveX button, we should use the following syntax: {*
 
 ### VBA events
 
-Arbitrarily named events can also be sent from VBA and used to trigger execution of commands. To send an event from VBA, use the QueryStorm.Runtime.API class:
+Arbitrarily named events can also be sent from VBA and used to trigger the execution of commands. To send an event from VBA, use the QueryStorm.Runtime.API class:
 
 ```vb
 CreateObject("QueryStorm.Runtime.API").SendEvent("myEvent")
@@ -86,6 +86,7 @@ Example function declaration:
 ```
 
 Example command declaration:
+
 ```sql
 {handles myNamedCell, Sheet1!MyButton}
 // ...sql code
@@ -93,8 +94,8 @@ Example command declaration:
 
 In general, functions fetch or calculate values while commands change things (e.g. save data to a database, write data into Excel tables).
 
-In the example at the beginning of this page, we were fetching data based on some parameter. Conceptually, this looks more like it should be a function than a command. However, a function cannot return the body of a table, it can only return data to a cell or a range. If we want to write the resulting data to an Excel table, we need to use a command with an output directive (e.g. `{@someTable}`).
+In the example at the beginning of this page, we were fetching data based on a parameter. Conceptually, this looks more like it should be a function than a command. However, a function cannot return the body of a table, it can only return data to a cell or a range. If we want to write the resulting data to an Excel table, we need to use a command with an output directive (e.g. `{@someTable}`).
 
-On the the other hand, if the script was **updating database data** rather than simply selecting data from it, a command would certainly be the appropriate choice.
+On the other hand, if the script was **updating database data** rather than simply selecting data from it, a command would certainly be the appropriate choice.
 
 An important distinction between commands and functions is that commands reset Excel's Undo/Redo stack when they modify data in the workbook, while functions do not. This is a technical limitation in Excel.

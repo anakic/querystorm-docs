@@ -1,6 +1,6 @@
 # The data context
 
-The data context represents the outside world that scripts and components see. It exposes tables, variables and events.
+The data context represents the outside world that scripts and components see. It exposes tables, variables, and events.
 
 When you create a script, a data context instance is automatically passed to the script, making its data available to the script.
 
@@ -8,7 +8,7 @@ Components can access the data inside the context via property bindings, and com
 
 Each project can have no more than one data context file. You can define your own data context class to customize the data that will be available to your scripts and components, but if not, a default data context will be used.
 
-## Defining a data context context file
+## Defining a data context file
 
 The data context file can be added from the project's context menu.
 
@@ -26,21 +26,21 @@ using static QueryStorm.Core.DebugHelpers;
 
 namespace aa
 {
-	public partial class AppDataContext : DataContext
-	{
-		public AppDataContext() { }
-		
-		public override void Initialize()
-		{
-			// create a sample table
-			var folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-			var listOfFiles = System.IO.Directory.GetFiles(folder);
-		    var myFilesTbl = new TabularValue(listOfFiles, "myFiles");
+    public partial class AppDataContext : DataContext
+    {
+        public AppDataContext() { }
+        
+        public override void Initialize()
+        {
+            // create a sample table
+            var folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var listOfFiles = System.IO.Directory.GetFiles(folder);
+            var myFilesTbl = new TabularValue(listOfFiles, "myFiles");
 
-		    // add it to the context
-		    Tables.Add(myFilesTbl);
-		}
-	}
+            // add it to the context
+            Tables.Add(myFilesTbl);
+        }
+    }
 }
 ```
 
@@ -59,7 +59,7 @@ Components can bind directly to `Tabular` instances that the data  context expos
 public Tabular Departments { get; set; }
 ```
 
-However, a `Tabular` instance does not offer strongly typed access to the data it contains. To allow strongly typed access to all tables inside the context, QueryStorm dynamically generates a dll file which contains types that correspond to tables in the data context. This dll is recreated each time the data context changes (e.g. an Excel table is changed) and is stored in the `lib` folder.
+However, a `Tabular` instance does not offer strongly typed access to the data it contains. To allow strongly typed access to all tables inside the context, QueryStorm dynamically generates a dll file that contains types that correspond to tables in the data context. This dll is recreated each time the data context changes (e.g. an Excel table is changed) and is stored in the `lib` folder.
 
 ![Generated types dll](../Images/generated_types.png)
 
@@ -109,12 +109,12 @@ For example:
 ``` csharp
 protected override void Initialize(ContextSchema schema)
 {
-	schema.ConfigureTable("Employees")
-		// set column types
-		.ConfigureColumn<System.Int32>("Id")
-		.ConfigureColumn<System.String>("Name")
-		// add table relation
-		.AddRelation("DptId", To.One, "Departments", "Id", "MyDepartment");
+    schema.ConfigureTable("Employees")
+        // set column types
+        .ConfigureColumn<System.Int32>("Id")
+        .ConfigureColumn<System.String>("Name")
+        // add table relation
+        .AddRelation("DptId", To.One, "Departments", "Id", "MyDepartment");
 }
 ```
 
@@ -128,6 +128,6 @@ The schema file can be edited by hand, as well as updated automatically when tab
 
 ![Update schema file](../Images/update_schema_file.gif)
 
-Configuration code for tables and columns will be added/removed, but settings for existing tables and columns will remain intact. Previous settings are loaded from the output dll, so if you've made manual changes, make sure to build the project before updating the schema file, otherwise those manual changes will be lost.
+Configuration code for tables and columns will be added/removed, but settings for existing tables and columns will remain intact. Previous settings are loaded from the output dll, so if you've made manual changes, make sure to build the project before updating the schema file, otherwise, those manual changes will be lost.
 
 > Tip: for performance reasons (to avoid type conversions), it's slightly better to leave Id columns as `double` instead of `int`. This is because Excel does not have an `int` type; all numbers in Excel are `double`.

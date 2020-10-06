@@ -12,11 +12,11 @@ To define this function, we need to create a new script and connect to our targe
 
 -- the body of the function
 select
-	*
+    *
 from
-	Person.Person p
+    Person.Person p
 where
-	FirstName like '%' + @searchTerm + '%'
+    FirstName like '%' + @searchTerm + '%'
 ```
 
 We can run the code to examine if it returns the expected results. When running the query, the `@searchTerm` parameter's default value will be used. In this example, the query will return all persons whose name contains the string `"tim"`.
@@ -32,7 +32,7 @@ For a video demonstration of the process, click below:
 
 ## Parameters
 
-Functions that are declared by the QueryStorm preprocessor can accept parameters. Function parameters have names, types and default values. There are five supported data types for parameters: `int`, `float`, `datetime`, `string` and `bool`.
+Functions that are declared by the QueryStorm preprocessor can accept parameters. Function parameters have names, types, and default values. There are five supported data types for parameters: `int`, `float`, `datetime`, `string`, and `bool`.
 
 The following are examples of valid parameter declarations:
 
@@ -67,7 +67,7 @@ If the function is stored inside the workbook, anyone who has the workbook (and 
 
 ### Extension functions
 
-QueryStorm supports building extension projects which can contain a set of user defined Excel functions that can be packaged together and published to other users.
+QueryStorm supports building extension projects which can contain a set of user-defined Excel functions that can be packaged together and published to other users.
 
 To define the function in a QueryStorm extension rather than in the workbook, create a new project in "Code explorer" and then add a new script from the context menu of the new project.
 

@@ -14,7 +14,7 @@ To automate the workbook, we must first add a project to it:
 
 ![Creating a workbook project](../Images/creating_workbook_project.gif)
 
-This will create a project and prepare `module.config` and `app.cs` files that we can use as the starting point for out workbook application.
+This will create a project and prepare `module.config` and `app.cs` files that we can use as the starting point for our workbook application.
 
 When this project is built, the output files (.dll and .manifest) will be stored inside the workbook, and the runtime will automatically load the project. Each time an Excel workbook is opened, the QueryStorm runtime inspects it to see if there's a **compiled** workbook application inside it. If it finds one, it loads it along with the workbook. When the workbook is closed, the application is unloaded with it.
 
@@ -22,21 +22,21 @@ When this project is built, the output files (.dll and .manifest) will be stored
 
 The workbook project has an `App` class that's defined in the `App.cs` (or `App.vb`) file. This is the entry point of the application.
 
-In its constructor, we can request an `IWorkbookAccessor` instance which will give us access to the workbook that contains the application. We can use the workbook object to read and write cell values, subscribe to events, refresh graphs and pivot tables etc.
+In its constructor, we can request an `IWorkbookAccessor` instance which will give us access to the workbook that contains the application. We can use the workbook object to read and write cell values, subscribe to events, refresh graphs and pivot tables, etc.
 
 For example, we can pop up a message box each time a cell is selected (though admittedly, this is not a very useful thing to do):
 
 ```csharp
 public App(IUnityContainer container, IWorkbookAccessor workbookAccessor, IDialogService dialogService)
-	: base(container)
+    : base(container)
 {
-	workbookAccessor.Workbook.SheetSelectionChange +=
-		(sh,rng)=>
-		{
-			dialogService.ShowInfo(
-				$"Selected cell {rng.Address} with value '{rng.Value}'",
-				"Selected cell changed");
-		};
+    workbookAccessor.Workbook.SheetSelectionChange +=
+        (sh,rng)=>
+        {
+            dialogService.ShowInfo(
+                $"Selected cell {rng.Address} with value '{rng.Value}'",
+                "Selected cell changed");
+        };
 }
 ```
 
@@ -52,14 +52,14 @@ For example:
 
 ```csharp
 public App(IUnityContainer container)
-	: base(container)
+    : base(container)
 {
-	// register a service (as a singleton)
+    // register a service (as a singleton)
     container.RegisterType<SomeService>(new ContainerControlledLifetimeManager());
 }
 ```
 
-The IOC container is used to create instances of other classes, such as the data context, components and function container classes, so all of those classes can accept dependencies via their constructors.
+The IOC container is used to create instances of other classes, such as the data context, components, and function container classes, so all of those classes can accept dependencies via their constructors.
 
 For example, a component can access a service via constructor injection, like so:
 
@@ -67,9 +67,9 @@ For example, a component can access a service via constructor injection, like so
 public class Component1
 {
     public Component1(SomeService someService)
-	{
-		// ...		
-	}
+    {
+        // ...      
+    }
 }
 ```
 
@@ -77,7 +77,7 @@ public class Component1
 
 ## Components
 
-A component class contains logic that controls a section of the workbook. You can have any number of components in a workbook, each controlling it's own (arbitrarily defined) part of the workbook.
+A component class contains logic that controls a section of the workbook. You can have any number of components in a workbook, each controlling its own (arbitrarily defined) part of the workbook.
 
 Components have the following characteristics:
 
@@ -97,39 +97,39 @@ using static QueryStorm.Core.DebugHelpers;
 
 namespace Project
 {
-	public class Component1 : ComponentBase
-	{
-		[Bind("searchText")]
-		public string SearchText { get; set; }
-		
-		[BindTable]
-		public PeopleTable People{ get; set; }
-		
-		private string _Message;
-		[Bind("messages")]
-		public string Message
-		{
-		    get => _Message;
-		    set { _Message = value; OnPropertyChanged(nameof(Message)); }
-		}
-		
-		[EventHandler("searchText")]
-		public void Test()
-		{
-			Message = $"Searched for '{SearchText}' at {DateTime.Now.ToShortTimeString()}";
+    public class Component1 : ComponentBase
+    {
+        [Bind("searchText")]
+        public string SearchText { get; set; }
+        
+        [BindTable]
+        public PeopleTable People{ get; set; }
+        
+        private string _Message;
+        [Bind("messages")]
+        public string Message
+        {
+            get => _Message;
+            set { _Message = value; OnPropertyChanged(nameof(Message)); }
+        }
+        
+        [EventHandler("searchText")]
+        public void Test()
+        {
+            Message = $"Searched for '{SearchText}' at {DateTime.Now.ToShortTimeString()}";
 
-			People.ForEach(t =>
-			{
-				string nameWithoutStar = t.FirstName.TrimEnd('*');
-				if(t.FirstName.IndexOf(SearchText, StringComparison.OrdinalIgnoreCase) >= 0)
-					t.FirstName = nameWithoutStar + "*";
-				else
-					t.FirstName = nameWithoutStar;
-			});
+            People.ForEach(t =>
+            {
+                string nameWithoutStar = t.FirstName.TrimEnd('*');
+                if(t.FirstName.IndexOf(SearchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                    t.FirstName = nameWithoutStar + "*";
+                else
+                    t.FirstName = nameWithoutStar;
+            });
 
-			People.SaveChanges();
-		}
-	}
+            People.SaveChanges();
+        }
+    }
 }
 ```
 
@@ -137,7 +137,7 @@ And here is the resulting behavior:
 
 ![Example component in action](../Images/example_component_in_action.gif?v)
 
-The important thing to note is that no part of the code interacts with Excel directly. The component only accesses its own properties, and the binding infrastructure takes care of communicating with Excel.
+The important thing to note is that no part of the code interacts with Excel directly. The component only accesses its properties, and the binding infrastructure takes care of communicating with Excel.
 
 ## Bindings
 
@@ -183,7 +183,7 @@ You might be wondering where the `PeopleTable` class came from. The answer is: i
 
 The generated classes inside this dll provide strongly typed read/write access to data inside tables. It's important to note that any changes you make to the data **need to be explicitly saved** by calling `SaveChanges()` on the table.
 
-> In C# scripts, `SaveChanges()` is called automatically after each run, but in model-binding this call needs to be explicit.
+> In C# scripts, `SaveChanges()` is called automatically after each run, but in model-binding, this call needs to be explicit.
 
 ## Events
 
@@ -225,7 +225,7 @@ public void MyEventHandlerMethod()
 
 ### Sending and handling events from VBA
 
-Events can be sent from VBA code to the workbook application. This offers full flexibility with regards to sending events.
+Events can be sent from VBA code to the workbook application. This offers full flexibility with regard to sending events.
 
 One particular reason this might be useful is that it allows using regular buttons to send events, instead of ActiveX buttons which have known issues when changing resolution (e.g. second screen, projector).
 

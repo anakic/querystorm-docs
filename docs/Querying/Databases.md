@@ -2,7 +2,7 @@
 
 QueryStorm supports connecting to external databases, allowing you to query workbook tables alongside database tables. This makes moving data between Excel and databases (in both directions) easy and convenient.
 
-Currently SQL Server, Postgres, MySql, SQLite and Redshift (via Postgres) are supported, while support for other databases may be rolled out in the future depending on user needs and requests.
+Currently, SQL Server, Postgres, MySql, SQLite, and Redshift (via Postgres) are supported, while support for other databases may be rolled out in the future depending on user needs and requests.
 
 ## Querying
 
@@ -24,7 +24,7 @@ Aside from workbook tables, scripts can also see the values of named ranges. The
 
 ![Connected external](../Images/sql_cell_parameter.png "Connected to external SQL Server")
 
-> Only named ranges that refer to a single cell are usable as parameters.
+> Only named ranges that refer to a single cell are visible as parameters.
 
 ## Getting data into Excel
 
@@ -41,7 +41,7 @@ For example, here's how to output the results of a query into an Excel table, us
 SELECT * FROM HumanResources.Department
 ```
 
-When this script is executed, the results of the select query will be written into an Excel table with the name *dpt*. If the table does not yet exist, it will be created starting at the currently selected cell. If a table called *dpt* does exists in the current workbook, it will be overwritten by the results of the query. However, **only table columns that exist both in the workbook table and in the results are updated**. If the workbook table has any columns that are not present in the query results (e.g. calculated columns), those columns will be left intact.
+When this script is executed, the results of the select query will be written into an Excel table with the name *dpt*. If the table does not yet exist, it will be created starting at the currently selected cell. If a table called *dpt* does exist in the current workbook, it will be overwritten by the results of the query. However, **only table columns that exist both in the workbook table and in the results are updated**. If the workbook table has any columns that are not present in the query results (e.g. calculated columns), those columns will be left intact.
 
 To update multiple tables from the same script, we can use multiple output directives:
 
@@ -67,7 +67,7 @@ Referencing the connection string by name (instead of keeping it in the script f
 
 ### Securing credentials
 
-Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to leave their database credentials inside scripts that are shared with end users. This is an important consideration when sharing the workbook itself or when building and sharing custom [Excel SQL Functions](../../Functions/Functions_via_SQL).
+Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to leave their database credentials inside scripts that are shared with end-users. This is an important consideration when sharing the workbook itself or when building and sharing custom [Excel SQL Functions](../../Functions/Functions_via_SQL).
 
 For this reason, connection strings can be **templated**. Instead of the actual username and password, the developer puts placeholders inside the connection string.
 
@@ -90,4 +90,4 @@ The credentials are then inserted into the connection string instead of the plac
 
 Once the credentials are stored, they are used automatically in the future every time a connection is attempted with a connection string that uses the same credentials ID (e.g. `my_creds_123`). If a connection attempt fails in the future, the user will again be prompted for their credentials.
 
-Stored credentials are encrypted using the via the Windows Data Protection API and stored in a file in the user's AppData directory. Only the user that created the file can decrypt the data.
+Stored credentials are encrypted using the Windows Data Protection API and stored in a file in the user's AppData directory. Only the user that created the file can decrypt the data.

@@ -1,12 +1,12 @@
 # Custom Excel functions
 
-QueryStorm enables user to add new functions to Excel. Users who use the full version of QueryStorm can build their own custom functions as well as publish them to other users. Users who use the Runtime version of QueryStorm can install packages published by creators, but cannot create their own functions.
+QueryStorm enables users to add new functions to Excel. Users who use the full version of QueryStorm can build their own custom functions as well as publish them to other users. Users who use the Runtime version of QueryStorm can install packages published by creators, but cannot create functions.
 
 ![Dynamic function spill](../Images/dynamic_func_spill.gif)
 
 ## Supported languages
 
-QueryStorm lets you define new Excel functions using **SQL**, **C#** and **VB.NET**.
+QueryStorm lets you define new Excel functions using **SQL**, **C#**, and **VB.NET**.
 
 ### Creating functions via SQL
 
@@ -20,29 +20,29 @@ For example:
 
 -- the body of the function
 select
-	*
+    *
 from
-	Person.Person p
+    Person.Person p
 where
-	p.FirstName like '%' + @searchTerm + '%'
+    p.FirstName like '%' + @searchTerm + '%'
 ```
 
 To read more about creating functions with SQL, click [here](../Functions_via_SQL).
 
 ### Creating functions via C# and VB.NET
 
-Building functions in C# and VB.NET is a matter of writing the code of the function and decorating it with the `ExcelFunction` attribute. The function might perform a calculation on its own, or it might call into some third party library or a REST service.
+Building functions in C# and VB.NET is a matter of writing the code of the function and decorating it with the `ExcelFunction` attribute. The function might perform a calculation on its own, or it might call into some third party library or REST service.
 
 For example:
 
 ```csharp
 public class MyFunctions
 {
-	[ExcelFunction]
-	public static int Add(int a, int b)
-	{
-		return a + b;
-	}
+    [ExcelFunction]
+    public static int Add(int a, int b)
+    {
+        return a + b;
+    }
 }
 ```
 
@@ -58,4 +58,4 @@ Functions that are defined inside a workbook are only available to that workbook
 
 ### Functions in an extension package
 
-Functions can also be defined in *extension packages*. Functions contained in an extension package are usable in any workbook on the machine. Authors can easily publish their extension packages  to make them available to other (QueryStorm Runtime) users. Click [here](../Publishing_functions) for more information about publishing extension packages.
+Functions can also be defined in *extension packages*. Functions contained in an extension package are usable in any workbook on the machine. Authors can easily publish their extension packages to make them available to other (QueryStorm Runtime) users. Click [here](../Publishing_functions) for more information about publishing extension packages.

@@ -1,6 +1,6 @@
 # Querying
 
-QueryStorm supports writing SQL and C# scripts that can see Excel tables, and work with data as if it was in a database or in a .NET collection.
+QueryStorm supports writing SQL and C# scripts that can see Excel tables, and work with data as if it was in a database or a .NET collection.
 
 ## Tables, not sheets
 
@@ -38,7 +38,7 @@ QueryStorm also allows querying data via C#. Tables are represented as collectio
 
 ![Querying with C#](../Images/cs_querying.gif)
 
-Types that represent table rows are dynamically generated, allowing for strongly typed access to the data. Any changes you make to your workbook tables (e.g. adding a new column or a new table) are immediately reflected in your C# scripts.
+Types that represent table rows are dynamically generated, allowing for strongly-typed access to the data. Any changes you make to your workbook tables (e.g. adding a new column or a table) are immediately reflected in your C# scripts.
 
 Read more about QueryStorm's C# scripting support [here](../CSharp).
 

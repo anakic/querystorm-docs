@@ -5,11 +5,11 @@ The process of defining a function with C# or VB.NET is simply a matter of writi
 ```csharp
 public class MyFunctions
 {
-	[ExcelFunction]
-	public static int Add(int a, int b)
-	{
-		return a + b;
-	}
+    [ExcelFunction]
+    public static int Add(int a, int b)
+    {
+        return a + b;
+    }
 }
 ```
 
@@ -19,11 +19,11 @@ For a video demonstration click below:
 
 ## Loading the new function
 
-Once the project that contains the function is built (compiled), the runtime will automatically load it and make the function available in Excel. Depending on if the function is in a workbook or an extension project, the function will be available in the defining workbook or in all workbooks.
+Once the project that contains the function is built (compiled), the runtime will automatically load it and make the function available in Excel. Depending on if the function is in a workbook or an extension project, the function will be available in the defining workbook or all workbooks.
 
 ## ExcelDNA
 
-QueryStorm uses the popular **ExcelDNA** library for registering Excel functions. The functions you define can be simple synchronous functions as shown here, but they can also be asynchronous, accept and return tabular values, cache data internally and do other non-trivial things.
+QueryStorm uses the popular **ExcelDNA** library for registering Excel functions. The functions you define can be simple synchronous functions as shown here, but they can also be asynchronous, accept and return tabular values, cache data internally, and do other non-trivial things.
 
 More information on these topics, and many more, can be found in the following resources:
 
@@ -49,7 +49,7 @@ The language setting is stored in the `module.config` file.
 "Language": "VisualBasic"
 ```
 
-The language setting determines the compiler and class templates that the project will use. If you choose VB.NET, the code will be compiled using the VB.NET roslyn compiler, and the scaffolded function files will look something like this:
+The language setting determines the compiler and class templates that the project will use. If you choose VB.NET, the code will be compiled using the VB.NET Roslyn compiler, and the scaffolded function files will look something like this:
 
 ```vb
 Public Module MyFunctions1
@@ -74,9 +74,9 @@ For example, we can register the service in App.cs:
 
 ```csharp
 public App(IUnityContainer container)
-	: base(container)
+    : base(container)
 {
-	// register the service as a singleton
+    // register the service as a singleton
     container.RegisterType<SomeService>(new ContainerControlledLifetimeManager());
 }
 ```
@@ -86,19 +86,19 @@ We can then use the service in our function:
 ```csharp
 public class ExcelFunctions1
 {
-	SomeService someService;
-	// request the service by adding a ctor argument
-	public ExcelFunctions1(SomeService someService)
-	{
-		this.someService = someService;
-	}
+    SomeService someService;
+    // request the service by adding a ctor argument
+    public ExcelFunctions1(SomeService someService)
+    {
+        this.someService = someService;
+    }
 
-	[ExcelFunction]
-	public int Add(int a, int b)
-	{
-		// use the service to perform the calculation
-		return someService.Add(a, b);
-	}
+    [ExcelFunction]
+    public int Add(int a, int b)
+    {
+        // use the service to perform the calculation
+        return someService.Add(a, b);
+    }
 }
 ```
 
@@ -106,7 +106,7 @@ public class ExcelFunctions1
 
 ## Debugging functions
 
-QueryStorm does not currently have a built-in debugger, but there are two static methods that help with debugging: `Log()` and `Debug()`.
+QueryStorm does not currently have a built-in debugger, but there are two static methods that can help with debugging: `Log()` and `Debug()`.
 
 ![YOUTUBE](zqPGuJoD5DM)
 
@@ -126,4 +126,4 @@ To launch a debugger at a particular location in the source code, use the `Debug
 
 If the local machine has Visual Studio installed, the `Debug()` method will launch Visual Studio, attach it to the process and stop the debugger at the current line. If a debugger is already attached, it will simply stop at the line with the `Debug()` call.
 
-If you do not have Visual Studio installed, you can use the small open source [DNSpy](https://github.com/0xd4d/dnSpy) debugger, attach it to the Excel process, and use the `Debug()` method to stop the debugger at the desired line in the code.
+If you do not have Visual Studio installed, you can use the small open-source [DNSpy](https://github.com/0xd4d/dnSpy) debugger, attach it to the Excel process, and use the `Debug()` method to stop the debugger at the desired line in the code.

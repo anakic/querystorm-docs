@@ -1,6 +1,6 @@
 # C# scripts
 
-In QueryStorm, user can write C# scripts that interact with the workbook and the data inside it. Scripts can query workbook tables using LINQ, interact with the Excel object model or perform other arbitrary tasks.
+In QueryStorm, users can write C# scripts that interact with the workbook and the data inside it. Scripts can query workbook tables using LINQ, interact with the Excel object model, or perform other arbitrary tasks.
 
 ## Querying tables
 
@@ -64,7 +64,7 @@ Aside from properties that correspond to columns, rows have an additional `__add
 
 ![Go to row in Excel](../Images/cs_double_click_address.gif)
 
-> Double-clicking the row header in the results grid will also select the range in Excel, provided the row contains a valid address.
+> Double-clicking the row header in the results grid will also select the range in Excel provided the row contains a valid address.
 
 ## Formatting rows
 
@@ -72,9 +72,9 @@ Aside from locating rows in Excel, the `__address` property can also be used for
 
 ```csharp
 salaries
-	.Where(s => s.JobTitle.ToLower().Contains("manager"))
-	.Where(s => s.TotalPay > 50000)
-	.Format(range => range.Interior.Color = 0x00ffff) // hex int (B/G/R)
+    .Where(s => s.JobTitle.ToLower().Contains("manager"))
+    .Where(s => s.TotalPay > 50000)
+    .Format(range => range.Interior.Color = 0x00ffff) // hex int (B/G/R)
 ```
 
 ![C# formatting rows](../Images/cs_format_rows.png)
@@ -97,7 +97,7 @@ return Add(1,2);
 
 public int Add(int a, int b)
 {
-	return a + b;
+    return a + b;
 }
 
 ```
@@ -110,7 +110,7 @@ A C# script is hosted inside a project. The project has a `module.config` file t
 
 > Adding NuGet packages (1) and library references (2).
 
-After adding the references to the project, the project needs to be built in order for the script to see the changes.
+After adding the references to the project, the project needs to be built for the script to see the changes.
 
 ## Referencing project code
 

@@ -2,13 +2,13 @@
 
 ## About these docs
 
-Welcome to the QueryStorm documentation. You can read these pages from beginning to end, or pick and choose topics that interest you. SQL users, for example, can freely skip sections that cover .NET related topics.
+Welcome to the QueryStorm documentation. You can read these pages from beginning to end or pick and choose topics that interest you. SQL users, for example, can freely skip sections that cover .NET related topics.
 
 Each section of the documentation starts with an overview page explaining the core concepts covered in the section.
 
 ## What is QueryStorm
 
-QueryStorm is an Excel add-in that brings first class support for modern programming languages (namely SQL, C# and VB.NET) into Excel. It is intended to enhance Excel's native functionality with a strong set of technical capabilities.
+QueryStorm is an Excel add-in that brings first-class support for modern programming languages (namely SQL, C#, and VB.NET) into Excel. It is intended to enhance Excel's native functionality with a strong set of technical capabilities.
 
 It has three main areas of application:
 
@@ -18,9 +18,9 @@ It has three main areas of application:
 
 ## Who it's for
 
-The main audiences for QueryStorm can be split into three distinct groups:
+The primary audiences for QueryStorm are three distinct groups of users:
 
-- **Data specialists** such as database professionals, data scientists and data analysts use it to facilitate processing of data in Excel, as well as moving data between Excel and databases.
+- **Data specialists** such as database professionals, data scientists, and data analysts use it to facilitate the processing of data in Excel, as well as moving data between Excel and databases.
 - **Developers**  use if for building workbook-applications with rich behavior as well as custom functions for their users and clients.
 - **Business users** use it to make use of the custom functions and workbook applications that developers and data specialists build for them.
 
