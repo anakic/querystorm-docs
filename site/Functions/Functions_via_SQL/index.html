@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://www.querystorm.com/docs2/Automating%20workbooks/Overview/">
+        <link rel="canonical" href="https://www.querystorm.com/docs2/Functions/Functions_via_SQL/">
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
@@ -17,7 +17,7 @@
     
     
       
-        <title>Overview - QueryStorm Docs</title>
+        <title>Functions via SQL - QueryStorm Docs</title>
       
     
     
@@ -53,7 +53,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#automating-workbooks" class="md-skip">
+        <a href="#excel-functions-via-sql" class="md-skip">
           Skip to content
         </a>
       
@@ -81,7 +81,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Overview
+              Functions via SQL
             
           </span>
         </div>
@@ -245,13 +245,13 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      Custom Excel functions
+      Automating workbooks
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="Custom Excel functions" data-md-level="1">
+    <nav class="md-nav" aria-label="Automating workbooks" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon"></span>
-        Custom Excel functions
+        Automating workbooks
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -262,7 +262,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Custom%20Excel%20functions/Overview/" title="Overview" class="md-nav__link">
+    <a href="../../Automation/Overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -274,8 +274,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Custom%20Excel%20functions/Functions%20via%20DotNet/" title="Functions via .Net" class="md-nav__link">
-      Functions via .Net
+    <a href="../../Automation/Automation_with_dotnet/" title="Automation with .Net" class="md-nav__link">
+      Automation with .Net
     </a>
   </li>
 
@@ -286,32 +286,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Custom%20Excel%20functions/Functions%20via%20SQL/" title="Functions via SQL" class="md-nav__link">
-      Functions via SQL
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Custom%20Excel%20functions/Publishing%20functions/" title="Publishing functions" class="md-nav__link">
-      Publishing functions
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Custom%20Excel%20functions/Installing%20packages/" title="Installing packages" class="md-nav__link">
-      Installing packages
+    <a href="../../Automation/Automation_with_SQL/" title="Automation with SQL Commands" class="md-nav__link">
+      Automation with SQL Commands
     </a>
   </li>
 
@@ -333,16 +309,40 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
-      Automating workbooks
+      Custom Excel functions
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="Automating workbooks" data-md-level="1">
+    <nav class="md-nav" aria-label="Custom Excel functions" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
         <span class="md-nav__icon md-icon"></span>
-        Automating workbooks
+        Custom Excel functions
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Functions_via_DotNet/" title="Functions via .Net" class="md-nav__link">
+      Functions via .Net
+    </a>
+  </li>
+
         
           
           
@@ -359,12 +359,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Overview
+        Functions via SQL
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Overview" class="md-nav__link md-nav__link--active">
-      Overview
+    <a href="./" title="Functions via SQL" class="md-nav__link md-nav__link--active">
+      Functions via SQL
     </a>
     
       
@@ -381,23 +381,56 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#model-binding" class="md-nav__link">
-    Model-binding
+  <a href="#parameters" class="md-nav__link">
+    Parameters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql-based-automation" class="md-nav__link">
-    SQL-based automation
+  <a href="#return-values" class="md-nav__link">
+    Return values
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#application-lifetime" class="md-nav__link">
-    Application lifetime
+  <a href="#using-and-sharing-functions" class="md-nav__link">
+    Using and sharing functions
   </a>
+  
+    <nav class="md-nav" aria-label="Using and sharing functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workbook-functions" class="md-nav__link">
+    Workbook functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-functions" class="md-nav__link">
+    Extension functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Extension functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publishing-functions" class="md-nav__link">
+    Publishing functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -414,8 +447,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Automation%20with%20dotnet/" title="Automation with .Net" class="md-nav__link">
-      Automation with .Net
+    <a href="../Publishing_functions/" title="Publishing functions" class="md-nav__link">
+      Publishing functions
     </a>
   </li>
 
@@ -426,8 +459,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../SQL%20Commands/" title="Automation with SQL Commands" class="md-nav__link">
-      Automation with SQL Commands
+    <a href="../Installing_packages/" title="Installing packages" class="md-nav__link">
+      Installing packages
     </a>
   </li>
 
@@ -464,8 +497,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../General%20topics/Preprocessor/" title="Preprocessor" class="md-nav__link">
-      Preprocessor
+    <a href="../../General/Preprocessor/" title="SQL Preprocessor" class="md-nav__link">
+      SQL Preprocessor
     </a>
   </li>
 
@@ -476,7 +509,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../General%20topics/Project%20system/" title="Project system" class="md-nav__link">
+    <a href="../../General/Project_system/" title="Project system" class="md-nav__link">
       Project system
     </a>
   </li>
@@ -488,20 +521,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../General%20topics/DataContext/" title="Data context" class="md-nav__link">
+    <a href="../../General/Data_context/" title="Data context" class="md-nav__link">
       Data context
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../General%20topics/Managing%20packages/" title="Managing packages" class="md-nav__link">
-      Managing packages
     </a>
   </li>
 
@@ -535,23 +556,56 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#model-binding" class="md-nav__link">
-    Model-binding
+  <a href="#parameters" class="md-nav__link">
+    Parameters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sql-based-automation" class="md-nav__link">
-    SQL-based automation
+  <a href="#return-values" class="md-nav__link">
+    Return values
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#application-lifetime" class="md-nav__link">
-    Application lifetime
+  <a href="#using-and-sharing-functions" class="md-nav__link">
+    Using and sharing functions
   </a>
+  
+    <nav class="md-nav" aria-label="Using and sharing functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workbook-functions" class="md-nav__link">
+    Workbook functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-functions" class="md-nav__link">
+    Extension functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Extension functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publishing-functions" class="md-nav__link">
+    Publishing functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -571,17 +625,71 @@
                   
                 
                 
-                <h1 id="automating-workbooks">Automating workbooks</h1>
-<p>Excel files offer data storage capabilities and a flexible user interface for data entry and visualization. However, Excel files aren't just static documents containing data; they can also have behavior, in effect, making the workbook a hybrid between a document and an application.</p>
-<p>Out of the box, Microsoft Excel allows automating workbooks using VBA. While this works, VBA is quite old and hasn't kept up with the new programming paradigms and ecosystems. QueryStorm offers the ability to use modern programming languages and ecosystems when writing code to automate workbooks.</p>
-<p>This allows using C# or VB.NET code in workbooks, instead of VBA. It also allows using NuGet packages and existing .NET dlls inside Excel workbooks, making it easy to leverage your existing proprietary and 3rd party code in workbook applications.</p>
-<h2 id="model-binding">Model-binding</h2>
-<p>A simple way to automate a workbook is to simply access Excel via it's COM API. While easy to get started with, writing code for interacting with the Excel API can get quite tedious. That's why QueryStorm offers a model-binding approach to automation, which minimizes the amount of Excel interaction code, and lets you focus on the logic of your application.</p>
-<h2 id="sql-based-automation">SQL-based automation</h2>
-<p>QueryStorm also allows setting up automation from SQL scripts. These scripts typically contain SQL code mixed in with a preprocessor syntax. The SQL code fetches or updates data in a database. A preprocessor syntax is added to allow sending query results into the workbook, and to specify which events will trigger the execution of the script.</p>
-<p>In QueryStorm, all automation is done using C# or VB.NET code. Under the hood, though, SQL scripts generate this code for you. This lets you focus on SQL, rather than on writing component code. It is also very useful for the many SQL users who are not familiar with .NET programming languages.</p>
-<h2 id="application-lifetime">Application lifetime</h2>
-<p>QueryStorm workbook applications are started (by the QueryStorm runtime) as soon as the project is built, or when the workbook is opened. If we make changes and rebuild the project, the old instance of the application is unloaded and the new one is started.</p>
+                <h1 id="excel-functions-via-sql">Excel functions via SQL</h1>
+<p>QueryStorm allows creating Excel functions that use SQL to return data from a database. The body of the function is written in SQL, while the declaration of the function uses a <a href="../../General/Preprocessor">preprocessor</a> syntax that's specific to QueryStorm.</p>
+<p>Suppose we'd like to define a function that returns a list of people from the database whose first name contains a specified search term.</p>
+<p>To define this function, we need to create a new script and connect to our target database. Once connected, we can use the following code to define and test the function:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1">-- the declaration of the function</span>
+<span class="err">{</span><span class="k">function</span> <span class="n">searchPeople</span><span class="p">(</span><span class="n">string</span> <span class="n">searchTerm</span> <span class="o">=</span> <span class="ss">&quot;tim&quot;</span><span class="p">)</span><span class="err">}</span>
+
+<span class="c1">-- the body of the function</span>
+<span class="k">select</span>
+    <span class="o">*</span>
+<span class="k">from</span>
+    <span class="n">Person</span><span class="p">.</span><span class="n">Person</span> <span class="n">p</span>
+<span class="k">where</span>
+    <span class="n">FirstName</span> <span class="k">like</span> <span class="s1">&#39;%&#39;</span> <span class="o">+</span> <span class="o">@</span><span class="n">searchTerm</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>We can run the code to examine if it returns the expected results. When running the query, the <code>@searchTerm</code> parameter's default value will be used. In this example, the query will return all persons whose name contains the string <code>"tim"</code>.</p>
+<p>Running the code simply runs the query, but does not yet register the function with Excel. To register this function with Excel, we must:</p>
+<ol>
+<li><strong>Save</strong> the script <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span></li>
+<li><strong>Build</strong> the project <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-b">B</kbd></span></li>
+</ol>
+<p>For a video demonstration of the process, click below:</p>
+<p><img alt="YOUTUBE" src="rmya2vbUv18" /></p>
+<h2 id="parameters">Parameters</h2>
+<p>Functions that are declared by the QueryStorm preprocessor can accept parameters. Function parameters have names, types and default values. There are five supported data types for parameters: <code>int</code>, <code>float</code>, <code>datetime</code>, <code>string</code> and <code>bool</code>.</p>
+<p>The following are examples of valid parameter declarations:</p>
+<ul>
+<li><code>int abc = 123</code></li>
+<li><code>float abc = 12.3</code></li>
+<li><code>datetime abc = "2020-08-31"</code> (ISO 8601 format)</li>
+<li><code>string abc = "some text"</code></li>
+<li><code>bool abc = true</code></li>
+<li><code>var abc = "example text"</code> (auto-detect type)</li>
+</ul>
+<p>To reference a variable in the body of the SQL query, you can either use preprocessor expressions e.g. <code>{abc}</code> or the standard syntax for parameters, e.g. <code>@abc</code> (for SQL Server).</p>
+<p>A parameter's default value is only used when the query is directly executed. When the function is called from Excel, the default value of the parameter is ignored.  </p>
+<h2 id="return-values">Return values</h2>
+<p>Functions can return a single value or an entire table as their result.</p>
+<p>If your machine (or the end user's machine) is running one of the newer (Office365) versions of Excel that support <a href="https://support.microsoft.com/en-us/office/dynamic-array-formulas-in-non-dynamic-aware-excel-696e164e-306b-4282-ae9d-aa88f5502fa2">dynamic arrays</a>, tabular results will automatically spill.</p>
+<p><img alt="Dynamic function spill" src="../../Images/dynamic_func_spill.gif" /></p>
+<blockquote>
+<p>If you are using an older version of Excel, you will need to use Ctrl+Alt+Enter (or <code>{=function()}</code> syntax) to allow the result to return a table of data (however, you'll need to know in advance the size of the output data).</p>
+</blockquote>
+<h2 id="using-and-sharing-functions">Using and sharing functions</h2>
+<p>So once you've built the function, where can you use it? It depends on where you've created it. Functions can be defined inside a particular workbook or as a QueryStorm extension that's available in all workbooks.</p>
+<h3 id="workbook-functions">Workbook functions</h3>
+<p>If the function is stored inside the workbook, anyone who has the workbook (and the QueryStorm runtime) will be able to use it. However, this function will only be usable in the workbook that contains it. If the function should be usable in any Excel file, you should define it in an "Extension" package, as described below.</p>
+<h3 id="extension-functions">Extension functions</h3>
+<p>QueryStorm supports building extension projects which can contain a set of user defined Excel functions that can be packaged together and published to other users.</p>
+<p>To define the function in a QueryStorm extension rather than in the workbook, create a new project in "Code explorer" and then add a new script from the context menu of the new project.</p>
+<p>For a video demonstration of this process, click below:</p>
+<p><img alt="YOUTUBE" src="9mhYVjngI5w" /></p>
+<h4 id="publishing-functions">Publishing functions</h4>
+<p>Functions that are defined in extension projects can be published to other QueryStorm (Runtime) users. For more information on this, click <a href="../Publishing_functions">here</a>.</p>
                 
               
               
@@ -600,7 +708,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../Custom%20Excel%20functions/Installing%20packages/" title="Installing packages" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Functions_via_DotNet/" title="Functions via .Net" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -609,19 +717,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Installing packages
+                Functions via .Net
               </div>
             </div>
           </a>
         
         
-          <a href="../Automation%20with%20dotnet/" title="Automation with .Net" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Publishing_functions/" title="Publishing functions" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Automation with .Net
+                Publishing functions
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

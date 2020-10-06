@@ -25,9 +25,9 @@
     - Scripts
     - The module.config file
   - The SQL Preprocessor
-  - The two sides of QueryStorm
-    - The IDE (+com addin)
-    - The Runtime (+xl addin)
+    - The two sides of QueryStorm
+    - The IDE (tips tricks, com addin)
+    - The Runtime (appdomains, xl addin)
   + Managing packages
   - Managing database credentials
   - Licensing
