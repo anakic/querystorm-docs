@@ -630,7 +630,7 @@
                 
                 
                 <h1 id="c-scripts">C# scripts</h1>
-<p>In QueryStorm, user can write C# scripts that interact with the workbook and the data inside it. Scripts can query workbook tables using LINQ, interact with the Excel object model or perform other arbitrary tasks.</p>
+<p>In QueryStorm, users can write C# scripts that interact with the workbook and the data inside it. Scripts can query workbook tables using LINQ, interact with the Excel object model, or perform other arbitrary tasks.</p>
 <h2 id="querying-tables">Querying tables</h2>
 <p>One of the main features C# scripts offer is the ability to query tables using LINQ. For each table in the workbook, a variable is provided that gives strongly typed access to the table data.</p>
 <p><img alt="Connect with C#" src="../../Images/cs_querying.gif" /></p>
@@ -689,7 +689,7 @@
 <p>Aside from properties that correspond to columns, rows have an additional <code>__address</code> property that can be used to locate rows in Excel. It returns the Excel address of the row. Double-clicking the address in the results grid selects the row in Excel.</p>
 <p><img alt="Go to row in Excel" src="../../Images/cs_double_click_address.gif" /></p>
 <blockquote>
-<p>Double-clicking the row header in the results grid will also select the range in Excel, provided the row contains a valid address.</p>
+<p>Double-clicking the row header in the results grid will also select the range in Excel provided the row contains a valid address.</p>
 </blockquote>
 <h2 id="formatting-rows">Formatting rows</h2>
 <p>Aside from locating rows in Excel, the <code>__address</code> property can also be used for selectively formatting rows:</p>
@@ -733,7 +733,7 @@ The script will return the result of the last expression in the code, <strong>un
 <blockquote>
 <p>Adding NuGet packages (1) and library references (2).</p>
 </blockquote>
-<p>After adding the references to the project, the project needs to be built in order for the script to see the changes.</p>
+<p>After adding the references to the project, the project needs to be built for the script to see the changes.</p>
 <h2 id="referencing-project-code">Referencing project code</h2>
 <p>Scripts can also see classes that the containing project exposes. This can be very handy for manual testing of your classes.</p>
 <p>It's important to note, however, that the script code is not compiled along with the project's class files. Rather, the script <strong>references the project's output dll</strong>, so it only sees public types that the project exposes. Additionally, a <code>using</code> statement (or namespace prefix) must be used to access the types inside the project.</p>

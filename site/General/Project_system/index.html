@@ -588,14 +588,14 @@
                 
                 
                 <h1 id="the-querystorm-project-system">The QueryStorm project system</h1>
-<p>Code files in QueryStorm are organized into projects. Projects contain user code, scripts and configuration files, and are fairly similar to projects in Visual Studio.</p>
-<p>In order to run the code inside a project, the project needs to be built (compiled). The outputs of the Build process are stored inside the <code>bin</code> folder of the project. The outputs will usually consist of the project dll, the debug and documentation files (pdb + xml docs) and a manifest file that's used by the QueryStorm Runtime.</p>
+<p>Code files in QueryStorm are organized into projects. Projects contain user code, scripts, and configuration files, and are fairly similar to projects in Visual Studio.</p>
+<p>To run the code inside a project, the project needs to be built (compiled). The outputs of the Build process are stored inside the <code>bin</code> folder of the project. The outputs will usually consist of the project dll, the debug and documentation files (pdb + xml docs), and a manifest file that's used by the QueryStorm Runtime.</p>
 <h2 id="two-types-of-projects">Two types of projects</h2>
 <p>There are two kinds of projects in QueryStorm: Workbook projects and Extension projects.</p>
-<p><strong>Workbook projects</strong> are defined inside a particular workbook and serve to automate the workbook, and to define functions that are specific to the containing workbook. Both the code and as the output files of a workbook project are stored inside the workbook itself.</p>
-<p><strong>Extension projects</strong> are defined at the machine-level, and serve to define functions that should be available in all workbooks. Building (compiling) an extension project produces an extension package. Extension packages can be shared with other users by publishing them to a network share or to an online server. They can be downloaded by end users via the Extensions Manager that's part of the QueryStorm runtime.</p>
+<p><strong>Workbook projects</strong> are defined inside a particular workbook and serve to automate the workbook, and to define functions that are specific to the containing workbook. Both the code and the output files of a workbook project are stored inside the workbook itself.</p>
+<p><strong>Extension projects</strong> are defined at the machine-level, and serve to define functions that should be available in all workbooks. Building (compiling) an extension project produces an extension package. Extension packages can be shared with other users by publishing them to a network share or an online server. They can be downloaded by end-users via the Extensions Manager that's part of the QueryStorm runtime.</p>
 <h2 id="supported-programming-languages">Supported programming languages</h2>
-<p>QueryStorm projects support source code written in C# and VB.NET. While C# is more popular with developers, VB.NET is more familiar to people with VBA experience. The two languages have a somewhat different syntax, but are practically identical in capabilities. Source code for both languages is compiled using Microsoft's Roslyn compiler.</p>
+<p>QueryStorm projects support source code written in C# and VB.NET. While C# is more popular with developers, VB.NET is more familiar to people with VBA experience. The two languages have somewhat different syntax but are practically identical in capabilities. Source code for both languages is compiled using Microsoft's Roslyn compiler.</p>
 <p>You can choose the language for your project when you are creating it. This setting is saved in the <code>module.config</code> file and can be changed manually at a later point if needed:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="s2">&quot;Language&quot;</span><span class="err">:</span> <span class="s2">&quot;CSharp&quot;</span>
 </code></pre></div>
@@ -608,15 +608,15 @@
 <p><img alt="Add files context menu" src="../../Images/add_files_context_menu.png" /></p>
 <ul>
 <li><strong>Class files</strong> (.cs or .vb) contain the logic of your application. Depending on the language of the project, they will have a <code>.cs</code> or <code>.vb</code> extension.</li>
-<li><strong>The Application file</strong> (<code>App.cs/App.vb</code>) file defines a class that is the entry point of the application and serves to initialize services, the data context and components. There is a maximum of one <code>App</code> file per project.</li>
-<li><strong>The data context file</strong> defines the tables, variables and events that will be visible to scripts and components. There is a maximum of one data context file per project.</li>
+<li><strong>The Application file</strong> (<code>App.cs/App.vb</code>) file defines a class that is the entry point of the application and serves to initialize services, the data context, and components. There is a maximum of one <code>App</code> file per project.</li>
+<li><strong>The data context file</strong> defines the tables, variables, and events that will be visible to scripts and components. There is a maximum of one data context file per project.</li>
 <li><strong>Component files</strong> are ordinary class files that are generated from a template that provides a skeleton component class.</li>
 <li><strong>Excel function class files</strong> are ordinary class files that are generated from a template that provides an example implementation of a custom Excel function.</li>
 <li><strong>Script files</strong> contain SQL and C# scripts (VB.NET is not supported for scripting) that can process Excel data or fetch data from databases or REST services, or simply run arbitrary code. SQL scripts support a preprocessor syntax that allows defining functions and commands via SQL. Saving a SQL script generates supporting classes that define functions and commands and strongly typed classes for results.</li>
-<li>The <strong>module.config</strong> file contains the configuration settings for the project, including a list of library and NuGet references, language selection (CSharp/VisualBasic), connection strings and project metadata (name, version, etc...).</li>
+<li>The <strong>module.config</strong> file contains the configuration settings for the project, including a list of library and NuGet references, language selection (CSharp/VisualBasic), connection strings, and project metadata (name, version, etc...).</li>
 </ul>
 <h2 id="project-folders">Project folders</h2>
-<p>Files can be organized into more-or-less arbitrary folders. The exception are the two folders that have a special meaning, specifically: <code>bin</code> and <code>lib</code>.</p>
+<p>Files can be organized into more-or-less arbitrary folders. The exceptions are the two folders that have a special meaning, specifically: <code>bin</code> and <code>lib</code>.</p>
 <p>As mentioned earlier, the <code>bin</code> folder contains the build output of the project. Its contents are cleared before each build, so it should not be used to store any user files.</p>
 <p>The <code>lib</code> folder contains dll files that were added as library references, as well as dll files that have been downloaded as NuGet packages. All dlls inside this folder are automatically referenced and their types can be used in your code.</p>
 <p>When publishing a package, the package will contain all files from both the <code>bin</code> and <code>lib</code> folders.</p>

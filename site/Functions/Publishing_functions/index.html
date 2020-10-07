@@ -625,13 +625,13 @@
 <p><img alt="Publish context menu" src="../../Images/PublishProcess.png" /></p>
 <h2 id="managing-feeds-sources">Managing feeds (sources)</h2>
 <p>Before you can publish packages, though, you will likely need to set up a feed that you can publish to.</p>
-<p>QueryStorm supports publishing to a network share or to an online server. If you are distributing packages inside your network, a shared network folder would be a good place to store them. If you want to distribute packages to users outside of your local network (e.g. to your clients), you can publish the package to an online NuGet server, like Azure Artifacts (<a href="#publishing-to-azure-artifacts">instructions below</a>).</p>
+<p>QueryStorm supports publishing to a network share or an online server. If you are distributing packages inside your network, a shared network folder would be a good place to store them. If you want to distribute packages to users outside of your local network (e.g. to your clients), you can publish the package to an online NuGet server, like Azure Artifacts (<a href="#publishing-to-azure-artifacts">instructions below</a>).</p>
 <p>In both cases, the feed needs to be added to your list of feeds before you can publish to it. The list of feeds is edited in the <strong>Package Manager</strong> or in the <strong>Extensions manager</strong> dialog as shown below. The dialog can be opened via the <strong>Extensions</strong> button in the QueryStorm ribbon, or via the <strong>Manage packages</strong> context menu for projects.</p>
 <p><img alt="Edit package sources" src="../../Images/EditPackageSources.png" /></p>
 <ol>
 <li>Tab for managing sources (feeds)</li>
 <li>Button for editing the feed</li>
-<li>Feed url or path</li>
+<li>Feed URL or path</li>
 <li>Feed content type (Packages, Extensions or Both)</li>
 </ol>
 <blockquote>
@@ -660,21 +660,21 @@
 <li>Click "Create Feed" and give the feed a name</li>
 <li>Click "Connect to Feed"</li>
 <li>Click "Visual Studio" and copy the source link</li>
-<li>Go to QueryStorm in Excel and add a new package source with the url from the previous step</li>
+<li>Go to QueryStorm in Excel and add a new package source with the URL from the previous step</li>
 </ol>
 <h3 id="creating-credentials">Creating credentials</h3>
-<p>In order to be able to publish to this feed, you'll also need to set up a personal access token, which you can use as the password. To do so, follow these steps:</p>
+<p>To be able to publish to this feed, you'll also need to set up a personal access token, which you can use as the password. To do so, follow these steps:</p>
 <ol>
 <li>Click on the user settings in the top right corner of the page (in the azure webpage)</li>
 <li>Select "Personal Access Token"</li>
 <li>Set token expiration date</li>
 <li>Grant the token full access</li>
 <li>Copy the generated token</li>
-<li>In QueryStorm, enter the token as the password of the new feed and your email address (that's associated with your Azure account) as the username</li>
+<li>In QueryStorm, enter the token as the password of the feed and your email address (that's associated with your Azure account) as the username</li>
 </ol>
 <p>That's it. You can now publish to your new feed! The only thing left to do is to share the feed URL with your users so they can add it to their list of sources.</p>
 <h2 id="updating-packages">Updating packages</h2>
-<p>When publishing a new version of an existing package, make sure to <strong>increment the version number</strong>, otherwise the server will report a collision with the version that is already on the server. If the repository is a network share, though, there will be no version checks.</p>
+<p>When publishing a new version of an existing package, make sure to <strong>increment the version number</strong>, otherwise, the server will report a collision with the version that is already on the server. If the repository is a network share, though, there will be no version checks.</p>
                 
               
               

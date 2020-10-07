@@ -626,10 +626,10 @@
                 
                 
                 <h1 id="custom-excel-functions">Custom Excel functions</h1>
-<p>QueryStorm enables user to add new functions to Excel. Users who use the full version of QueryStorm can build their own custom functions as well as publish them to other users. Users who use the Runtime version of QueryStorm can install packages published by creators, but cannot create their own functions.</p>
+<p>QueryStorm enables users to add new functions to Excel. Users who use the full version of QueryStorm can build their own custom functions as well as publish them to other users. Users who use the Runtime version of QueryStorm can install packages published by creators, but cannot create functions.</p>
 <p><img alt="Dynamic function spill" src="../../Images/dynamic_func_spill.gif" /></p>
 <h2 id="supported-languages">Supported languages</h2>
-<p>QueryStorm lets you define new Excel functions using <strong>SQL</strong>, <strong>C#</strong> and <strong>VB.NET</strong>.</p>
+<p>QueryStorm lets you define new Excel functions using <strong>SQL</strong>, <strong>C#</strong>, and <strong>VB.NET</strong>.</p>
 <h3 id="creating-functions-via-sql">Creating functions via SQL</h3>
 <p>Defining functions in SQL is useful for returning data from databases. The function body is written in SQL, while the function declaration uses a simple preprocessor syntax that's available in all SQL scripts in QueryStorm.</p>
 <p>For example:</p>
@@ -657,7 +657,7 @@
 
 <p>To read more about creating functions with SQL, click <a href="../Functions_via_SQL">here</a>.</p>
 <h3 id="creating-functions-via-c-and-vbnet">Creating functions via C# and VB.NET</h3>
-<p>Building functions in C# and VB.NET is a matter of writing the code of the function and decorating it with the <code>ExcelFunction</code> attribute. The function might perform a calculation on its own, or it might call into some third party library or a REST service.</p>
+<p>Building functions in C# and VB.NET is a matter of writing the code of the function and decorating it with the <code>ExcelFunction</code> attribute. The function might perform a calculation on its own, or it might call into some third party library or REST service.</p>
 <p>For example:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -683,7 +683,7 @@
 <h3 id="functions-in-the-workbook">Functions in the workbook</h3>
 <p>Functions that are defined inside a workbook are only available to that workbook. The advantage to this is that they will be immediately available to others when they open a copy of your workbook (provided they have the QueryStorm runtime), so you don't need to distribute them separately.</p>
 <h3 id="functions-in-an-extension-package">Functions in an extension package</h3>
-<p>Functions can also be defined in <em>extension packages</em>. Functions contained in an extension package are usable in any workbook on the machine. Authors can easily publish their extension packages  to make them available to other (QueryStorm Runtime) users. Click <a href="../Publishing_functions">here</a> for more information about publishing extension packages.</p>
+<p>Functions can also be defined in <em>extension packages</em>. Functions contained in an extension package are usable in any workbook on the machine. Authors can easily publish their extension packages to make them available to other (QueryStorm Runtime) users. Click <a href="../Publishing_functions">here</a> for more information about publishing extension packages.</p>
                 
               
               

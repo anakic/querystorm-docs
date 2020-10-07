@@ -695,13 +695,13 @@
 <p>The syntax of the output directive is very simple: {@<em>table_name</em>}</p>
 <p>The output directive should be placed above the select query whose results it should output. If there are multiple select queries in the script, each of them can have its own output directive, so multiple tables can be updated from the same script.</p>
 <h2 id="specifying-triggers">Specifying triggers</h2>
-<p>The preprocessor syntax for declaring an automation command is: {<strong>handles</strong> <em>eventsList</em>}. The event list is a comma separated list of events that should trigger execution of the command.</p>
+<p>The preprocessor syntax for declaring an automation command is: {<strong>handles</strong> <em>eventsList</em>}. The event list is a comma-separated list of events that should trigger the execution of the command.</p>
 <h3 id="range-change-events">Range change events</h3>
-<p>For each named cell, an event with the same name is defined, and is fired each time the cell value changes. In the above example, the <code>orderDate</code> event is specified as the only trigger, meaning that the command will execute every time the <code>orderDate</code> cell's value changes.</p>
+<p>For each named cell, an event with the same name is defined and is fired each time the cell value changes. In the above example, the <code>orderDate</code> event is specified as the only trigger, meaning that the command will execute every time the <code>orderDate</code> cell's value changes.</p>
 <h3 id="activex-button-click-events">ActiveX button click events</h3>
 <p>To handle the click of an ActiveX button, we should use the following syntax: {<strong>handles</strong> <em>sheetName</em>!<em>buttonName</em>}, for example <code>{handles Sheet!CommandButton1}</code>.</p>
 <h3 id="vba-events">VBA events</h3>
-<p>Arbitrarily named events can also be sent from VBA and used to trigger execution of commands. To send an event from VBA, use the QueryStorm.Runtime.API class:</p>
+<p>Arbitrarily named events can also be sent from VBA and used to trigger the execution of commands. To send an event from VBA, use the QueryStorm.Runtime.API class:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>CreateObject(&quot;QueryStorm.Runtime.API&quot;).SendEvent(&quot;myEvent&quot;)
 </code></pre></div>
 </td></tr></table>
@@ -729,15 +729,16 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>Example command declaration:
+<p>Example command declaration:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">{</span><span class="n">handles</span> <span class="n">myNamedCell</span><span class="p">,</span> <span class="n">Sheet1</span><span class="o">!</span><span class="n">MyButton</span><span class="err">}</span>
 <span class="o">//</span> <span class="p">...</span><span class="k">sql</span> <span class="n">code</span>
 </code></pre></div>
-</td></tr></table></p>
+</td></tr></table>
+
 <p>In general, functions fetch or calculate values while commands change things (e.g. save data to a database, write data into Excel tables).</p>
-<p>In the example at the beginning of this page, we were fetching data based on some parameter. Conceptually, this looks more like it should be a function than a command. However, a function cannot return the body of a table, it can only return data to a cell or a range. If we want to write the resulting data to an Excel table, we need to use a command with an output directive (e.g. <code>{@someTable}</code>).</p>
-<p>On the the other hand, if the script was <strong>updating database data</strong> rather than simply selecting data from it, a command would certainly be the appropriate choice.</p>
+<p>In the example at the beginning of this page, we were fetching data based on a parameter. Conceptually, this looks more like it should be a function than a command. However, a function cannot return the body of a table, it can only return data to a cell or a range. If we want to write the resulting data to an Excel table, we need to use a command with an output directive (e.g. <code>{@someTable}</code>).</p>
+<p>On the other hand, if the script was <strong>updating database data</strong> rather than simply selecting data from it, a command would certainly be the appropriate choice.</p>
 <p>An important distinction between commands and functions is that commands reset Excel's Undo/Redo stack when they modify data in the workbook, while functions do not. This is a technical limitation in Excel.</p>
                 
               

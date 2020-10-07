@@ -467,8 +467,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defining-a-data-context-context-file" class="md-nav__link">
-    Defining a data context context file
+  <a href="#defining-a-data-context-file" class="md-nav__link">
+    Defining a data context file
   </a>
   
 </li>
@@ -536,8 +536,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defining-a-data-context-context-file" class="md-nav__link">
-    Defining a data context context file
+  <a href="#defining-a-data-context-file" class="md-nav__link">
+    Defining a data context file
   </a>
   
 </li>
@@ -586,11 +586,11 @@
                 
                 
                 <h1 id="the-data-context">The data context</h1>
-<p>The data context represents the outside world that scripts and components see. It exposes tables, variables and events.</p>
+<p>The data context represents the outside world that scripts and components see. It exposes tables, variables, and events.</p>
 <p>When you create a script, a data context instance is automatically passed to the script, making its data available to the script.</p>
 <p>Components can access the data inside the context via property bindings, and component methods can handle events coming from the data context.</p>
 <p>Each project can have no more than one data context file. You can define your own data context class to customize the data that will be available to your scripts and components, but if not, a default data context will be used.</p>
-<h2 id="defining-a-data-context-context-file">Defining a data context context file</h2>
+<h2 id="defining-a-data-context-file">Defining a data context file</h2>
 <p>The data context file can be added from the project's context menu.</p>
 <p><img alt="Add data context" src="../../Images/add_datacontext_menu.png" /></p>
 <p>This generates a data context file. You can use this file to add additional tables to your data context:</p>
@@ -657,7 +657,7 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>However, a <code>Tabular</code> instance does not offer strongly typed access to the data it contains. To allow strongly typed access to all tables inside the context, QueryStorm dynamically generates a dll file which contains types that correspond to tables in the data context. This dll is recreated each time the data context changes (e.g. an Excel table is changed) and is stored in the <code>lib</code> folder.</p>
+<p>However, a <code>Tabular</code> instance does not offer strongly typed access to the data it contains. To allow strongly typed access to all tables inside the context, QueryStorm dynamically generates a dll file that contains types that correspond to tables in the data context. This dll is recreated each time the data context changes (e.g. an Excel table is changed) and is stored in the <code>lib</code> folder.</p>
 <p><img alt="Generated types dll" src="../../Images/generated_types.png" /></p>
 <p>Components can then bind to these strongly typed table wrappers:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -717,7 +717,7 @@
 <p><img alt="CSScript relationship navigation" src="../../Images/relationship_navigation_example.png" /></p>
 <p>The schema file can be edited by hand, as well as updated automatically when tables are changed in Excel. When you add or remove workbook tables (or columns) in Excel, you can run the "Update schema file" command on the data context to update the schema file.</p>
 <p><img alt="Update schema file" src="../../Images/update_schema_file.gif" /></p>
-<p>Configuration code for tables and columns will be added/removed, but settings for existing tables and columns will remain intact. Previous settings are loaded from the output dll, so if you've made manual changes, make sure to build the project before updating the schema file, otherwise those manual changes will be lost.</p>
+<p>Configuration code for tables and columns will be added/removed, but settings for existing tables and columns will remain intact. Previous settings are loaded from the output dll, so if you've made manual changes, make sure to build the project before updating the schema file, otherwise, those manual changes will be lost.</p>
 <blockquote>
 <p>Tip: for performance reasons (to avoid type conversions), it's slightly better to leave Id columns as <code>double</code> instead of <code>int</code>. This is because Excel does not have an <code>int</code> type; all numbers in Excel are <code>double</code>.</p>
 </blockquote>

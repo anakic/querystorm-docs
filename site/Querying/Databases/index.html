@@ -587,7 +587,7 @@
                 
                 <h1 id="external-databases">External databases</h1>
 <p>QueryStorm supports connecting to external databases, allowing you to query workbook tables alongside database tables. This makes moving data between Excel and databases (in both directions) easy and convenient.</p>
-<p>Currently SQL Server, Postgres, MySql, SQLite and Redshift (via Postgres) are supported, while support for other databases may be rolled out in the future depending on user needs and requests.</p>
+<p>Currently, SQL Server, Postgres, MySql, SQLite, and Redshift (via Postgres) are supported, while support for other databases may be rolled out in the future depending on user needs and requests.</p>
 <h2 id="querying">Querying</h2>
 <p>To connect to a database, click the appropriate button from the dropdown menu in the ribbon.</p>
 <p><img alt="Connect to DBs" src="../../Images/other_scripts.png" /></p>
@@ -601,7 +601,7 @@
 <p>Aside from workbook tables, scripts can also see the values of named ranges. These can be used as parameters in your scripts:</p>
 <p><img alt="Connected external" src="../../Images/sql_cell_parameter.png" title="Connected to external SQL Server" /></p>
 <blockquote>
-<p>Only named ranges that refer to a single cell are usable as parameters.</p>
+<p>Only named ranges that refer to a single cell are visible as parameters.</p>
 </blockquote>
 <h2 id="getting-data-into-excel">Getting data into Excel</h2>
 <p>Query results can be written into the workbook as new tables or used to update existing ones.</p>
@@ -614,7 +614,7 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>When this script is executed, the results of the select query will be written into an Excel table with the name <em>dpt</em>. If the table does not yet exist, it will be created starting at the currently selected cell. If a table called <em>dpt</em> does exists in the current workbook, it will be overwritten by the results of the query. However, <strong>only table columns that exist both in the workbook table and in the results are updated</strong>. If the workbook table has any columns that are not present in the query results (e.g. calculated columns), those columns will be left intact.</p>
+<p>When this script is executed, the results of the select query will be written into an Excel table with the name <em>dpt</em>. If the table does not yet exist, it will be created starting at the currently selected cell. If a table called <em>dpt</em> does exist in the current workbook, it will be overwritten by the results of the query. However, <strong>only table columns that exist both in the workbook table and in the results are updated</strong>. If the workbook table has any columns that are not present in the query results (e.g. calculated columns), those columns will be left intact.</p>
 <p>To update multiple tables from the same script, we can use multiple output directives:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -635,7 +635,7 @@
 <p><img alt="Connection name" src="../../Images/connection_name_2.png" /></p>
 <p>Referencing the connection string by name (instead of keeping it in the script file) lets scripts share connection strings. This makes it easier to e.g. redirect all scripts from a development database to a production database.</p>
 <h3 id="securing-credentials">Securing credentials</h3>
-<p>Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to leave their database credentials inside scripts that are shared with end users. This is an important consideration when sharing the workbook itself or when building and sharing custom <a href="../../Functions/Functions_via_SQL">Excel SQL Functions</a>.</p>
+<p>Connection strings can contain sensitive data i.e. database credentials. It's usually not a good idea for developers to leave their database credentials inside scripts that are shared with end-users. This is an important consideration when sharing the workbook itself or when building and sharing custom <a href="../../Functions/Functions_via_SQL">Excel SQL Functions</a>.</p>
 <p>For this reason, connection strings can be <strong>templated</strong>. Instead of the actual username and password, the developer puts placeholders inside the connection string.</p>
 <p>Two placeholders are supported:</p>
 <ul>
@@ -649,7 +649,7 @@
 <p><img alt="Credentials prompt" src="../../Images/credentials_prompt.png" /></p>
 <p>The credentials are then inserted into the connection string instead of the placeholders and a connection attempt is made. If the attempt fails, the prompt reappears. If the attempt succeeds, the credentials are encrypted and stored in a local file for future use.</p>
 <p>Once the credentials are stored, they are used automatically in the future every time a connection is attempted with a connection string that uses the same credentials ID (e.g. <code>my_creds_123</code>). If a connection attempt fails in the future, the user will again be prompted for their credentials.</p>
-<p>Stored credentials are encrypted using the via the Windows Data Protection API and stored in a file in the user's AppData directory. Only the user that created the file can decrypt the data.</p>
+<p>Stored credentials are encrypted using the Windows Data Protection API and stored in a file in the user's AppData directory. Only the user that created the file can decrypt the data.</p>
                 
               
               

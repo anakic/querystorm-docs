@@ -729,11 +729,11 @@
 <h2 id="creating-the-project">Creating the project</h2>
 <p>To automate the workbook, we must first add a project to it:</p>
 <p><img alt="Creating a workbook project" src="../../Images/creating_workbook_project.gif" /></p>
-<p>This will create a project and prepare <code>module.config</code> and <code>app.cs</code> files that we can use as the starting point for out workbook application.</p>
+<p>This will create a project and prepare <code>module.config</code> and <code>app.cs</code> files that we can use as the starting point for our workbook application.</p>
 <p>When this project is built, the output files (.dll and .manifest) will be stored inside the workbook, and the runtime will automatically load the project. Each time an Excel workbook is opened, the QueryStorm runtime inspects it to see if there's a <strong>compiled</strong> workbook application inside it. If it finds one, it loads it along with the workbook. When the workbook is closed, the application is unloaded with it.</p>
 <h2 id="the-app-class">The <code>App</code> class</h2>
 <p>The workbook project has an <code>App</code> class that's defined in the <code>App.cs</code> (or <code>App.vb</code>) file. This is the entry point of the application.</p>
-<p>In its constructor, we can request an <code>IWorkbookAccessor</code> instance which will give us access to the workbook that contains the application. We can use the workbook object to read and write cell values, subscribe to events, refresh graphs and pivot tables etc.</p>
+<p>In its constructor, we can request an <code>IWorkbookAccessor</code> instance which will give us access to the workbook that contains the application. We can use the workbook object to read and write cell values, subscribe to events, refresh graphs and pivot tables, etc.</p>
 <p>For example, we can pop up a message box each time a cell is selected (though admittedly, this is not a very useful thing to do):</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -778,7 +778,7 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>The IOC container is used to create instances of other classes, such as the data context, components and function container classes, so all of those classes can accept dependencies via their constructors.</p>
+<p>The IOC container is used to create instances of other classes, such as the data context, components, and function container classes, so all of those classes can accept dependencies via their constructors.</p>
 <p>For example, a component can access a service via constructor injection, like so:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -800,7 +800,7 @@
 <p>QueryStorm uses the <a href="http://unitycontainer.org/articles/introduction.html">Unity container</a> for dependency injection.</p>
 </blockquote>
 <h2 id="components">Components</h2>
-<p>A component class contains logic that controls a section of the workbook. You can have any number of components in a workbook, each controlling it's own (arbitrarily defined) part of the workbook.</p>
+<p>A component class contains logic that controls a section of the workbook. You can have any number of components in a workbook, each controlling its own (arbitrarily defined) part of the workbook.</p>
 <p>Components have the following characteristics:</p>
 <ul>
 <li>They can accept dependencies via constructor injection.</li>
@@ -898,7 +898,7 @@
 
 <p>And here is the resulting behavior:</p>
 <p><img alt="Example component in action" src="../../Images/example_component_in_action.gif?v" /></p>
-<p>The important thing to note is that no part of the code interacts with Excel directly. The component only accesses its own properties, and the binding infrastructure takes care of communicating with Excel.</p>
+<p>The important thing to note is that no part of the code interacts with Excel directly. The component only accesses its properties, and the binding infrastructure takes care of communicating with Excel.</p>
 <h2 id="bindings">Bindings</h2>
 <p>Bindings allow you to read and write values from Excel without having to access Excel objects directly or subscribe to their events to listen for changes.</p>
 <h3 id="bindings-and-the-data-context">Bindings and the data context</h3>
@@ -931,7 +931,7 @@ any cells that are bound to that property also get updated to the new value. For
 </blockquote>
 <p>The generated classes inside this dll provide strongly typed read/write access to data inside tables. It's important to note that any changes you make to the data <strong>need to be explicitly saved</strong> by calling <code>SaveChanges()</code> on the table.</p>
 <blockquote>
-<p>In C# scripts, <code>SaveChanges()</code> is called automatically after each run, but in model-binding this call needs to be explicit.</p>
+<p>In C# scripts, <code>SaveChanges()</code> is called automatically after each run, but in model-binding, this call needs to be explicit.</p>
 </blockquote>
 <h2 id="events">Events</h2>
 <p>Components can handle events coming in from the workbook by defining <code>public void</code> methods marked with the <code>EventHandler</code> attribute. Multiple <code>EventHandler</code> attributes can be applied to a method in case the same method should handle multiple events.</p>
@@ -972,7 +972,7 @@ any cells that are bound to that property also get updated to the new value. For
 </td></tr></table>
 
 <h3 id="sending-and-handling-events-from-vba">Sending and handling events from VBA</h3>
-<p>Events can be sent from VBA code to the workbook application. This offers full flexibility with regards to sending events.</p>
+<p>Events can be sent from VBA code to the workbook application. This offers full flexibility with regard to sending events.</p>
 <p>One particular reason this might be useful is that it allows using regular buttons to send events, instead of ActiveX buttons which have known issues when changing resolution (e.g. second screen, projector).</p>
 <p>To send an event from VBA, use the <code>QueryStorm.Runtime.API</code> class, like so:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">CreateObject</span><span class="p">(</span><span class="s">&quot;QueryStorm.Runtime.API&quot;</span><span class="p">).</span><span class="n">SendEvent</span><span class="p">(</span><span class="s">&quot;myEvent&quot;</span><span class="p">)</span>

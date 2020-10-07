@@ -11,6 +11,7 @@ nav:
       - Overview: Automation\Overview.md
       - Automation with .Net: Automation\Automation_with_dotnet.md
       - Automation with SQL Commands: Automation\Automation_with_SQL.md
+      - Importing/exporting code: Automation\Import_export_project.md
     - Custom Excel functions:
       - Overview: Functions\Overview.md
       - Functions via .Net: Functions\Functions_via_DotNet.md
