@@ -25,3 +25,9 @@ Once you have the URL, you can add it to your list of feeds. The list of feeds i
 4. Feed content type (Packages, Extensions or Both)
 
 > Both creators and consumers use the above dialog to edit their package feeds.
+
+<!--
+todo: examples of functions (dot net functions)
+- regex replace/extract
+- format
+-->

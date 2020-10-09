@@ -19,6 +19,7 @@ nav:
       - Publishing functions: Functions\Publishing_functions.md
       - Installing packages: Functions\Installing_packages.md
     - General topics:
+      - IDE tips & ticks: General\IDE.md
       - SQL Preprocessor: General\Preprocessor.md
       - Project system: General\Project_system.md
       - Data context: General\Data_context.md

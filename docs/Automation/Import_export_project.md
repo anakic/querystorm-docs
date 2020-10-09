@@ -1,12 +1,13 @@
 # Importing and exporting code
 
-Workbook code can be exported to a folder on the local machine and later imported into another workbook (or the same workbook).
+Workbook projects can be exported to a folder on the local machine and later imported into another workbook (or the same workbook).
 
-This can be useful for several purposes:
+This makes it easier to:
 
-- reusing the code in multiple workbooks
-- version controlling the source code
-- protecting intellectual property by keeping only the output dlls in the workbook while keeping the source code only on your local machine.
+- update an existing workbook with a new version of the code
+- reuse the same code in multiple workbooks
+- version control workbook code
+- protect intellectual property by keeping only the output dlls in the workbook while keeping the source code only on your local machine.
 
 The following gif illustrates the process of exporting a project and importing it into a new workbook:
 
