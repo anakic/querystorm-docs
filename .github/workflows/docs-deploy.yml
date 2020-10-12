@@ -32,3 +32,4 @@ jobs:
           ftp-server: ${{ secrets.QS_FTP_SRVR }}
           ftp-username: ${{ secrets.QS_FTP_USRNM }}
           ftp-password: ${{ secrets.QS_FTP_PWD }}
+          
