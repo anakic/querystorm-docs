@@ -21,7 +21,9 @@ jobs:
         run: python -m pip install --upgrade pip
       
       - name: Install mkdocs
-        run: pip install mkdocs
+        run: |
+          pip install mkdocs
+          pip install mkdocs-material
       
       - name: Build docs
         run: mkdocs build
@@ -32,4 +34,3 @@ jobs:
           ftp-server: ${{ secrets.QS_FTP_SRVR }}
           ftp-username: ${{ secrets.QS_FTP_USRNM }}
           ftp-password: ${{ secrets.QS_FTP_PWD }}
-          
