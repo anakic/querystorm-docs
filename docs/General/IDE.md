@@ -185,10 +185,10 @@ If a row in the results grid contains an address, double-clicking the address, o
 
 ## IDE Layouts
 
-The IDE supports three different modes:
+The IDE supports three different preset positions:
 
-- Docked to the bottom
-- Docked to the right
+- Bottom
+- Right
 - Undocked
 
 Each of the three layouts is independent of the others, so moving panes in one layout does not affect pane positions in the other two. Switching between layouts as well as resetting a layout is done using ribbon buttons.
