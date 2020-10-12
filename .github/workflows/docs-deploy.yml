@@ -1,0 +1,35 @@
+name: DocumentationBuildDeploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install pip
+        run: python -m pip install --upgrade pip
+      
+      - name: Install mkdocs
+        run: pip install mkdocs
+      
+      - name: Build docs
+        run: mkdocs build
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: ${{ secrets.QS_FTP_SRVR }}
+          ftp-username: ${{ secrets.QS_FTP_USRNM }}
+          ftp-password: ${{ secrets.QS_FTP_PWD }}
+          
