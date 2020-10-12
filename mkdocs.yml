@@ -10,7 +10,7 @@ nav:
     - Automating workbooks:
       - Overview: Automation\Overview.md
       - Automation with .Net: Automation\Automation_with_dotnet.md
-      - Automation with SQL Commands: Automation\Automation_with_SQL.md
+      - Automation with SQL: Automation\Automation_with_SQL.md
       - Importing/exporting code: Automation\Import_export_project.md
     - Custom Excel functions:
       - Overview: Functions\Overview.md

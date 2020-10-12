@@ -182,3 +182,15 @@ Click a column header to sort based on the column. Hold down ++ctrl++ and click 
 If a row in the results grid contains an address, double-clicking the address, or the row header will select the row in Excel. Select multiple rows and press space to select multiple rows in Excel.
 
 ![Select workbook address](../Images/ide_select_wb_address.gif)
+
+## IDE Layouts
+
+The IDE supports three different modes:
+
+- Docked to the bottom
+- Docked to the right
+- Undocked
+
+Each of the three layouts is independent of the others, so moving panes in one layout does not affect pane positions in the other two. Switching between layouts as well as resetting a layout is done using ribbon buttons.
+
+![IDE layouts](../Images/ide_layout.gif?v=2)
