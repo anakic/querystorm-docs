@@ -1,0 +1,1233 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://www.querystorm.com/docs2/General/IDE/">
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>IDE tips & ticks - QueryStorm Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/baguetteBox.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ide-tips-and-tricks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://www.querystorm.com/docs2" title="QueryStorm Docs" class="md-header-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            QueryStorm Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              IDE tips & ticks
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.querystorm.com/docs2" title="QueryStorm Docs" class="md-nav__button md-logo" aria-label="QueryStorm Docs">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    QueryStorm Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../Introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Querying
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Querying" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Querying
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/SQLite/" title="SQLite" class="md-nav__link">
+      SQLite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/Databases/" title="Databases" class="md-nav__link">
+      Databases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Querying/CSharp/" title="C# scripts" class="md-nav__link">
+      C# scripts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Automating workbooks
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Automating workbooks" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Automating workbooks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automation/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automation/Automation_with_dotnet/" title="Automation with .Net" class="md-nav__link">
+      Automation with .Net
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automation/Automation_with_SQL/" title="Automation with SQL" class="md-nav__link">
+      Automation with SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Automation/Import_export_project/" title="Importing/exporting code" class="md-nav__link">
+      Importing/exporting code
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Custom Excel functions
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Custom Excel functions" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Custom Excel functions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Functions/Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Functions/Functions_via_DotNet/" title="Functions via .Net" class="md-nav__link">
+      Functions via .Net
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Functions/Functions_via_SQL/" title="Functions via SQL" class="md-nav__link">
+      Functions via SQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Functions/Publishing_functions/" title="Publishing functions" class="md-nav__link">
+      Publishing functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Functions/Installing_packages/" title="Installing packages" class="md-nav__link">
+      Installing packages
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      General topics
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="General topics" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        General topics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        IDE tips & ticks
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="IDE tips & ticks" class="md-nav__link md-nav__link--active">
+      IDE tips & ticks
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-editor" class="md-nav__link">
+    Code editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Code editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#font-size" class="md-nav__link">
+    Font size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-completion" class="md-nav__link">
+    Code completion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-formatting" class="md-nav__link">
+    Code formatting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-matching-bracket" class="md-nav__link">
+    Go to matching bracket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-symbol-definition" class="md-nav__link">
+    Go to symbol definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-symbol" class="md-nav__link">
+    Rename symbol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#star-expansion-sql" class="md-nav__link">
+    Star expansion (SQL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-disambiguation-sql" class="md-nav__link">
+    Column disambiguation (SQL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-in-file" class="md-nav__link">
+    Find in file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace-in-file" class="md-nav__link">
+    Replace in file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-lines-up-or-down" class="md-nav__link">
+    Move lines up or down
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-snippets" class="md-nav__link">
+    Code snippets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-shortcut-keys" class="md-nav__link">
+    Configure shortcut keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messages-log" class="md-nav__link">
+    Messages log
+  </a>
+  
+    <nav class="md-nav" aria-label="Messages log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-tooltips" class="md-nav__link">
+    Message tooltips
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigate-to-an-error-in-the-source-code" class="md-nav__link">
+    Navigate to an error in the source code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-explorer" class="md-nav__link">
+    Code explorer
+  </a>
+  
+    <nav class="md-nav" aria-label="Code explorer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-files-and-folders" class="md-nav__link">
+    Find files and folders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-files-with-text" class="md-nav__link">
+    Find files with text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-file" class="md-nav__link">
+    Rename file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-files-and-folders" class="md-nav__link">
+    Move files and folders
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-explorer" class="md-nav__link">
+    Object explorer
+  </a>
+  
+    <nav class="md-nav" aria-label="Object explorer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#go-to-workbook-object" class="md-nav__link">
+    Go to workbook object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-workbook-object" class="md-nav__link">
+    Rename workbook object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop-to-editor" class="md-nav__link">
+    Drop to editor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-grid" class="md-nav__link">
+    Results grid
+  </a>
+  
+    <nav class="md-nav" aria-label="Results grid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sorting-results" class="md-nav__link">
+    Sorting results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-address-in-excel" class="md-nav__link">
+    Go to address in Excel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide-layouts" class="md-nav__link">
+    IDE Layouts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Preprocessor/" title="SQL Preprocessor" class="md-nav__link">
+      SQL Preprocessor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Project_system/" title="Project system" class="md-nav__link">
+      Project system
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Data_context/" title="Data context" class="md-nav__link">
+      Data context
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-editor" class="md-nav__link">
+    Code editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Code editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#font-size" class="md-nav__link">
+    Font size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-completion" class="md-nav__link">
+    Code completion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-formatting" class="md-nav__link">
+    Code formatting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-matching-bracket" class="md-nav__link">
+    Go to matching bracket
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-symbol-definition" class="md-nav__link">
+    Go to symbol definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-symbol" class="md-nav__link">
+    Rename symbol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#star-expansion-sql" class="md-nav__link">
+    Star expansion (SQL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-disambiguation-sql" class="md-nav__link">
+    Column disambiguation (SQL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-in-file" class="md-nav__link">
+    Find in file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace-in-file" class="md-nav__link">
+    Replace in file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-lines-up-or-down" class="md-nav__link">
+    Move lines up or down
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-snippets" class="md-nav__link">
+    Code snippets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-shortcut-keys" class="md-nav__link">
+    Configure shortcut keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#messages-log" class="md-nav__link">
+    Messages log
+  </a>
+  
+    <nav class="md-nav" aria-label="Messages log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-tooltips" class="md-nav__link">
+    Message tooltips
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigate-to-an-error-in-the-source-code" class="md-nav__link">
+    Navigate to an error in the source code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-explorer" class="md-nav__link">
+    Code explorer
+  </a>
+  
+    <nav class="md-nav" aria-label="Code explorer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-files-and-folders" class="md-nav__link">
+    Find files and folders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-files-with-text" class="md-nav__link">
+    Find files with text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-file" class="md-nav__link">
+    Rename file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-files-and-folders" class="md-nav__link">
+    Move files and folders
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-explorer" class="md-nav__link">
+    Object explorer
+  </a>
+  
+    <nav class="md-nav" aria-label="Object explorer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#go-to-workbook-object" class="md-nav__link">
+    Go to workbook object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rename-workbook-object" class="md-nav__link">
+    Rename workbook object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop-to-editor" class="md-nav__link">
+    Drop to editor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-grid" class="md-nav__link">
+    Results grid
+  </a>
+  
+    <nav class="md-nav" aria-label="Results grid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sorting-results" class="md-nav__link">
+    Sorting results
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-address-in-excel" class="md-nav__link">
+    Go to address in Excel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide-layouts" class="md-nav__link">
+    IDE Layouts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="ide-tips-and-tricks">IDE tips and tricks</h1>
+<p>This page lists some of the more useful and/or less obvious features of the IDE.</p>
+<h2 id="code-editor">Code editor</h2>
+<h3 id="font-size">Font size</h3>
+<p>Hold down <span class="keys"><kbd class="key-control">Ctrl</kbd></span> while scrolling the mouse wheel to zoom in or out.</p>
+<p><img alt="Scroll to zoom" src="../../Images/ide_scroll_to_zoom.gif" /></p>
+<h3 id="code-completion">Code completion</h3>
+<p>Code completion is automatic in QueryStorm, but you can also invoke it explicitly by pressing <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-space">Space</kbd></span>.</p>
+<p><img alt="Code completion" src="../../Images/ide_code_completion.gif" /></p>
+<h3 id="code-formatting">Code formatting</h3>
+<p>Messy code can be auto-formatted by pressing <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-enter">Enter</kbd></span>.</p>
+<p><img alt="Code formatting" src="../../Images/ide_code_formatting.gif" /></p>
+<h3 id="go-to-matching-bracket">Go to matching bracket</h3>
+<p>Press <code>Ctrl+]</code> to navigate to the matching bracket. Hold down the <span class="keys"><kbd class="key-shift">Shift</kbd></span> key to also select everything in between.</p>
+<p><img alt="Go to matching bracket" src="../../Images/ide_bracket_goto.gif" /></p>
+<h3 id="go-to-symbol-definition">Go to symbol definition</h3>
+<p>Move the caret on top of a symbol, and press <span class="keys"><kbd class="key-f12">F12</kbd></span> to navigate to the symbol definition. This can be in a different file.</p>
+<p><img alt="Go to symbol" src="../../Images/ide_goto_symbol.gif" /></p>
+<h3 id="rename-symbol">Rename symbol</h3>
+<p>Move the caret on top of a symbol and press <span class="keys"><kbd class="key-f2">F2</kbd></span> to rename it. This works across all files in the same project.</p>
+<p><img alt="Rename symbol" src="../../Images/ide_rename_symbol.gif" /></p>
+<h3 id="star-expansion-sql">Star expansion (SQL)</h3>
+<p>Move the caret on top of a star symbol in the select list and invoke code-completion (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-space">Space</kbd></span>) to expand the star into the columns it refers to.</p>
+<p><img alt="Star expansion" src="../../Images/ide_star_expansion.gif" /></p>
+<blockquote>
+<p>Column names are quoted if necessary.</p>
+</blockquote>
+<h3 id="column-disambiguation-sql">Column disambiguation (SQL)</h3>
+<p>Move the caret on top of an ambiguous symbol and invoke code-completion (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-space">Space</kbd></span>) to disambiguate it.</p>
+<p><img alt="Column disambiguation" src="../../Images/ide_column_disambiguation.gif" /></p>
+<blockquote>
+<p>Column names are quoted if necessary.</p>
+</blockquote>
+<h3 id="find-in-file">Find in file</h3>
+<p>Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-f">F</kbd></span> to find a string inside the current file.</p>
+<p><img alt="Find in file" src="../../Images/ide_find_text.gif" /></p>
+<blockquote>
+<p>Supports regular expressions.</p>
+</blockquote>
+<h3 id="replace-in-file">Replace in file</h3>
+<p>Press <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-h">H</kbd></span> to replace occurences of string inside the current file.</p>
+<p><img alt="Replace in file" src="../../Images/ide_replace_text.gif" /></p>
+<blockquote>
+<p>Supports regular expressions and replacement patterns.</p>
+</blockquote>
+<h3 id="move-lines-up-or-down">Move lines up or down</h3>
+<p>To move a line up or down, hold down the <span class="keys"><kbd class="key-alt">Alt</kbd></span> key while pressing <span class="keys"><kbd class="key-arrow-up">Up</kbd></span> or <span class="keys"><kbd class="key-arrow-down">Down</kbd></span> arrow keys.</p>
+<p><img alt="Move lines" src="../../Images/ide_move_lines.gif" /></p>
+<h3 id="code-snippets">Code snippets</h3>
+<p>Use code snippets to write code faster. Use the <span class="keys"><kbd class="key-tab">Tab</kbd></span> key to navigate between snippet placeholders, press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to complete the snippet.</p>
+<p><img alt="Snippets" src="../../Images/ide_snippets.gif" /></p>
+<blockquote>
+<p>Snippets are language-specific, so depending on the current file, different snippets will be offered.</p>
+</blockquote>
+<h3 id="configure-shortcut-keys">Configure shortcut keys</h3>
+<p>Shortcut keys can be configured in the plugin settings</p>
+<p><img alt="Shortcuts" src="../../Images/ide_shortcuts.png" /></p>
+<h2 id="messages-log">Messages log</h2>
+<h3 id="message-tooltips">Message tooltips</h3>
+<p>Hover over an item to see a tooltip with its full contents. This is particularly helpful for errors since they tend to include multiple lines of text.</p>
+<p><img alt="Hover log item" src="../../Images/ide_hover_log_item.gif" /></p>
+<h3 id="navigate-to-an-error-in-the-source-code">Navigate to an error in the source code</h3>
+<p>Double-click an error to navigate to its location in the source code.</p>
+<p><img alt="Go to error line" src="../../Images/ide_go_to_error_line.gif" /></p>
+<blockquote>
+<p>This does not work for errors that do not have source line information.</p>
+</blockquote>
+<h2 id="code-explorer">Code explorer</h2>
+<h3 id="find-files-and-folders">Find files and folders</h3>
+<p>To look for files and folders, use the filter box in the code explorer. Multiple search terms can be entered, separated by spaces. In order for a node to satisfy the filter, all search terms need to match the node or at least one of its ancestors.</p>
+<p><img alt="Find file" src="../../Images/ide_find_file.gif" /></p>
+<blockquote>
+<p>You can narrow down the search by entering one of the node's ancestors as a search term.
+If a folder satisfies the search criteria, all of its descendant nodes will also be visible.</p>
+</blockquote>
+<h3 id="find-files-with-text">Find files with text</h3>
+<p>To find a file that contains specific text put the text in quotes.</p>
+<p><img alt="Find file" src="../../Images/ide_find_file_with_text.gif" /></p>
+<blockquote>
+<p>Text search can be combined with file/folder search, so you can, for example, look for files that contain the specified text but only inside a specific folder like so: <code>theFolder "text to search for"</code></p>
+</blockquote>
+<h3 id="rename-file">Rename file</h3>
+<p>To rename a file, select it and press <span class="keys"><kbd class="key-f2">F2</kbd></span>. Press <span class="keys"><kbd class="key-enter">Enter</kbd></span> to accept the new name or <span class="keys"><kbd class="key-escape">Esc</kbd></span> to cancel.</p>
+<p><img alt="Rename file" src="../../Images/ide_rename_file.gif" /></p>
+<blockquote>
+<p>Files get their extension when they are created, subsequent changes to their extensions are not allowed.</p>
+</blockquote>
+<h3 id="move-files-and-folders">Move files and folders</h3>
+<p>Use drag and drop to move files and folders.</p>
+<p><img alt="Move files" src="../../Images/ide_move_files.gif" /></p>
+<blockquote>
+<p>Some files and folders will refuse to be moved (e.g. bin and lib)</p>
+</blockquote>
+<h2 id="object-explorer">Object explorer</h2>
+<p>The object explorer shows items visible to scripts. Some of those items represent workbook tables, columns and ranges, and the object explorer allows you to interact with them.</p>
+<h3 id="go-to-workbook-object">Go to workbook object</h3>
+<p>Go to a workbook object by holding <span class="keys"><kbd class="key-control">Ctrl</kbd></span> and clicking the node in the object explorer.</p>
+<p><img alt="Go to workbook object" src="../../Images/ide_goto_wb_object.gif" /></p>
+<h3 id="rename-workbook-object">Rename workbook object</h3>
+<p>Press <span class="keys"><kbd class="key-f2">F2</kbd></span> to rename a workbook table, column, or named range.</p>
+<p><img alt="Rename workbook object" src="../../Images/ide_rename_wb_object.gif" /></p>
+<blockquote>
+<p>Renaming database objects is currently not supported.</p>
+</blockquote>
+<h3 id="drop-to-editor">Drop to editor</h3>
+<p>Drag and drop a node into the editor to insert its name. Hold down <span class="keys"><kbd class="key-alt">Alt</kbd></span> while dropping to insert all of the node's children's names instead.</p>
+<p><img alt="Drop node in editor" src="../../Images/ide_drop_node_in_editor.gif" /></p>
+<blockquote>
+<p>Names are quoted if needed.</p>
+</blockquote>
+<h2 id="results-grid">Results grid</h2>
+<h3 id="sorting-results">Sorting results</h3>
+<p>Click a column header to sort based on the column. Hold down <span class="keys"><kbd class="key-control">Ctrl</kbd></span> and click a different column to include the column as a secondary (or tertiary, or...) sort criteria.</p>
+<p><img alt="Sorting results" src="../../Images/ide_sort_results.gif" /></p>
+<h3 id="go-to-address-in-excel">Go to address in Excel</h3>
+<p>If a row in the results grid contains an address, double-clicking the address, or the row header will select the row in Excel. Select multiple rows and press space to select multiple rows in Excel.</p>
+<p><img alt="Select workbook address" src="../../Images/ide_select_wb_address.gif" /></p>
+<h2 id="ide-layouts">IDE Layouts</h2>
+<p>The IDE supports three different layouts:</p>
+<ul>
+<li>Bottom</li>
+<li>Right</li>
+<li>Undocked</li>
+</ul>
+<p>Each of the three layouts is independent of the others, so moving panes in one layout does not affect pane positions in the other two. Switching between layouts as well as resetting a layout is done using ribbon buttons.</p>
+<p><img alt="IDE layouts" src="../../Images/ide_layout.gif?v=2" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../Functions/Installing_packages/" title="Installing packages" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Installing packages
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Preprocessor/" title="SQL Preprocessor" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                SQL Preprocessor
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../../js/jquery-3.3.1.min.js"></script>
+      
+        <script src="../../js/youtube.js"></script>
+      
+        <script src="../../js/baguetteBox.js"></script>
+      
+    
+  </body>
+</html>
