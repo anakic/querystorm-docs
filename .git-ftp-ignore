@@ -1,0 +1,6 @@
+.gitignore
+.git-ftp-include
+.git-ftp-ignore
+.github/
+docs/
+mkdocs.yml
