@@ -28,16 +28,8 @@ jobs:
       - name: Build docs
         run: mkdocs build
       
+      - name: Install lftp
+        run: sudo apt install lftp
+      
       - name: FTP Deploy
-        uses: sebastianpopp/ftp-action@v2.0.0
-        with:
-          # FTP host
-          host: ftp://win19.mojsite.com/
-          # FTP user
-          user: thingieq
-          # FTP password
-          password: ${{ secrets.QS_FTP_PWD }}
-          # Local directory
-          localDir: "site"
-          # Remote directory
-          remoteDir: "thingieq/querystorm.com/wwwroot/DocsTest"
+        run: lftp mirror -R /site/ thingieq/querystorm.com/wwwroot/DocsTest/ -u thingieq,${{ secrets.QS_FTP_PWD }} ftp://win19.mojsite.com/
