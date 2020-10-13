@@ -33,6 +33,7 @@ jobs:
       
       - name: FTP Deploy
         run: |
+          echo Starting...
           lftp -u thingieq,'${{ secrets.QS_FTP_PWD }}' ftp://win19.mojsite.com/
           echo Connected
           mirror -R -vvv /site /thingieq/querystorm.com/wwwroot/DocsTest
