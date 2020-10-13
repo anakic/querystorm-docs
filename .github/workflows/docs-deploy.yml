@@ -32,4 +32,4 @@ jobs:
         run: sudo apt install lftp
       
       - name: FTP Deploy
-        run: lftp -e "mirror -v -R /site /thingieq/querystorm.com/wwwroot/DocsTest" -u thingieq,${{ secrets.QS_FTP_PWD }} ftp://win19.mojsite.com/
+        run: lftp -c "mirror -vvv -R /site /thingieq/querystorm.com/wwwroot/DocsTest" -u thingieq,${{ secrets.QS_FTP_PWD }} ftp://win19.mojsite.com/
