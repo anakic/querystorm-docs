@@ -36,7 +36,7 @@ jobs:
           # FTP User.
           user: thingieq
           # FTP Password.
-          password: ${{ secrets.QS_FTP_PWD }}
+          password: '${{ secrets.QS_FTP_PWD }}'
           # Local directory.
           local_dir: "./site"
           # Remote directory.
