@@ -24,7 +24,7 @@ Messy code can be auto-formatted by pressing ++ctrl+shift+enter++.
 
 ### Go to matching bracket
 
-Press `Ctrl+]` to navigate to the matching bracket. Hold down the ++shift++ key to also select everything in between.
+Press ++ctrl+bracket-right++ to navigate to the matching bracket. Hold down the ++shift++ key to also select everything in between.
 
 ![Go to matching bracket](../Images/ide_bracket_goto.gif)
 
