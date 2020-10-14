@@ -13,23 +13,105 @@ public class MyFunctions
 }
 ```
 
-For a video demonstration click below:
-
-![YOUTUBE](emcyyiVUYSk)
-
 ## Loading the new function
 
 Once the project that contains the function is built (compiled), the runtime will automatically load it and make the function available in Excel. Depending on if the function is in a workbook or an extension project, the function will be available in the defining workbook or all workbooks.
 
+For a video demonstration click below:
+
+![YOUTUBE](emcyyiVUYSk)
+
+## Async functions
+
+Some functions can take a while to complete. This is often the case when the function fetches data from online sources. To allow Excel to remain responsive while the function is evaluating, the function should return `Task<T>`.
+
+```csharp
+[ExcelFunction]
+public static async Task<string> ExampleAsync(int delay)
+{
+    var sw = new System.Diagnostics.Stopwatch();
+    sw.Start();
+
+    await Task.Delay(delay);
+
+    return $"This function took {sw.ElapsedMilliseconds}ms to execute";
+}
+```
+
+While the task is running, Excel will remain responsive and display #N/A as the (temporary) result of the function. Once the task completes, the final results it returned.
+
+The image below shows an async function that converts currencies using a REST API.
+
+![Async function example](../Images/async_function_example.gif)
+
+> The `ConvertCurrency` function is available for download in the `Windy.ExchangeRates.ERA` QueryStorm extension package. It uses the [Fixer API](https://fixer.io/).
+
+## Table-valued functions
+
+Functions can return a single value or an entire table as their result.
+
+If your machine (or the end user's machine) is running one of the newer (Office365) versions of Excel that support dynamic arrays, tabular results will automatically spill.
+
+![Dynamic function spill](../Images/dynamic_func_spill.gif)
+
+To return a table, your function's return type can be `object[,]`:
+
+```csharp
+[ExcelFunction]
+public static object[,] GiveMeA2DArray()
+{
+    return new object[,] { {1,2}, {3,4}};
+}
+```
+
+Alternatively, functions can also return `Tabular`, which is handy for functions that return database data:
+
+```csharp
+public class DatabaseSampleFunctions
+{
+    SqlServerEngineBuilder engineBuilder;
+    public DatabaseSampleFunctions(SqlServerEngineBuilder engineBuilder)
+    {
+        // QueryStorm uses engines and engine builders for DB access
+        this.engineBuilder = engineBuilder;
+    }
+
+    // this one returns Tabular
+    [ExcelFunction]
+    public Tabular GetSomeDataFromDatabase()
+    {
+        var sqlServerEngine = this.engineBuilder
+            .WithConnectionString("...")
+            .Build();
+
+        return sqlServerEngine.Execute("select * from Department");
+    }
+
+    // this one is async and returns Task<Tabular>
+    [ExcelFunction]
+    public async Task<Tabular> GetSomeDataFromDatabaseAsync()
+    {
+        var sqlServerEngine = this.engineBuilder
+            .WithConnectionString("...")
+            .Build();
+
+        return await sqlServerEngine.ExecuteAsync("select * from Department", CancellationToken.None);
+    }
+}
+```
+
 ## ExcelDNA
 
-QueryStorm uses the popular **ExcelDNA** library for registering Excel functions. The functions you define can be simple synchronous functions as shown here, but they can also be asynchronous, accept and return tabular values, cache data internally, and do other non-trivial things.
+QueryStorm uses the popular **ExcelDNA** library for registering Excel functions.
 
-More information on these topics, and many more, can be found in the following resources:
+User code does not interact with ExcelDNA directly (for technical reasons - due to running in a separate AppDomain). However, any functionality that ExcelDna offers can very likely be surfaced by QueryStorm in future versions, so please feel free to get in touch for requests of this sort.
 
+More information on ExcelDna, can be found in the following resources:
+
+- [ExcelDna wiki on GitHub](https://github.com/Excel-DNA/ExcelDna/wiki)
+- [ExcelDna documentation](https://docs.excel-dna.net/)
 - [ExcelDna Google group](https://groups.google.com/g/exceldna/)
 - [ExcelDna on StackOverflow](https://stackoverflow.com/questions/tagged/excel-dna)
-- [ExcelDna wiki on GitHub](https://github.com/Excel-DNA/ExcelDna/wiki)
 
 ## C# or VB.NET
 
