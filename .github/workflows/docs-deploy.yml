@@ -27,10 +27,17 @@ jobs:
       
       - name: Build docs
         run: mkdocs build
-
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        
+      - name: FTP Deployment
+        uses: airvzxf/ftp-deployment-action@latest
         with:
-          ftp-server: ${{ secrets.QS_FTP_SRVR }}
-          ftp-username: ${{ secrets.QS_FTP_USRNM }}
-          ftp-password: ${{ secrets.QS_FTP_PWD }}
+          # FTP Server.
+          server: win19.mojsite.com
+          # FTP User.
+          user: thingieq
+          # FTP Password.
+          password: '${{ secrets.QS_FTP_PWD }}'
+          # Local directory.
+          local_dir: "./site"
+          # Remote directory.
+          remote_dir: "/thingieq/querystorm.com/wwwroot/DocsTest"
