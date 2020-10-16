@@ -124,12 +124,12 @@ Since the script references the project's output dll, the project needs to be bu
 
 ## Interacting with the workbook directly
 
-In addition to having properties for tables and variables, scripts also have a property called `UnityContainer` that lets them access all of the services that QueryStorm exposes to them.
+In addition to having properties for tables and variables, scripts also access all of the services that QueryStorm has via the `Resolve<T>` method.
 
 One such service, the `IWorkbookAccessor` service, can be used to gain access to the workbook that contains the C# script, like so:
 
 ```csharp
-var workbook = UnityContainer.Resolve<IWorkbookAccessor>().Workbook;
+var workbook = Resolve<IWorkbookAccessor>().Workbook;
 
 // e.g. return the path of the current workbook
 workbook.FullName

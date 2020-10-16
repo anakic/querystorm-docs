@@ -24,9 +24,7 @@ Visit the [SQLite section](../SQLite) for more information.
 
 Aside from the built-in SQLite engine, you can also connect to external databases. As you connect, you can choose which tables will be imported into the database as temp tables and thus made available to your scripts. This makes it very easy to move data between Excel and databases.
 
-To connect to an external database, choose the appropriate script type in the ribbon.
-
-![Connect to DBs](../Images/other_scripts.png)
+![Connect to DBs](../Images/connecting_to_databases.gif)
 
 A dialog will appear allowing you to configure the connection and select the tables that should be included in the session as temp tables.
 

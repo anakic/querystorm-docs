@@ -16,7 +16,7 @@ select * from people where id = {nameOfCell}
 
 The value of the named cell will be inserted instead of the `{nameOfCell}` placeholder before the query is passed to the SQL engine. This is a purely textual operation. If the inserted value is a string or a date, it is automatically quoted.
 
-To prevent quoting, add an exclamation mark before the name of the cell: `{!nameOfCell}`. This allows inserting raw SQL code into the query (SQL injection), so caution is advised when doing this.
+To prevent quoting, add an equals sign before the name of the cell: `{=nameOfCell}`. This allows inserting raw SQL code into the query (SQL injection), so caution is advised when doing this.
 
 ### User defined variables
 
