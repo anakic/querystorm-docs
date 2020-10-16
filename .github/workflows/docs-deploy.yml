@@ -34,5 +34,5 @@ jobs:
       - name: FTP Deploy
         run: |
           echo Starting...
-          lftp -c "open -u thingieq,${{ secrets.QS_FTP_PWD }} win19.mojsite.com; !ls; ls; mirror -R site/ thingieq/querystorm.com/wwwroot/DocsTest/"
+          lftp -c "open -u thingieq,${{ secrets.QS_FTP_PWD }} win19.mojsite.com; mirror -R site querystorm.com/wwwroot/DocsTest"
           echo Done transferring files.
