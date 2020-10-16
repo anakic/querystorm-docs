@@ -32,7 +32,9 @@ jobs:
         run: sudo apt install lftp
 
       - name: FTP Deploy
+        env:
+          FTP_PWD: ${{ secrets.QS_FTP_PWD }}
         run: |
           echo Starting...
-          lftp -c "open -u thingieq,${{ secrets.QS_FTP_PWD }} win19.mojsite.com; set ftp:ssl-allow false; set ssl:verify-certificate false; mirror -R -v --continue site querystorm.com/wwwroot/DocsTest"
+          lftp -c "open -u thingieq,"$FTP_PWD" win19.mojsite.com; mirror -R -v site querystorm.com/wwwroot/DocsTest"
           echo Done transferring files.
