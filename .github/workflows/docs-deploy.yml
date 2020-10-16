@@ -28,16 +28,14 @@ jobs:
       - name: Build docs
         run: mkdocs build
         
-      - name: FTP Deployment
-        uses: airvzxf/ftp-deployment-action@latest
-        with:
-          # FTP Server.
-          server: win19.mojsite.com
-          # FTP User.
-          user: thingieq
-          # FTP Password.
-          password: '${{ secrets.QS_FTP_PWD }}'
-          # Local directory.
-          local_dir: "./site"
-          # Remote directory.
-          remote_dir: "/thingieq/querystorm.com/wwwroot/DocsTest"
+      - name: Install lftp
+        run: sudo apt install lftp
+
+      - name: FTP Deploy
+        run: |
+          ls
+          echo Starting...
+          lftp -u thingieq,${{ secrets.QS_FTP_PWD }} win19.mojsite.com
+          echo Connected
+          mirror -R site thingieq/querystorm.com/wwwroot/DocsTest
+          exit
