@@ -30,11 +30,19 @@ jobs:
         
       - name: Install lftp
         run: sudo apt install lftp
-
-      - name: FTP Deploy
-        env:
-          FTP_PWD: ${{ secrets.QS_FTP_PWD }}
-        run: |
-          echo Starting...
-          lftp -c "open -u thingieq,"$FTP_PWD" win19.mojsite.com; mirror -R -v site querystorm.com/wwwroot/DocsTest 2>&1"
-          echo Done transferring files.
+          
+      - name: ftp-action
+        # You may pin to the exact commit or the version.
+        # uses: sebastianpopp/ftp-action@eb75c5cb29d23ee4a729720a27dfb66403cb0f6d
+        uses: sebastianpopp/ftp-action@v2.0.0
+        with:
+          # FTP host
+          host: win19.mojsite.com
+          # FTP user
+          user: thingieq
+          # FTP password
+          password: ${{ secrets.QS_FTP_PWD }}
+          # Local directory
+          localDir: "site"
+          # Remote directory
+          remoteDir: "querystorm.com/wwwroot/DocsTest"
