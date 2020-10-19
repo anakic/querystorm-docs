@@ -38,5 +38,5 @@ jobs:
           FTP_PWD: ${{ secrets.QS_FTP_PWD }}
         run: |
           echo Starting...
-          unbuffer lftp -c "open -u thingieq,"$FTP_PWD" win19.mojsite.com; debug; mirror -R -v site querystorm.com/wwwroot/DocsTest"
+          unbuffer lftp -c "open -u -d thingieq,"$FTP_PWD" win19.mojsite.com; debug; set -a; mirror -R -v site querystorm.com/wwwroot/DocsTest"
           echo Done transferring files.
