@@ -26,8 +26,6 @@ Aside from the built-in SQLite engine, you can also connect to external database
 
 ![Connect to DBs](../Images/connecting_to_databases.gif)
 
-A dialog will appear allowing you to configure the connection and select the tables that should be included in the session as temp tables.
-
 Read more about working with external databases [here](../Databases).
 
 ## Querying with C# #

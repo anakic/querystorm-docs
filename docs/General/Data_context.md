@@ -70,7 +70,7 @@ Components can then bind to these strongly typed table wrappers:
 public DepartmentsTable Departments { get; set; }
 ```
 
-C# scripts can also easily use them as well:
+C# scripts can easily use them as well:
 
 ```csharp
 Departments.Where(d => d.Name.StartsWith("Sa"))
@@ -86,11 +86,11 @@ For workbook projects, a `WorkbookDataContext` is used to provide access to the 
 
 If you do not add a data context file to your project explicitly, an instance of `WorkbookDataContext` will be used implicitly to provide scripts and components access to workbook data.
 
-However, adding a data context file to your project, allows you to:
+However, adding a data context file to your project explicitly, allows you to:
 
-- Customize column data types
-- Add relationships between tables
-- Register additional external tables
+- customize column data types
+- add relationships between tables
+- register additional external tables
 
 ### The schema file
 
