@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
       
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -27,12 +29,15 @@ jobs:
       
       - name: Build docs
         run: mkdocs build
-        
-      - name: Install lftp
-        run: sudo apt install lftp
-
+          
       - name: FTP Deploy
-        run: |
-          echo Starting...
-          lftp -c "open -u thingieq,${{ secrets.QS_FTP_PWD }} win19.mojsite.com; !ls; ls; mirror -R site/ thingieq/querystorm.com/wwwroot/DocsTest/"
-          echo Done transferring files.
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
+          ftp-server: win19.mojsite.com/thingieq/querystorm.com/wwwroot/DocsTest/
+          # FTP account username
+          ftp-username: thingieq
+          # FTP account password
+          ftp-password: ${{ secrets.QS_FTP_PWD }}
+          # The local folder to copy, defaults to root project folder
+          local-dir: site/
