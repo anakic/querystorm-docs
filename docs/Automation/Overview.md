@@ -8,7 +8,7 @@ Out of the box, Microsoft Excel allows automating workbooks using VBA. However, 
 
 ## Automation via .NET
 
-QueryStorm lets you automate Excel using C# and VB.NET. Your classes can interact with the Excel API directly, but they can also use QueryStorm's model-binding API, which minimizes the amount of Excel interaction code and lets you focus on the logic of your application. In addition, your code can reference NuGet packages and existing .NET dlls, making it easy to use proprietary and 3rd party libraries in your workbook applications. 
+QueryStorm lets you automate Excel using C# and VB.NET. Your classes can interact with the Excel API directly, but they can also use QueryStorm's model-binding API, which minimizes the amount of Excel interaction code and lets you focus on the logic of your application. In addition, your code can reference NuGet packages and existing .NET dlls, making it easy to use proprietary and 3rd party libraries in your workbook applications.
 
 For more information about automation via .NET, click [here](../Automation_with_dotnet).
 
